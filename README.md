@@ -40,7 +40,7 @@ Things you may want to cover:
 ### Association
 - has_many:comments
 - has_many:favorites
-- has_one:pay
+- has_one:paies
 - has_one:adresses
 - has_many:items
 
