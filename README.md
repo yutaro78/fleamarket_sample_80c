@@ -41,13 +41,14 @@ Things you may want to cover:
 - has_many:comments
 - has_many:favorites
 - has_one:pay
-
+- has_one:adresses
+- has_many:items
 
 
 ### Adresses テーブル
 |Column|Type|Options|
 |------|----|-------|
-|post_code |integer(7)|null: false|
+|post_code |string|null: false|
 |prefecture_code| integer|null: false|
 |city|string|null: false|
 |house_number| string|null: false|
@@ -64,10 +65,9 @@ Things you may want to cover:
 ### Paies テーブル
 |Column|Type|Options|
 |------|----|-------|
-|Card_number|integer|null:false, unique:true|
-|expiration_year| integer|null: false|
-|expiration_month| integer|null: false|
-|security_code| integer|null: false|
+|user_id|integer|null:false|
+|customer_id|string|null: false|
+|card_id |string|null: false|
 |user|references|null:false, foreign_key:true|
 
 ### Association
@@ -91,6 +91,7 @@ Things you may want to cover:
 - has_many :favorites
 - has_many :item_imgs
 - belongs_to :category
+- belongs_to:user
 
 
 
