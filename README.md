@@ -65,7 +65,6 @@ Things you may want to cover:
 ### Paies テーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false|
 |customer_id|string|null: false|
 |card_id |string|null: false|
 |user|references|null:false, foreign_key:true|
@@ -84,7 +83,7 @@ Things you may want to cover:
 |condition|text|null:false|
 |size|string|null:false|
 |category|references|null:false, foreign_key:true|
-
+|user|references|null:false, foreign_key:true|
 
 ### Association
 - has_many :comments
