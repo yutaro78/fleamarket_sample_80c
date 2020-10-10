@@ -1,7 +1,7 @@
 .main{
-  
-
+  background: #f8f8f8;
 }
+
 .mainArea{
   width: 100%;
   height: 560px;
@@ -11,7 +11,7 @@
   background-position: top center;
   position: relative;
   padding: 0 60px;
-  display: flex;
+  @include display;
   align-items: center;
 }
 .content{
@@ -24,17 +24,17 @@
     text-shadow: 0 0 5px rgba(0,0,0,0.4);
     font-size: 60px;
     line-height: 1.2;
-    color: #fff;
+    @include color;
   }
   &__message{
     text-shadow: 0 0 5px rgba(0,0,0,0.4);
     font-size: 18px;
-    color: #fff;
+    @include color;
     line-height: 1.77778;
     margin: 16px 0 0 0;
   }
   &__app{
-    display: flex;
+    @include display;
     margin: 24px 0 0 0;
   }
 
@@ -81,7 +81,7 @@
 }
 .lists{
   text-align: center;
-  display: flex;
+  @include display;
   max-width: 1020px;
   width: 100%;
   margin: 0 auto;
@@ -90,7 +90,7 @@
   width: 30%;
   margin: 16px 5% 0 0;
   text-align: left;
-  display: flex;
+  @include display;
   flex-direction: column;
   align-items: center;
   &__pic{
@@ -126,7 +126,7 @@
   margin: 0 5px 0 0;
   padding: 10px 20px;
   background-color: #3CCACE;
-  color: #fff;
+  @include color;
 }
 .img{
   width: 100%;
@@ -138,11 +138,11 @@
   background-position: bottom right;
   height: 400px;
   background-size: cover;
-  display: flex;
+  @include display;
   align-items: center;
 
   &__center{
-    color: #fff;
+    @include color;
     text-shadow: 0 0 5px rgba(0,0,0,0.4);
     text-align: left;
     max-width: 1040px;
@@ -162,11 +162,11 @@
   line-height: 1.5;
 }
 .btn{
-  display: flex;
+  @include display;
 }
 .mainFeatures{
   padding: 60px 100px;
-  background-color: #fff;
+  @include background-color;
 }
 .head{
   font-size: 27px;
@@ -191,11 +191,11 @@
   max-width: calc(1040px + 20px);
   width: 100%;
   margin: 0 auto;
-  display: flex;
+  @include display;
   flex-wrap: wrap;
 }
 .information{
-  display: flex;
+  @include display;
   flex-direction: column;
   width: calc(1 / 3 * 100%);
   text-align: center;
@@ -243,11 +243,12 @@
 }
 .item__title{
   font-weight: bold;
+  margin-top: 6px;
 }
 .itemLists{
   width: 780px;
   margin: 26px auto 0 auto;
-  display: flex;
+  @include display;
   justify-content: space-around;
 }
 
@@ -257,7 +258,7 @@
   float: left;
 
   &--body{
-    background-color: white;
+    @include background-color;
     color: #333;
     padding: 16px;
     height:95px;
@@ -266,7 +267,7 @@
 
 }
 .itemList a {
-  background-color: #fff;
+  @include background-color;
   display: inline-block;
 }
 .item--img{
@@ -293,12 +294,13 @@
   line-height: 1.5;
   font-size: 16px;
   text-align: left;
+  margin-bottom: 5px;
 }
 .item--detail{
   font-size: 16px;
 }
 .item--detail ul{
-  display: flex;
+  @include display;
   align-items: center;
   justify-content: space-between;
 }
@@ -318,6 +320,7 @@
 .item--detail p{
   font-size: 10px;
   text-align: left;
+  margin-top:5px;
 }
 .mainContainer-b{
   padding:80px 0;

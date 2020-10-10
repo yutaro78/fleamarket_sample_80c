@@ -1,0 +1,10 @@
+@mixin color{
+  color:white; 
+}
+
+@mixin background-color{
+  background-color:white;
+}
+@mixin display{
+  display: flex;
+}
