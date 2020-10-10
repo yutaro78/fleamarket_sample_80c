@@ -66,3 +66,4 @@ end
 
 gem "haml-rails", "~> 2.0"
 gem 'erb2haml'
+gem 'font-awesome-sass'

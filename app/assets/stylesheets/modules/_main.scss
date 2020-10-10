@@ -302,6 +302,19 @@
   align-items: center;
   justify-content: space-between;
 }
+.fa{
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+.fa::before{
+  content: "\f005";
+}
+.itemList:hover{
+  opacity: 0.5;
+}
 .item--detail p{
   font-size: 10px;
   text-align: left;
