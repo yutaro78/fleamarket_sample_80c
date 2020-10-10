@@ -9,8 +9,9 @@
         フリマアプリです
       .content__app
         %a{ href: '#', class: 'appBtn' }
-          = image_tag src="download.png", size: "180x53"
+          = image_tag src="/assets/download-3.svg", size: "180x53"
         %a{ href: '#', class: 'googleBtn' }
+          = image_tag src="/assets/download-2.svg", size: "180x53"
     .picture
   %section.appInfomation
     %h2.subtitle
@@ -60,6 +61,10 @@
         %br
         ほしかったあの商品に出会えるかもしれません。
       .btn
+        %a{ href: '#', class: 'appBtn' }
+          = image_tag src="/assets/download-3.svg", size: "180x53"
+        %a{ href: '#', class: 'googleBtn' }
+          = image_tag src="/assets/download-2.svg", size: "180x53"
   .mainFeatures
     %h2.head 
       FURIMAの特徴
@@ -273,10 +278,3 @@
                     1
                 %p
                   （税込）
-%aside.banner
-  .download
-    %h2.download__title
-      だれでもかんたん、人生を変えるフリマアプリ
-    %p.download__text
-      今すぐ無料ダウンロード！
-    .download__icon
