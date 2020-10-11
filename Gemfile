@@ -66,4 +66,7 @@ end
 
 gem "haml-rails", "~> 2.0"
 gem 'erb2haml'
+gem 'devise'
+gem 'jp_prefecture'
+gem 'jquery-rails'
 gem 'font-awesome-sass'
