@@ -28,8 +28,8 @@ Things you may want to cover:
 * ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|email|string|null: false,unique:true,index:true|
-|password|string|null: false,unique:true|
+|email|string|null: false,unique:true|
+|password|string|null: false|
 |nickname|string|null: false|
 |firstname|string|null:false|
 |lastname|string|null:false|
@@ -45,7 +45,7 @@ Things you may want to cover:
 - has_many:items
 
 
-### Adresses テーブル
+### adresses テーブル
 |Column|Type|Options|
 |------|----|-------|
 |post_code |string|null: false|
@@ -62,7 +62,7 @@ Things you may want to cover:
 
 
 
-### Paies テーブル
+### paies テーブル
 |Column|Type|Options|
 |------|----|-------|
 |customer_id|string|null: false|
@@ -74,21 +74,21 @@ Things you may want to cover:
 
 
 
-### Itemsテーブル
+### itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
 |introduction|text|null:false|
 |price|integer|null:false|
-|condition|text|null:false|
-|size|string|null:false|
+|condition|integer|null:false|
+|size_id|integer|null:false|
 |category|references|null:false, foreign_key:true|
 |user|references|null:false, foreign_key:true|
 
 ### Association
 - has_many :comments
 - has_many :favorites
-- has_many :item_imgs
+- has_many :images
 - belongs_to :category
 - belongs_to:user
 
