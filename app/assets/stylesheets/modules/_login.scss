@@ -1,0 +1,47 @@
+.MainContents {
+  height: 100vh;
+  background-color: #f0f0f0;
+  padding: 0;
+  .Header {
+    @include bar;
+  }
+  .AccountPage {
+    background-color: #f0f0f0;
+    width: 456px;
+    margin: 0 auto;
+    &__new {
+      text-align: center;
+      padding: 40px 64px;
+      border-bottom: 1px solid #ccc;
+      background-color: #fff;
+      &--btn {
+        @include newBtn;
+      }
+      h5 {
+        font-size: 14px;
+      }
+    }
+  }
+  .AccountPage__form {
+    margin: 0 auto;
+    padding: 40px 0;
+    background-color: #fff;
+    .FormField {
+      letter-spacing: 1px;
+      font-size: 14px;
+      font-weight: 200;
+      &__email {
+        @include form;
+      }
+      &__pass {
+        @include form;
+      }
+      &__submit {
+        @include submitBtn;
+      }
+    }
+  }
+  .Footer {
+    @include bar;
+  }
+}

@@ -1,0 +1,60 @@
+.SignUpContents
+  .Header
+    %h1 
+      = link_to root_path do
+        = image_tag( src= "material/logo/logo.png", class: "Header--logo")
+  .SignUp
+    .SignUp__field
+      .SignUp__field--header
+        会員情報入力
+      .SignUp__field--main
+        .SignUp__field--main--contents
+          = form_with url: @user_path do |form|
+            = devise_error_messages!
+            .FormField
+              .FormField__label
+                = form.label :お名前
+              .FormField__input
+                = form.text_field :name, class: 'FormField__name', placeholder: "山田"
+                = form.text_field :name, class: 'FormField__name', placeholder: "太郎"
+            .FormField
+              .FormField__label
+                = form.label :ふりがな
+              .FormField__input
+                = form.text_field :kana, class: 'FormField__kana', placeholder: "やまだ"
+                = form.text_field :kana, class: 'FormField__kana', placeholder: "たろう"
+            .FormField
+              .FormField__label
+                = form.label :メールアドレス
+              .FormField__input
+                = form.email_field :email, class: 'FormField__email', placeholder: "PC・携帯どちらでも可"
+            .FormField
+              .FormField__label
+                = form.label :生年月日
+              .FormField__input
+                = form.date_select :birthday, use_month_numbers: true, start_year: 1920, end_year: (Time.now.year - 10), default: Date.new(1990, 1, 1), class: 'FormField__birth'
+            .Actions
+              = form.submit '新規作成', class: 'FormField__submit'
+
+
+-# %h2 Sign up
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     - if @minimum_password_length
+-#       %em
+-#         (#{@minimum_password_length} characters minimum)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .actions
+-#     = f.submit "Sign up"
+-# = render "devise/shared/links"

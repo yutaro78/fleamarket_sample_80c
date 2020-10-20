@@ -1,0 +1,72 @@
+.SignUpContents {
+  height: 1481px;
+  background-color: #f0f0f0;
+  .Header {
+    @include bar;
+  }
+  .SignUp {
+    height: 1133px;
+    overflow-y: scroll;
+    &__field {
+      height: 1133px;
+      width: 700px;
+      font-size: 20px;
+      margin: 0 auto;
+      &--header {
+        text-align: center;
+        height: 97px;
+        width: 700px;
+        padding: 40px 64px;
+        border-bottom: 1px solid #ccc;
+        background-color: #fff;
+        font-size: 22px;
+        font-weight: bold;
+      }
+      &--main {
+        background-color: #fff;
+        &--contents {
+          height: 760px;
+          width: 343px;
+          margin: 0 auto;
+          .FormField {
+            background-color: #fff;
+            display: block;
+            justify-items: center;
+            &__label {
+              font-size: 14px;
+              text-align: center;
+              display: inline-block;
+              font-weight: 600;
+              margin: 0;
+              padding: 0;
+            }
+            &__input {
+              text-align: center;
+            }
+            &__name {
+              @include input;
+            }
+            &__kana {
+              @include input;
+            }
+            &__email {
+              @include form;
+            }
+            &__birth {
+              @include form;
+            }
+          }
+          .Actions {
+            font-size: 14px;
+            &__submit {
+              @include submitBtn;
+            }
+          }
+        }
+      }
+    }
+  }
+  .Footer {
+    @include bar;
+  }
+}
