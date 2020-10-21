@@ -83,6 +83,10 @@ Things you may want to cover:
 |condition|integer|null:false|
 |size_id|integer|null:false|
 |category|references|null:false, foreign_key:true|
+|brand|string|-------|
+|prefecture_id|integer|null:false|
+|shipping_cost_id|integer|null:false|
+|shipping_days_id|integer|null:false|
 |user|references|null:false, foreign_key:true|
 
 ### Association
@@ -90,8 +94,11 @@ Things you may want to cover:
 - has_many :favorites
 - has_many :images
 - belongs_to :category
-- belongs_to:user
-
+- belongs_to :user
+- belongs_to_active_hash :size_id
+- belongs_to_active_hash :prefecture_id
+- belongs_to_active_hash :shipping_cost_id
+- belongs_to_active_hash :shipping_days_id
 
 
 
@@ -139,3 +146,4 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
+- has_ancestry
