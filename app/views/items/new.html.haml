@@ -23,10 +23,11 @@
                   %tabindex.tab
                     .tab--box
                       %input.tab--file{:type => "file"}/
+                      %i.fa.fa-camera
                       %p.box--comment
                         ドラッグアンドドロップ
                         %br
-                        またはクリックしてまたはクリックしてファイルをアップロード
+                        またはクリックしてファイルをアップロード
         %hr.border
         .product
           .product--top
@@ -48,7 +49,8 @@
                     商品の説明
                   %span.style--tag 
                     必須
-                %textarea{:name => "", :class => "description--box", :rows => 7,:placeholder => "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など  　　　　　例）2010年ごろに1万円で購入したジャケットです。ライトグレーでライトグレーで傷はありません。合わせやすいのでおすすめです。"}
+                %textarea.description--box{:name => "description", :placeholder => "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", :rows => "7"}
+
               .style--counter
                 %span 0/1000
         %hr.border
@@ -145,12 +147,23 @@
               .price--fee
                 販売手数料(10%)
               %span.fee--value
-                ー
+                —
             %hr.border--short
             .price
               .price--profit
                 販売利益
               %span.fee--value
-                ー
-            .exibition--bottom
-              %button{:name => "price", :placeholder => "0", :type => "number", :value => ""}/
+                —
+          .exibition--bottom
+            %button{:type => "submit", :class => "button"}
+              出品する
+            %button{:type => "submit", :class => "buttonB"}
+              下書きに保存
+            %a{ href: '#'}
+              .back--home
+                もどる
+          .caution
+            %p.caution--content 
+              %p.caution--sentence
+                禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+                  
