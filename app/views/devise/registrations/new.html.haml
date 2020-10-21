@@ -1,0 +1,41 @@
+.SignUpContents
+  .Header
+    %h1 
+      = link_to root_path do
+        = image_tag( src= "material/logo/logo.png", class: "Header--logo")
+  .SignUp
+    .SignUp__field
+      .SignUp__field--header
+        会員情報入力
+      .SignUp__field--main
+        .SignUp__field--main--contents
+          = form_with url: @user_path do |form|
+            = devise_error_messages!
+            .FormField
+              .FormField__label
+                = form.label :お名前（全角）
+                %span{ class: 'Required__field--logo'} 必須
+              .FormField__input
+                = form.text_field :name, class: 'FormField__input__name', placeholder: "例）山田"
+                = form.text_field :name, class: 'FormField__input__name', placeholder: "例）太郎"
+            .FormField
+              .FormField__label
+                = form.label :お名前カナ（全角）
+                %span{ class: 'Required__field--logo'} 必須
+              .FormField__input
+                = form.text_field :kana, class: 'FormField__input__kana', placeholder: "例）ヤマダ"
+                = form.text_field :kana, class: 'FormField__input__kana', placeholder: "例）タロウ"
+            .FormField
+              .FormField__label
+                = form.label :メールアドレス
+                %span{ class: 'Required__field--logo'} 必須
+              .FormField__input
+                = form.email_field :email, class: 'FormField__input__email', placeholder: "PC・携帯どちらでも可"
+            .FormField
+              .FormField__label
+                = form.label :生年月日
+                %span{ class: 'Required__field--logo'} 必須
+              .FormField__input
+                = form.date_select :birthday, use_month_numbers: true, start_year: 1920, end_year: (Time.now.year - 10), default: Date.new(1990, 1, 1), class: 'FormField__birth'
+            .Actions
+              = form.submit '新規作成', class: 'Actions__submit'
