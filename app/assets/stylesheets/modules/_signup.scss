@@ -24,6 +24,8 @@
       }
       &--main {
         background-color: #fff;
+        height: 1036px;
+        width: 700px;
         &--contents {
           height: 760px;
           width: 343px;
@@ -31,29 +33,38 @@
           .FormField {
             background-color: #fff;
             display: block;
-            justify-items: center;
+            height: 70px;
+            width: 343px;
+            margin-bottom: 24px;
             &__label {
               font-size: 14px;
-              text-align: center;
               display: inline-block;
               font-weight: 600;
-              margin: 0;
-              padding: 0;
+              margin: 24px 0 0 0;
+            }
+            .Required__field--logo {
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+              background-color: #ea352d;
             }
             &__input {
-              text-align: center;
-            }
-            &__name {
-              @include input;
-            }
-            &__kana {
-              @include input;
-            }
-            &__email {
-              @include form;
-            }
-            &__birth {
-              @include form;
+              display: flex;
+              &__name {
+                @include input;
+              }
+              &__kana {
+                @include input;
+              }
+              &__email {
+                @include inputEmail;
+              }
+              &__birth {
+                @include form;
+              }
             }
           }
           .Actions {
