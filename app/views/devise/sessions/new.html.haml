@@ -1,0 +1,19 @@
+.MainContents
+  .Header
+    %h1 
+      = link_to root_path do
+        = image_tag( src= "material/logo/logo.png", class: "Header--logo")
+  .AccountPage
+    .AccountPage__new
+      %h5 アカウントをお持ちでない方はこちら
+      = link_to "新規会員登録", new_user_registration_path, class: "AccountPage__new--btn"
+    .AccountPage__form
+      = form_with url: @user_path do |form|
+        .FormField
+        = form.text_field :email, class: 'FormField__email', placeholder: "メールアドレス"
+        = form.password_field :password, autocomplete: "off", class: 'FormField__pass', placeholder: "パスワード"
+        = form.submit 'ログイン', class: 'FormField__submit'
+  .Footer
+    %h1 
+      = link_to root_path do
+        = image_tag( src= "material/logo/logo.png", class: "Footer--logo")
