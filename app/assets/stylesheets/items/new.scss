@@ -1,7 +1,6 @@
 .exhibition{
   @include display;
   flex-direction: column;
-  min-height: 100vh;
   background-color: rgb(245, 245, 245);
   position: relative;
   min-height: 100%;
@@ -152,9 +151,7 @@ label{
 .product--introduction{
   margin-top: 32px;
 }
-.product--introduction__style{
-  
-}
+
 .description{
   margin: 0!important;
   &--style{
