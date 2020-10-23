@@ -90,3 +90,42 @@
   background-color: #fff;
   font-size: 16px;
 }
+@mixin border{
+  border-top-width: 1px;
+  border-top-color: #efefef;
+  border-left: 0 solid #efefef;
+  border-bottom: 0 solid #efefef;
+  border-right: 0 solid #efefef;
+  border-top-style: solid;
+  margin: 0;
+}
+@mixin margin-top{
+  margin-top: 16px;
+}
+@mixin font-size{
+  font-size: 12px;
+}
+@mixin align-items{
+  align-items: center;
+}
+@mixin button{
+  transition-duration: .1s;
+  transition-timing-function: ease-in-out;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition-property: background-color,border-color,color;
+  transition-property: background-color,border-color,color;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-break: break-word;
+  font-size: 17px;
+  min-height: 48px;
+  padding: 0 24px;
+}

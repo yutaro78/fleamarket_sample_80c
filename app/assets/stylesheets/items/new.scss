@@ -1,0 +1,302 @@
+.exhibition{
+  @include display;
+  flex-direction: column;
+  background-color: rgb(245, 245, 245);
+  position: relative;
+  min-height: 100%;
+  color: rgb(51, 51, 51);
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-size: 14px;
+  &--top{
+    height: 128px;
+    -webkit-box-align: center;
+    @include align-items;
+    @include display;
+    -webkit-box-pack: center;
+    justify-content: center;
+  }
+  &--pic{
+    height: 49px;
+    width: 185px;
+  }
+  &--content{
+    position: relative;
+  }
+  
+  &--main{
+    background-color: rgb(255, 255, 255);
+    max-width: 700px;
+    margin: 0px auto;
+  }
+}
+i{
+  fill: rgb(34, 34, 34);
+  height: 24px;
+  margin-bottom: 8px;
+  width: 24px;
+}
+label{
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+.back{
+  background-color: rgba(0, 0, 0, 0.6);
+  min-height: 100vh;
+  padding: 0px 16px;
+  position: fixed;
+  visibility: hidden;
+  width: 100vw;
+}
+
+.top--picture{
+  text-decoration: none;
+  color: inherit;
+}
+.form{
+  
+  &--image{
+    padding: 40px;
+  }
+
+}
+
+.phonto--style label{
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+.style--tag {
+  margin-left: 8px;
+  background-color: #ff0211;
+  color: #fff;
+  @include font-size;
+  padding: 0 4px;
+  line-height: 1.4em;
+  border-radius: 2px;
+}
+.photo--comment{
+  @include margin-top;
+}
+.photo--box{
+  @include margin-top;
+}
+.box--content{
+  @include display;
+  flex-wrap: wrap;
+  margin: -8px -4px 0px;
+}
+.tab{
+  height: 150px;
+  width: 620px;
+  &--file{
+    display:none;
+  }
+}
+.tab--box{
+  place-content: center;
+  background-color: rgb(245, 245, 245);
+  border: 1px dashed rgb(204, 204, 204);
+  cursor: pointer;
+  @include display;
+  height: 100%;
+  flex-wrap: wrap;
+}
+.box--comment{
+  @include font-size;
+  line-height: 1.4em;
+  text-align: center;
+  width: 100%;
+}
+.border{
+  @include border;
+  &--short{
+    @include border;
+  }
+}
+.product{
+  padding: 40px;
+
+  &--style{
+    @include align-items;
+    @include display;
+  }
+  &--name__box{
+    @include margin-top;
+    @include align-items;
+    display: inline-flex;
+    width: 100%;
+    font-size: 16px;
+  }
+}
+.product--style label{
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+.name--area{
+  display: inline-block;
+  position: relative;
+  width: inherit;
+}
+
+.name--area input{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 48px;
+  padding: 0 16px;
+  width: inherit;
+}
+
+.product--introduction{
+  margin-top: 32px;
+}
+
+.description{
+  margin: 0!important;
+  &--style{
+    @include align-items;
+    @include display;
+  }
+}
+textarea{
+  font: 400 13.3333px Arial;
+}
+.description--box{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 13px 16px;
+  width: 100%;
+  @include margin-top;
+}
+.style--counter{
+  text-align: right;
+  @include margin-top;
+}
+.style--counter span{
+  color: #888;
+  font-size: 10px;
+  line-height: 1.4em;
+  text-align: right;
+}
+
+
+.menu{
+  margin-top: 32px;
+  &--sale{
+    margin-bottom: 40px;
+  }
+}
+
+.category--select{
+  width: 100%;
+  @include margin-top;
+}
+.product--details
+{
+  padding:40px;
+}
+.styleB span{
+  background-color: #bfbfbf;
+  color: #fff;
+}
+
+.product--bottom{
+  padding: 40px 40px 0px;
+}
+.price--range{
+  color: rgb(136, 136, 136);
+  @include font-size;
+  font-weight: 600;
+  line-height: 1.4em;
+  margin-bottom: 24px;
+}
+.price--content{
+  margin-bottom: 40px;
+}
+.price{
+  -webkit-box-align: center;
+  @include align-items;
+  box-sizing: content-box;
+  @include display;
+  height: 46px;
+  padding: 12px 0px;
+  &--sale{
+    margin-right: auto;
+    white-space: nowrap;
+  }
+  &--box{
+    @include align-items;
+    display: -moz-inline-box;
+    display: inline-flex;
+    width: 100%;
+  }
+  &--box__right{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+  }
+  &--fee{
+    margin-right: auto;
+    white-space: nowrap;
+  }
+  &--profit{
+    margin-right: auto;
+    white-space: nowrap;
+  }
+}
+.price--box__right input{
+  text-align: right;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 48px;
+  padding: 0 16px;
+  width: 100%;
+}
+
+.fee--value{
+  font-size: 14px;
+}
+.exhibition--bottom{
+  margin: 0px auto 32px;
+  width: 360px;
+}
+.button{
+  background-color: #ea352d;
+  color: #fff;
+  width: 100%;
+  @include button;;
+
+}
+.buttonB{
+  margin-top: 24px;
+  background-color: #ccc;
+  border-color: transparent;
+  color: #222;
+  width: 100%;
+  @include button;;
+}
+.back--home{
+  margin-top: 24px;
+  color: #0095ee;
+  @include display;
+  width: 100%;
+  height: 20px;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  @include align-items;
+}
+.caution{
+  margin-bottom:64px;
+  &--content{
+    @include font-size;
+    line-height: 1.4em;
+    
+  }
+  &--sentence{
+    @include font-size;
+    line-height: 1.4em;
+  }
+}
