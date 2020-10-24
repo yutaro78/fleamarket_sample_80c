@@ -143,3 +143,18 @@
   line-height: 1.5;
   cursor: pointer;
 }
+@mixin label {
+  font-size: 14px;
+  display: inline-block;
+  font-weight: 600;
+  margin: 24px 0 0;
+}
+@mixin requiredLogo {
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  background-color: #ea352d;
+}

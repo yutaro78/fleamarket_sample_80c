@@ -38,19 +38,10 @@
             width: 343px;
             margin-bottom: 24px;
             &__label {
-              font-size: 14px;
-              display: inline-block;
-              font-weight: 600;
-              margin: 24px 0 0 0;
+              @include label;
             }
             .Required__field--logo {
-              margin: 0 0 0 8px;
-              padding: 2px 4px;
-              border-radius: 2px;
-              color: #fff;
-              font-size: 12px;
-              vertical-align: top;
-              background-color: #ea352d;
+              @include requiredLogo;
             }
             &__input {
               display: flex;
@@ -102,18 +93,9 @@
             height: 129px;
             width: 343px;
             &__label {
-              font-size: 14px;
-              display: inline-block;
-              font-weight: 600;
-              margin: 24px 0 0;
+              @include label;
               .Required__field--logo {
-                margin: 0 0 0 8px;
-                padding: 2px 4px;
-                border-radius: 2px;
-                color: #fff;
-                font-size: 12px;
-                vertical-align: top;
-                background-color: #ea352d;
+                @include requiredLogo;
               }
             }
             &__input {
