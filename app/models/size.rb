@@ -22,5 +22,3 @@ class Size < ActiveHash::Base
     {id: 49, name: '21インチ'}, {id: 50, name: '22インチ'}, {id: 51, name: '23インチ'}
 ]
 end
-
-end
