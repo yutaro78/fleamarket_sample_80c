@@ -1,23 +1,19 @@
 %nav.category__order
   %ul 
     %li 
-      %a{ href: '#' }
-        FURIMA
+      = link_to 'FURIMA', 'items#index' 
     %li 
       %i.fa.fa-angle-right
     %li
-      %a{ href: '#' }
-        ベビー・キッズ
+      = link_to 'ベビー・キッズ', '#' 
     %li 
       %i.fa.fa-angle-right
     %li 
-      %a{ href: '#' }
-        ベビー服（男の子用)~95cm
+      = link_to 'ベビー服（男の子用)~95cm', '#' 
     %li 
       %i.fa.fa-angle-right
     %li 
-      %a{ href: '#' }
-        アウター
+      = link_to 'アウター', '#' 
     %li 
       %i.fa.fa-angle-right
     %li 
@@ -57,14 +53,11 @@
                   %th 
                     カテゴリー
                   %td 
-                    %a{ href: '#' }
-                      ベビー・キッズ
-                      %br
-                      %a{ href: '#' }
-                        ベビー服（男の子用)~95cm
-                      %br
-                      %a{ href: '#' }
-                        アウター
+                    = link_to 'ベビー・キッズ', '#'
+                    %br
+                    = link_to 'ベビー服（男の子用)~95cm', '#'
+                    %br
+                    = link_to 'アウター', '#'
                 %tr 
                   %th 
                     ブランド
@@ -89,8 +82,7 @@
                   %th 
                     発送元の地域
                   %td 
-                    %a{ href: '#' }
-                      北海道
+                    = link_to '北海道', '#'
                 %tr 
                   %th 
                     発送日の目安
@@ -103,45 +95,42 @@
                   お気に入り 4
             %ul.report
               %li.report__button
-                %a{ href: '#' }
-                  %i.fa.fa-flag
-                  不適切な商品の通報
+                %i.fa.fa-flag
+                = link_to '不適切な商品の通報', '#'
         .comment__box
           %ul.comment__content
-          %form{:action => "#", :method => "post",class:"form",:id =>"new_comment"}
-            %input{:name => "utf8", :type => "hidden", :value => ""}
-            %input{:name => "authenticity_token", :type => "hidden", :value => ""}
-            %textarea{:name => "comment[body]", :required => "required", :id => "comment_body", :class=>"comment__area"}
+          %form{action: "#", method:  "post",class:"form",id: "new_comment"}
+            %input{name: "utf8", type:  "hidden", value:""}
+            %input{name:  "authenticity_token", type:  "hidden", value: ""}
+            %textarea{name: "comment[body]", required: "required", id:  "comment_body", class:"comment__area"}
             %p.attention
-              相手の相手のことを考え丁寧なコメントを心がけましょう。
+              相手のことを考え丁寧なコメントを心がけましょう。
               %br
               不快な言葉遣いなどは利用制限や退会処分となることがあります。
             %br
-            %button{:name =>"button",:type => "submit"}
+            %button{name:"button",type: "submit"}
               %i.fa.fa-comment
               コメントする
         %ul.links
           %li
-            %a{ href: '#' }
-              %i.fa.fa-angle-left
-              %span
-                前の商品
+            %i.fa.fa-angle-left
+            %span
+              = link_to '前の商品', '#'
           %li
-            %a{ href: '#' }
-              %span　後ろの商品
-              %i.fa.fa-angle-right
+            = link_to '後ろの商品', '#'
+            %span
+            %i.fa.fa-angle-right
         .item__related
-          %a{ href: '#' }
-            ベビー・キッズをもっと見る
+          = link_to 'ベビー・キッズをもっと見る', '#'
           .product__lists
             .product__list
-              %a{ href: '#'}
-                %figure.product__img
-                  = image_tag src="meat.jpg",size:"220x150"
-                .itemList__name
-                  %h3.item--name テスト
-                  .item--detail
-                    %ul 
-                      %li 10000円
-                      %i.fa.fa-star 1
-                    %p (税込）
+              = link_to '', '#'
+              %figure.product__img
+                = image_tag src="meat.jpg",size:"220x150"
+              .itemList__name
+                %h3.item--name テスト
+                .item--detail
+                  %ul 
+                    %li 10000円
+                    %i.fa.fa-star 1
+                  %p (税込）
