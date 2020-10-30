@@ -30,6 +30,7 @@
           height: 760px;
           width: 343px;
           margin: 0 auto;
+          max-width: 343px;
           .FormField {
             background-color: #fff;
             display: block;
@@ -37,22 +38,18 @@
             width: 343px;
             margin-bottom: 24px;
             &__label {
-              font-size: 14px;
-              display: inline-block;
-              font-weight: 600;
-              margin: 24px 0 0 0;
+              @include label;
             }
             .Required__field--logo {
-              margin: 0 0 0 8px;
-              padding: 2px 4px;
-              border-radius: 2px;
-              color: #fff;
-              font-size: 12px;
-              vertical-align: top;
-              background-color: #ea352d;
+              @include requiredLogo;
             }
             &__input {
               display: flex;
+              width: 100%;
+              margin: 8px 0 0;
+              &__nickname {
+                @include inputLong;
+              }
               &__name {
                 @include input;
               }
@@ -60,15 +57,79 @@
                 @include input;
               }
               &__email {
-                @include inputEmail;
+                @include inputLong;
               }
-              &__birth {
-                @include form;
+              &--birthday {
+                height: 56px;
+                font-size: 14px;
+                .birthday_field {
+                  height: 56px;
+                  .year {
+                    @include birthSelect;
+                  }
+                  .month {
+                    @include birthSelect;
+                  }
+                  .day {
+                    @include birthSelect;
+                  }
+                }
+              }
+            }
+            &__about {
+              height: 42px;
+              margin: 8px 0 0;
+              line-height: 1.5;
+              color: #888;
+              padding: 0;
+              display: block;
+              font-size: 14px;
+            }
+          }
+          .PasswordField {
+            font-size: 14px;
+            margin: 24px 0 0;
+            padding: 0;
+            height: 129px;
+            width: 343px;
+            &__label {
+              @include label;
+              .Required__field--logo {
+                @include requiredLogo;
+              }
+            }
+            &__input {
+              display: block;
+              &__pass {
+                @include inputLong;
+              }
+              &--text {
+                margin: 8px 0 0;
+                line-height: 1.5;
+                padding: 0;
+                color: #888;
+                height: 21px;
+                width: 343px;
+                font-size: 14px;
+              }
+            }
+            &__safety {
+              font-size: 14px;
+              h3 {
+                height: 16px;
+                font-size: 16px;
+                font-weight: bold;
+              }
+              &__text {
+                margin: 8px 0 0;
+                font-size: 14px;
+                line-height: 1.5;
               }
             }
           }
           .Actions {
             font-size: 14px;
+            margin: 24px 0 0;
             &__submit {
               @include submitBtn;
             }

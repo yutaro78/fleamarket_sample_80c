@@ -7,7 +7,7 @@
   color: rgb(51, 51, 51);
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   font-size: 14px;
-  &--top{
+  &__top{
     height: 128px;
     -webkit-box-align: center;
     @include align-items;
@@ -15,25 +15,25 @@
     -webkit-box-pack: center;
     justify-content: center;
   }
-  &--pic{
+  &__pic{
     height: 49px;
     width: 185px;
   }
-  &--content{
+  &__content{
     position: relative;
   }
   
-  &--main{
+  &__main{
     background-color: rgb(255, 255, 255);
     max-width: 700px;
     margin: 0px auto;
   }
 }
-i{
+.tab__box i{
   fill: rgb(34, 34, 34);
   height: 24px;
   margin-bottom: 8px;
-  width: 24px;
+  width: 24px; 
 }
 label{
   font-size: 14px;
@@ -49,24 +49,24 @@ label{
   width: 100vw;
 }
 
-.top--picture{
+.top__picture{
   text-decoration: none;
   color: inherit;
 }
 .form{
   
-  &--image{
+  &__image{
     padding: 40px;
   }
 
 }
 
-.phonto--style label{
+.phonto__style label{
   font-size: 14px;
   font-weight: 600;
   line-height: 1.4em;
 }
-.style--tag {
+.style__tag {
   margin-left: 8px;
   background-color: #ff0211;
   color: #fff;
@@ -75,13 +75,13 @@ label{
   line-height: 1.4em;
   border-radius: 2px;
 }
-.photo--comment{
+.photo__comment{
   @include margin-top;
 }
-.photo--box{
+.photo__box{
   @include margin-top;
 }
-.box--content{
+.box__content{
   @include display;
   flex-wrap: wrap;
   margin: -8px -4px 0px;
@@ -89,11 +89,11 @@ label{
 .tab{
   height: 150px;
   width: 620px;
-  &--file{
+  &__file{
     display:none;
   }
 }
-.tab--box{
+.tab__box{
   place-content: center;
   background-color: rgb(245, 245, 245);
   border: 1px dashed rgb(204, 204, 204);
@@ -102,7 +102,7 @@ label{
   height: 100%;
   flex-wrap: wrap;
 }
-.box--comment{
+.box__comment{
   @include font-size;
   line-height: 1.4em;
   text-align: center;
@@ -110,18 +110,18 @@ label{
 }
 .border{
   @include border;
-  &--short{
+  &__short{
     @include border;
   }
 }
 .product{
   padding: 40px;
 
-  &--style{
+  &__style{
     @include align-items;
     @include display;
   }
-  &--name__box{
+  &__name__box{
     @include margin-top;
     @include align-items;
     display: inline-flex;
@@ -129,18 +129,18 @@ label{
     font-size: 16px;
   }
 }
-.product--style label{
+.product__style label{
   font-size: 14px;
   font-weight: 600;
   line-height: 1.4em;
 }
-.name--area{
+.name__area{
   display: inline-block;
   position: relative;
   width: inherit;
 }
 
-.name--area input{
+.name__area input{
   border: 1px solid #ccc;
   border-radius: 4px;
   height: 48px;
@@ -148,13 +148,13 @@ label{
   width: inherit;
 }
 
-.product--introduction{
+.product__introduction{
   margin-top: 32px;
 }
 
 .description{
   margin: 0!important;
-  &--style{
+  &__style{
     @include align-items;
     @include display;
   }
@@ -162,7 +162,7 @@ label{
 textarea{
   font: 400 13.3333px Arial;
 }
-.description--box{
+.description__box{
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
@@ -170,11 +170,11 @@ textarea{
   width: 100%;
   @include margin-top;
 }
-.style--counter{
+.style__counter{
   text-align: right;
   @include margin-top;
 }
-.style--counter span{
+.style__counter span{
   color: #888;
   font-size: 10px;
   line-height: 1.4em;
@@ -184,16 +184,16 @@ textarea{
 
 .menu{
   margin-top: 32px;
-  &--sale{
+  &__sale{
     margin-bottom: 40px;
   }
 }
 
-.category--select{
+.category__select{
   width: 100%;
   @include margin-top;
 }
-.product--details
+.product__details
 {
   padding:40px;
 }
@@ -202,17 +202,17 @@ textarea{
   color: #fff;
 }
 
-.product--bottom{
+.product__bottom{
   padding: 40px 40px 0px;
 }
-.price--range{
+.price__range{
   color: rgb(136, 136, 136);
   @include font-size;
   font-weight: 600;
   line-height: 1.4em;
   margin-bottom: 24px;
 }
-.price--content{
+.price__content{
   margin-bottom: 40px;
 }
 .price{
@@ -222,31 +222,31 @@ textarea{
   @include display;
   height: 46px;
   padding: 12px 0px;
-  &--sale{
+  &__sale{
     margin-right: auto;
     white-space: nowrap;
   }
-  &--box{
+  &__box{
     @include align-items;
     display: -moz-inline-box;
     display: inline-flex;
     width: 100%;
   }
-  &--box__right{
+  &__box__right{
     display: inline-block;
     position: relative;
     width: 100%;
   }
-  &--fee{
+  &__fee{
     margin-right: auto;
     white-space: nowrap;
   }
-  &--profit{
+  &__profit{
     margin-right: auto;
     white-space: nowrap;
   }
 }
-.price--box__right input{
+.price__box__right input{
   text-align: right;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -255,10 +255,10 @@ textarea{
   width: 100%;
 }
 
-.fee--value{
+.fee__value{
   font-size: 14px;
 }
-.exhibition--bottom{
+.exhibition__bottom{
   margin: 0px auto 32px;
   width: 360px;
 }
@@ -277,7 +277,7 @@ textarea{
   width: 100%;
   @include button;;
 }
-.back--home{
+.back__home{
   margin-top: 24px;
   color: #0095ee;
   @include display;
@@ -290,12 +290,12 @@ textarea{
 }
 .caution{
   margin-bottom:64px;
-  &--content{
+  &__content{
     @include font-size;
     line-height: 1.4em;
     
   }
-  &--sentence{
+  &__sentence{
     @include font-size;
     line-height: 1.4em;
   }
