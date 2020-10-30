@@ -1,168 +1,168 @@
-.exhibition
-  .exhibition--top
-    %a.top--picture
-      = image_tag src="/assets/logo.png", size: "185x49", class: "exhibition--pic"
-  .exhibition--main
-    .exhibition--content
+.exhibition 
+  .exhibition__top
+    %a.top__picture
+      = image_tag src="/assets/logo.png", size: "185x49", class: "exhibition__pic"
+  .exhibition__main
+    .exhibition__content
       .back
       %form{:action => "#", :method => "post",class:"form"}
         .back
-        .form--image
-          .form--style
-            .form--style__body
+        .form__image
+          .form__style
+            .form__style__body
               %name.photos
                 .style
                   %label
                     出品画像
-                  %span.style--tag 
+                  %span.style__tag 
                     必須
-              %p.photo--comment
+              %p.photo__comment
                 最大10枚までアップロードできます
-              .photo--box
-                .box--content
+              .photo__box
+                .box__content
                   %tabindex.tab
-                    .tab--box
-                      %input.tab--file{:type => "file"}/
+                    .tab__box
+                      %input.tab__file{:type => "file"}/
                       %i.fa.fa-camera
-                      %p.box--comment
+                      %p.box__comment
                         ドラッグアンドドロップ
                         %br
                         またはクリックしてファイルをアップロード
         %hr.border
         .product
-          .product--top
-            .product--body
-              %name.product--name 
+          .product__top
+            .product__body
+              %name.product__name 
                 .style
                   %label 
                     商品名
-                  %span.style--tag 
+                  %span.style__tag 
                     必須
-              .product--name__box
-                .name--area
+              .product__name__box
+                .name__area
                   %input{:name => "name", :placeholder => "40文字まで", :type => "text", :value => ""}/
-          .product--introduction
-            .product--introduction__style
+          .product__introduction
+            .product__introduction__style
               %name.description
                 .style
                   %label 
                     商品の説明
-                  %span.style--tag 
+                  %span.style__tag 
                     必須
-                %textarea.description--box{:name => "description", :placeholder => "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", :rows => "7"}
+                %textarea.description__box{:name => "description", :placeholder => "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", :rows => "7"}
 
-              .style--counter
+              .style__counter
                 %span 0/1000
         %hr.border
         .product
           %p 
             商品の詳細
           .menu
-            .menu--body
-              %name.detail--category
+            .menu__body
+              %name.detail__category
                 .style
                   %label
                     カテゴリー
-                  %span.style--tag 
+                  %span.style__tag 
                     必須
-              .category--select
-                .name--area
-                  %input{:name => "name", :placeholder => "選択してください", :type => "text", :class => "select--box"}/
+              .category__select
+                .name__area
+                  %input{:name => "name", :placeholder => "選択してください", :type => "text", :class => "select__box"}/
           .menu
-            .menu--body
-              %name.detail--category
+            .menu__body
+              %name.detail__category
                 .styleB
                   %label
                     ブランド
-                  %span.style--tag 
+                  %span.style__tag 
                     任意
-              .category--select
-                .name--area
-                  %input{:name => "name", :placeholder => "シャネル", :type => "text", :class => "select--box"}/
+              .category__select
+                .name__area
+                  %input{:name => "name", :placeholder => "シャネル", :type => "text", :class => "select__box"}/
           .menu
-            .menu--body
-              %name.detail--category
+            .menu__body
+              %name.detail__category
                 .style
                   %label
                     商品の状態
-                  %span.style--tag 
+                  %span.style__tag 
                     必須
-              .category--select
-                .name--area
+              .category__select
+                .name__area
                   %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/
         %hr.border
         .product
           %p 
             配送について
           .menu
-            .menu--body
-              %name.shipping--payer
+            .menu__body
+              %name.shipping__payer
                 .style
                   %label
                     配送料の負担
-                  %span.style--tag 
+                  %span.style__tag 
                     必須
-              .category--select
-                .name--area
+              .category__select
+                .name__area
                   %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/
           .menu
-            .menu--body
-              %name.shipping--payer
+            .menu__body
+              %name.shipping__payer
                 .style
                   %label
                     発送元の地域
-                  %span.style--tag 
+                  %span.style__tag 
                     必須
-              .category--select
-                .name--area
+              .category__select
+                .name__area
                   %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/
           .menu
-            .menu--body
-              %name.shipping--payer
+            .menu__body
+              %name.shipping__payer
                 .style
                   %label
                     発送までの日数
-                  %span.style--tag 
+                  %span.style__tag 
                     必須  
-              .category--select
-                .name--area
+              .category__select
+                .name__area
                   %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/  
         %hr.border
-        .product--bottom
-          %p.price--range 
+        .product__bottom
+          %p.price__range 
             価格（￥300~9,999,999)
-          .price--content
+          .price__content
             .price
-              %name.price--sale
-                .price--box
+              %name.price__sale
+                .price__box
                   %label
                     販売価格
-                    %span.style--tag 
+                    %span.style__tag 
                       必須
                 %span
                   ￥
-                .price--box__right
+                .price__box__right
                   %input{:name => "price", :placeholder => "0", :type => "number", :value => ""}/
             .price
-              .price--fee
+              .price__fee
                 販売手数料(10%)
-              %span.fee--value
+              %span.fee__value
                 —
-            %hr.border--short
+            %hr.border__short
             .price
-              .price--profit
+              .price__profit
                 販売利益
-              %span.fee--value
+              %span.fee__value
                 —
-          .exhibition--bottom
+          .exhibition__bottom
             %button{:type => "submit", :class => "button"}
               出品する
             %button{:type => "submit", :class => "buttonB"}
               下書きに保存
             %a{ href: '#'}
-              .back--home
+              .back__home
                 もどる
           .caution
-            %p.caution--content 
-              %p.caution--sentence
+            %p.caution__content 
+              %p.caution__sentence
                 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
