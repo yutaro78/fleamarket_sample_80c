@@ -6,6 +6,7 @@
     .exhibition__content
       .back
       %form{:action => "#", :method => "post",class:"form"}
+      = form_with model:@item do |f|
         .back
         .form__image
           .form__style
@@ -22,12 +23,14 @@
                 .box__content
                   %tabindex.tab
                     .tab__box
-                      %input.tab__file{:type => "file"}/
-                      %i.fa.fa-camera
-                      %p.box__comment
-                        ドラッグアンドドロップ
-                        %br
-                        またはクリックしてファイルをアップロード
+                      = f.fields_for :images do |image|
+                        = image.file_field :url
+                        -# %input.tab__file{:type => "file"}/
+                        %i.fa.fa-camera
+                        %p.box__comment
+                          ドラッグアンドドロップ
+                          %br
+                          またはクリックしてファイルをアップロード
         %hr.border
         .product
           .product__top
@@ -39,8 +42,9 @@
                   %span.style__tag 
                     必須
               .product__name__box
-                .name__area
-                  %input{:name => "name", :placeholder => "40文字まで", :type => "text", :value => ""}/
+                = f.text_field :name, class: "description__box", placeholder: "40文字まで", maxlength: "40"
+                -# .name__area
+                  -# %input{:name => "name", :placeholder => "40文字まで", :type => "text", :value => ""}/
           .product__introduction
             .product__introduction__style
               %name.description
@@ -49,7 +53,8 @@
                     商品の説明
                   %span.style__tag 
                     必須
-                %textarea.description__box{:name => "description", :placeholder => "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", :rows => "7"}
+                = f.text_area :introduction, class: "description__box", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          "
+                -# %textarea.description__box{:name => "description", :placeholder => "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", :rows => "7"}
 
               .style__counter
                 %span 0/1000
@@ -66,8 +71,9 @@
                   %span.style__tag 
                     必須
               .category__select
-                .name__area
-                  %input{:name => "name", :placeholder => "選択してください", :type => "text", :class => "select__box"}/
+                = f.collection_select :category_id, @category_parents, :id, :name,{prompt: "選択してください"}, class: "description__box"
+                -# .name__area
+                -#   %input{:name => "name", :placeholder => "選択してください", :type => "text", :class => "select__box"}/
           .menu
             .menu__body
               %name.detail__category
@@ -77,8 +83,9 @@
                   %span.style__tag 
                     任意
               .category__select
-                .name__area
-                  %input{:name => "name", :placeholder => "シャネル", :type => "text", :class => "select__box"}/
+                = f.text_field :brand, class: "description__box", placeholder: "例、シャネル", maxlength: "40"
+                -# .name__area
+                -#   %input{:name => "name", :placeholder => "シャネル", :type => "text", :class => "select__box"}/
           .menu
             .menu__body
               %name.detail__category
@@ -88,8 +95,9 @@
                   %span.style__tag 
                     必須
               .category__select
-                .name__area
-                  %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/
+                = f.collection_select :condition, Condition.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
+                -# .name__area
+                -#   %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/
         %hr.border
         .product
           %p 
@@ -103,8 +111,10 @@
                   %span.style__tag 
                     必須
               .category__select
-                .name__area
-                  %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/
+                -# = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:"name__area"}
+                = f.collection_select :shipping_cost_id, Shipping_cost.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
+                -# .name__area
+                -#   %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/
           .menu
             .menu__body
               %name.shipping__payer
@@ -114,8 +124,9 @@
                   %span.style__tag 
                     必須
               .category__select
-                .name__area
-                  %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
+                -# .name__area
+                -#   %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/
           .menu
             .menu__body
               %name.shipping__payer
@@ -125,8 +136,9 @@
                   %span.style__tag 
                     必須  
               .category__select
-                .name__area
-                  %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/  
+                = f.collection_select :shipping_days_id, Shipping_days.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
+                -# .name__area
+                -#   %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/  
         %hr.border
         .product__bottom
           %p.price__range 
@@ -142,7 +154,8 @@
                 %span
                   ￥
                 .price__box__right
-                  %input{:name => "price", :placeholder => "0", :type => "number", :value => ""}/
+                  = f.number_field :price, placeholder: "0"
+                  -# %input{:name => "price", :placeholder => "0", :type => "number", :value => ""}/
             .price
               .price__fee
                 販売手数料(10%)
@@ -155,8 +168,9 @@
               %span.fee__value
                 —
           .exhibition__bottom
-            %button{:type => "submit", :class => "button"}
-              出品する
+            = f.submit "出品する", class: "button"
+            -# %button{:type => "submit", :class => "button"}
+            -#   出品する
             %button{:type => "submit", :class => "buttonB"}
               下書きに保存
             %a{ href: '#'}
