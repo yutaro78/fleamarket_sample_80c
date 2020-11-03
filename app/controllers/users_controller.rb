@@ -8,20 +8,20 @@ class UsersController < ApplicationController
     if current_user.create(user_params)
       redirect_to root_path
     else
-      render :new
+      render :create
     end
   end
 
   def show
   end
 
+  private
+
   def move_to_index
     unless user_signed_in?
       redirect_to action: :index
     end
   end
-
-  private
 
   def user_params
     params.require(:user).permit(:name, :email)

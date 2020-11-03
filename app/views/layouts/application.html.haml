@@ -9,4 +9,16 @@
     = javascript_include_tag 'application'
     -# = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+.MainContents
+  .Header
+    %h1 
+      = link_to root_path do
+        = image_tag( src= "material/logo/logo.png", class: "Header--logo")
+    .LogInOut
+    - if user_signed_in?
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
+      = link_to "マイページ", users_path, method: :get
+    - else
+      = link_to "新規登録", new_user_registration_path, method: :get
+      = link_to "ログイン", new_user_session_path, method: :get
     = yield

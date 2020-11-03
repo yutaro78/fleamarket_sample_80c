@@ -158,3 +158,9 @@
   vertical-align: top;
   background-color: #ea352d;
 }
+
+@mixin passwordConfirmation {
+  font-size: 14px;
+  display: inline-block;
+  margin: 8px 0 0 0;
+}
