@@ -22,15 +22,15 @@
               .photo__box
                 .box__content
                   %tabindex.tab
-                    .tab__box
+                    %label{class: "tab__box"}
+                      -# #tab-box
                       #previews
                       - if @item.persisted?
                         - @item.images.each_with_index do |image, i|
                           = image_tag image.url.url, data: { index: i }, width: "100", height: '100'
-                      -# #tab-box
                       = f.fields_for :images do |image|
                         .js-file_group{"data-index" => "#{image.index}"}
-                          = image.file_field :url, class: 'js-file'
+                          = image.file_field :url, class: 'js-file', style: 'display: none;'
                           -# %input.tab__file{:type => "file"}/
                           %i.fa.fa-camera
                           %p.box__comment
@@ -38,7 +38,7 @@
                             -# %br
                             -# またはクリックしてファイルをアップロード
                             %br/
-                            %span.js-remove 削除
+                            -# %span.js-remove 削除
                           - if @item.persisted?
                             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
                         - if @item.persisted?
@@ -85,8 +85,8 @@
                     カテゴリー
                   %span.style__tag 
                     必須
-              .category__select
-                = f.collection_select :category_id, @category_parents, :id, :name,{prompt: "選択してください"}, class: "description__box"
+              .category__selectbox
+                = f.collection_select :category_id, @category_parents, :id, :name,{prompt: "選択してください"}, class: "category__selectbox__contents", id: "category_form"
                 -# .name__area
                 -#   %input{:name => "name", :placeholder => "選択してください", :type => "text", :class => "select__box"}/
           .menu
@@ -126,8 +126,8 @@
                   %span.style__tag 
                     必須
               .category__select
-                -# = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:"name__area"}
-                = f.collection_select :shipping_cost_id, Shipping_cost.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
+                -# = f.collection_select :shipping_cost_id, Shipping_cost.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
                 -# .name__area
                 -#   %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/
           .menu
