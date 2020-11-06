@@ -1,0 +1,175 @@
+.card{
+
+  &__page{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  &__main{
+    background-color: rgb(255, 255, 255);
+  }
+  &__content{
+    position: relative;
+  }
+  &__info{
+    align-items: center;
+    display: inline-flex;
+    width: 100%;
+    margin-top: 16px;
+    font-size: 16px;
+  }
+  &__input{
+    display: inline-block;
+    position: relative;
+    width: inherit;
+  }
+  &__expiration{
+    margin-top: 28px;
+  }
+
+}
+.payment{
+  padding: 32px 16px;
+  border-bottom: 1px solid rgb(245, 245, 245);
+
+  &__title{
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: 600;
+  }
+  &__back{
+    max-width: 375px;
+    margin: 0px auto;
+    padding: 0px 16px;
+  }
+  &__center{
+    padding-bottom: 48px;
+    padding-top:32px;
+  }
+}
+.sub__title label{
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+.card__input input{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  height: 48px;
+  margin: 0;
+  outline: none;
+  padding: 0 16px;
+  width: inherit;
+}
+.card__security{
+  margin-top: 28px;
+}
+.security__box{
+  align-items: center;
+  display: inline-flex;
+  width: 100%;
+  margin-top: 16px;
+
+  &__input{
+    display: inline-block;
+    position: relative;
+    width: inherit;
+  }
+
+}
+.security__box__input input{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  height: 48px;
+  margin: 0;
+  outline: none;
+  padding: 0 16px;
+  width: inherit;
+}
+
+.card__question{
+  position: relative;
+
+  &__content{
+    margin-top: 8px;
+    text-align: right;
+    color: rgb(0, 149, 238);
+    cursor: pointer;
+  }
+}
+.card__question__content span{
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgb(0, 149, 238);
+  color: rgb(255, 255, 255);
+  line-height: 14px;
+  font-size: 12px;
+  text-align: center;
+}
+.card__button{
+  background-color: #ea352d;
+  color: #fff;
+  margin-top: 32px;
+  width: 100%;
+  font-size: 17px;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 4px;
+}
+.back__button{
+  color: #0095ee;
+  margin-top: 32px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.expiration__day{
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-top: 16px;
+  -webkit-box-align: center;
+  align-items: center;
+
+  &__select{
+    flex: 1 1 0%;
+    width: 100%;
+  }
+}
+.select__style{
+  display: inline-block;
+  position: relative;
+  width: inherit;
+}
+.expiration__day select{
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #222;
+  font-size: 16px;
+  height: 48px;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 0 56px 0 16px;
+}
