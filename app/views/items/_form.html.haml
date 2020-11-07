@@ -110,7 +110,7 @@
                   %span.style__tag 
                     必須
               .category__select
-                = f.collection_select :condition, Condition.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
+                = f.collection_select :condition_id, Condition.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
                 -# .name__area
                 -#   %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/
         %hr.border
@@ -126,8 +126,7 @@
                   %span.style__tag 
                     必須
               .category__select
-                = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
-                -# = f.collection_select :shipping_cost_id, Shipping_cost.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
+                = f.collection_select :shipping_cost_id, ShippingCost.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
                 -# .name__area
                 -#   %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/
           .menu
@@ -151,7 +150,7 @@
                   %span.style__tag 
                     必須  
               .category__select
-                = f.collection_select :shipping_days_id, Shipping_days.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
+                = f.collection_select :shipping_days_id, ShippingDays.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
                 -# .name__area
                 -#   %input{:name => "name", :placeholder => "選択してください", :type => "text", :value => ""}/  
         %hr.border
