@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', ()=> {
 
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    const html = `<img data-index="${index}" src="${url}" width="124px" height="124px">`;
     return html;
   }
 
@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', ()=> {
 
   $('.hidden-destroy').hide();
 
-  $('.tab__box').on('change', '.js-file', function(e) {
+  $('#tab__box').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
@@ -36,14 +36,14 @@ $(document).on('turbolinks:load', ()=> {
     } else {  // 新規画像追加の処理
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
-      $('.tab__box').append(buildFileField(fileIndex[0]));
+      $('#tab__box').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
   });
 
-  $('.tab__box').on('click', '.js-remove', function() {
+  $('#tab__box').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index');
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
@@ -54,6 +54,6 @@ $(document).on('turbolinks:load', ()=> {
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file').length == 0) $('.tab__box').append(buildFileField(fileIndex[0]));
+    if ($('.js-file').length == 0) $('#tab__box').append(buildFileField(fileIndex[0]));
   });
 });
