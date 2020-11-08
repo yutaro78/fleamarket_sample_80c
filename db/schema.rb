@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_141850) do
+ActiveRecord::Schema.define(version: 2020_10_26_143423) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "post_code", null: false
-    t.integer "prefecture_id", null: false
+    t.integer "prefecture_code", null: false
     t.string "city", null: false
     t.string "house_number", null: false
     t.string "building_name"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_11_05_141850) do
     t.text "introduction", null: false
     t.integer "price", null: false
     t.integer "condition", null: false
-    t.integer "size_id"
+    t.integer "size_id", null: false
     t.bigint "category_id", null: false
     t.string "brand"
     t.integer "prefecture_id", null: false
@@ -56,15 +56,6 @@ ActiveRecord::Schema.define(version: 2020_11_05_141850) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"
-  end
-
-  create_table "pays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "customer_id", null: false
-    t.string "card_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_pays_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,5 +80,4 @@ ActiveRecord::Schema.define(version: 2020_11_05_141850) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
-  add_foreign_key "pays", "users"
 end
