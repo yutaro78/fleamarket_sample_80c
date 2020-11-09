@@ -9,4 +9,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users, only: :show
   resources :items, only: [:index, :new, :create, :show]
+  resources :pays, only: [:new, :show, :create, :delete] do
+    collection do
+      post 'show', to: 'pays#show'
+      post 'create', to: 'pays#create'
+      post 'delete', to: 'pays#delete'
+    end
+  end
+
 end
