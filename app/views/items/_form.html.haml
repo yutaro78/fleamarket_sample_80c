@@ -86,7 +86,12 @@
                   %span.style__tag 
                     必須
               .category__selectbox
-                = f.collection_select :category_id, @category_parents, :id, :name,{prompt: "選択してください"}, class: "category__selectbox__contents", id: "category_form"
+                -if @item.category_id?
+                  = f.collection_select :category_id, Category.roots, :id , :name, {prompt: "選択してください", selected: @item.category&.root_id}, class: "category__selectbox__contents", id: "category_form"
+                  = f.collection_select :category_id, @item.category.parent.parent.children, :id , :name, {prompt: "選択してください",selected:  @item.category.parent_id}, class: "category__selectbox__contents child_category_id", id: "child_category_id"
+                  = f.collection_select :category_id, @item.category.parent.children, :id , :name, {prompt: "選択してください",selected: @item.category.id}, class: "category__selectbox__contents grandchild_category_id", id: "grandchild_category_id"
+                - else
+                  = f.collection_select :category_id, @category_parents, :id, :name,{prompt: "選択してください"}, class: "category__selectbox__contents", id: "category_form"
                 -# .name__area
                 -#   %input{:name => "name", :placeholder => "選択してください", :type => "text", :class => "select__box"}/
           .menu
