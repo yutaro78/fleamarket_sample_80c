@@ -4,7 +4,7 @@ class PaysController < ApplicationController
 
   def new
     card = Pay.where(user_id: current_user.id)
-    redirect_to action: "show" if card.exists?
+    # redirect_to action: "show" if card.exists?
   end
 
   def create #payjpとCardのデータベース作成を実施します。
@@ -20,7 +20,7 @@ class PaysController < ApplicationController
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = Pay.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "show"
+        redirect_to pay_path(@card.id)
       else
         redirect_to action: "create"
       end
