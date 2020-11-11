@@ -18,33 +18,37 @@
                   %span.style__tag 
                     必須
               %p.photo__comment
-                最大10枚までアップロードできます
-              .photo__box
-                .box__content
-                  %tabindex.tab
-                    %label{id: "tab__box"}
-                      -# #tab-box
-                      #previews
+                最大5枚までアップロードできます
+              .photo__area
+                #previews
+                  #image-box
+                    = f.fields_for :images do |i|
+                      .js-file_group{"data-index" => "#{i.index}"}
+                        = i.file_field :url, class: 'js-file',id:"item_images_attributes_#{i.index}_url"
                       - if @item.persisted?
-                        - @item.images.each_with_index do |image, i|
-                          = image_tag image.url.url, data: { index: i }, width: "100", height: '100'
-                      = f.fields_for :images do |image|
-                        .js-file_group{"data-index" => "#{image.index}"}
-                          = image.file_field :url, class: 'js-file', style: 'display: none;'
-                          -# %input.tab__file{:type => "file"}/
-                          %i.fa.fa-camera
-                          %p.box__comment
-                            -# ドラッグアンドドロップ
-                            -# %br
-                            -# またはクリックしてファイルをアップロード
-                            %br/
-                            -# %span.js-remove 削除
-                          - if @item.persisted?
-                            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-                        - if @item.persisted?
-                          .js-file_group{ "data-index" => "#{@item.images.count}"}
-                            = file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file'
-                            .js-remove 削除
+                        = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+                    - if @item.persisted?
+                      - @item.images.each_with_index do |image, i|
+                        .index{"data-index" => "#{i}"}
+                        .previews
+                          %label{for: "item_images_attributes_#{i}_url"}
+                            = image_tag image.url.url, data: { index: i }, width: "110", height: '110'
+                          .js-remove 削除
+                    
+                    - if @item.persisted?
+                      .js-file_group{"data-index" => "#{@item.images.count}"}
+                        = file_field_tag :url, id: "item_images_attributes_#{@item.images.count}_url", class: 'js-file',name:"item[images_attributes][#{@item.images.count}][url]"
+
+                - if @item.persisted?
+                  %label{for: "item_images_attributes_#{@item.images.count}_url",id:"label_image"}
+                    .click_erea
+                      .click_erea__content
+                        %pクリックしてファイルをアップロード
+                - else
+                  %label{for: "item_images_attributes_0_url",id:"label_image"}
+                    .click_erea
+                      .click_erea__content
+                        %pクリックしてファイルをアップロード
 
         %hr.border
         .product

@@ -78,35 +78,96 @@ label{
 .photo__comment{
   @include margin-top;
 }
-.photo__box{
-  @include margin-top;
-}
-.box__content{
-  @include display;
-  flex-wrap: wrap;
-  margin: -8px -4px 0px;
-}
-.tab{
-  height: 150px;
+// .photo__box{
+//   @include margin-top;
+// }
+// .box__content{
+//   @include display;
+//   flex-wrap: wrap;
+//   margin: -8px -4px 0px;
+// }
+.photo__area{
   width: 620px;
-  &__file{
-    display:none;
+  height: 200px;
+  padding: 10px;
+  display: flex;
+  margin: 0 auto;
+  #image-box {
+    display: flex;
+    .preview {
+      width: 114px;
+      height: 200px;
+      text-align: center;
+      margin:0px 5px;
+      background-color: #EEEEEE;
+      text-align: center;
+      .js-remove {
+        color: rgb(0, 149, 238);
+      }
+      img {
+        background-color: black;
+        margin-top: 30px;
+      }
+    }
+    .preview:hover {
+      border: solid 2px blue;
+    }
+    .previews {
+      width: 114px;
+      height: 200px;
+      text-align: center;
+      margin:0px 5px;
+      background-color: #EEEEEE;
+      text-align: center;
+      .js-remove {
+        color: rgb(0, 149, 238);
+      }
+      img {
+        background-color: black;
+        margin-top: 30px;
+      }
+    }
+    .previews:hover {
+      border: solid 2px blue;
+    }
   }
+  #label_image,#label_image_edit {
+    background-color: #EEEEEE;
+    width: 100%;
+    height: 200px;
+    border: dotted 1px black;
+    .click_erea {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      p {
+        margin-top: 90px;
+      }
+    }
+    
+  }
+  #label_image:hover {
+    border: solid 2px blue;
+  }
+  input {
+    display: none;
+  }
+  
 }
-#tab__box{
-  // display: block;
-  // place-content: center;
-  background-color: rgb(245, 245, 245);
-  border: 1px dashed rgb(204, 204, 204);
-  cursor: pointer;
-  @include display;
-  height: 100%;
-  // height: 160px;
-  flex-wrap: wrap;
-  // text-align: center;
-  // border: 1px dashed #ccc;
-  // position: relative;
-}
+// #tab__box{
+//   // display: block;
+//   // place-content: center;
+//   border: 1px dashed rgb(204, 204, 204);
+//   cursor: pointer;
+//   @include display;
+//   height: 100%;
+//   // height: 160px;
+//   flex-wrap: wrap;
+//   // text-align: center;
+//   // border: 1px dashed #ccc;
+//   // position: relative;
+// }
 .box__comment{
   @include font-size;
   line-height: 1.4em;
