@@ -78,14 +78,7 @@ label{
 .photo__comment{
   @include margin-top;
 }
-// .photo__box{
-//   @include margin-top;
-// }
-// .box__content{
-//   @include display;
-//   flex-wrap: wrap;
-//   margin: -8px -4px 0px;
-// }
+
 .photo__area{
   width: 620px;
   height: 200px;
@@ -100,7 +93,6 @@ label{
       text-align: center;
       margin:0px 5px;
       background-color: #EEEEEE;
-      // text-align: center;
       .js-remove {
         color: rgb(0, 149, 238);
       }
@@ -118,7 +110,6 @@ label{
       text-align: center;
       margin:0px 5px;
       background-color: #EEEEEE;
-      // text-align: center;
       .js-remove {
         color: rgb(0, 149, 238);
       }
@@ -155,19 +146,7 @@ label{
   }
   
 }
-// #tab__box{
-//   // display: block;
-//   // place-content: center;
-//   border: 1px dashed rgb(204, 204, 204);
-//   cursor: pointer;
-//   @include display;
-//   height: 100%;
-//   // height: 160px;
-//   flex-wrap: wrap;
-//   // text-align: center;
-//   // border: 1px dashed #ccc;
-//   // position: relative;
-// }
+
 .box__comment{
   @include font-size;
   line-height: 1.4em;

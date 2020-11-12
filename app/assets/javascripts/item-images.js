@@ -22,15 +22,7 @@ $(document).on('turbolinks:load', ()=> {
     const html = `item_images_attributes_${num + 1}_url`;
     return html;
   }
-  // const buildlabel2 = (num)=> {
-  //   const html = `item_images_attributes_${num}_url`;
-  //   return html;
-  // }
-  // const buildeditlabel = (num)=> {
-  //   const html = `item_images_attributes_${num}_url`;
-  //   return html;
-  // }
-  
+
 
   // file_fieldのnameに動的なindexをつける為の配列
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
@@ -104,11 +96,4 @@ $(document).on('turbolinks:load', ()=> {
       // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
-
-  // 要素を取得→プロパティを取得→プロパティに代入
-  // if ($('.js-file').length > 1) {
-  // const element = document.getElementById("label_image");
-  // element.htmlFor;
-  // element.htmlFor = (buildlabel2(lastIndex));
-  // }
 });

@@ -8,18 +8,14 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    # @category_parents = Category.where(ancestry: nil)
   end
   
   def create
     @item = Item.new(item_params)
-    # binding.pry
     if @item.save
       redirect_to new_item_path
-      # redirect_to root_path
     else
       render new_item_path
-      # render :new
     end
   end
   
@@ -28,7 +24,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # @category_parents = Category.where(ancestry: nil)
   end
 
   def update
@@ -40,8 +35,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
+    if @item.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
   end
 
   def set_parents
@@ -51,7 +49,6 @@ class ItemsController < ApplicationController
 
 
   def search_category
-    # binding.pry
     respond_to do |format|
       format.html
       format.json do
