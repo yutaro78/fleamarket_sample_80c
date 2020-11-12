@@ -1,8 +1,4 @@
-.SignUpContents
-  .Header
-    %h1 
-      = link_to root_path do
-        = image_tag( src= "material/logo/logo.png", class: "Header--logo")
+.SignUpContents  
   .SignUp
     .SignUp__field
       .SignUp__field--header
@@ -16,7 +12,7 @@
                 = form.label :ニックネーム
                 %span.Required__field--logo 必須
               .FormField__input
-                = form.text_field :nickname, class: 'FormField__input__nickname', placeholder: "例）やまさん"
+                = form.text_field :nickname, class: 'FormField__input__nickname', placeholder: "例）やまさん", autofocus: true, maxlength: "6"
             .FormField
               .FormField__label
                 = form.label :メールアドレス
@@ -28,17 +24,17 @@
                 = form.label :パスワード
                 %span.Required__field--logo 必須
               .PasswordField__input
-                = form.password_field :password, class: 'PasswordField__input__pass', placeholder: "7文字以上の半角英数字"
-                .PasswordField__input--text
-                  ※ 英字と数字の両方を含めて設定してください
+                = form.password_field :password, class: 'PasswordField__input__pass', placeholder: "7文字以上の半角英数字", autocomplete: "off"
               .PasswordField__passwordconfirmation
-                -# = form.label :password_confirmation
-                -# %span.Required__field--logo 必須
-                -# = form.password_field :password_confirmation, placeholder: "パスワードをもう一度入力してください"
-            .PasswordField__safety
-              %h3 本人確認
+                = form.label :パスワード再入力
+                %span.Required__field--logo 必須
+                = form.password_field :password_confirmation, placeholder: "パスワードをもう一度入力してください", class: "PasswordField__input__pass"
+                .PasswordField__passwordconfirmation--text
+                  ※ 英字と数字の両方を含めて設定してください
+              .PasswordField__safety
+                %h3 本人確認
               .PasswordField__safety__text
-              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力してください。他のお客さまに公開されることはありません。
+                安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力してください。他のお客さまに公開されることはありません。
             .FormField
               .FormField__label
                 = form.label :お名前（全角）
