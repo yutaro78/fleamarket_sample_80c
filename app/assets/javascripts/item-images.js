@@ -22,14 +22,14 @@ $(document).on('turbolinks:load', ()=> {
     const html = `item_images_attributes_${num + 1}_url`;
     return html;
   }
-  const buildlabel2 = (num)=> {
-    const html = `item_images_attributes_${num}_url`;
-    return html;
-  }
-  const buildeditlabel = (num)=> {
-    const html = `item_images_attributes_${num}_url`;
-    return html;
-  }
+  // const buildlabel2 = (num)=> {
+  //   const html = `item_images_attributes_${num}_url`;
+  //   return html;
+  // }
+  // const buildeditlabel = (num)=> {
+  //   const html = `item_images_attributes_${num}_url`;
+  //   return html;
+  // }
   
 
   // file_fieldのnameに動的なindexをつける為の配列
