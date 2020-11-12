@@ -1,12 +1,8 @@
 .SignUpContents {
   height: 1481px;
   background-color: #f0f0f0;
-  .Header {
-    @include bar;
-  }
   .SignUp {
     height: 1133px;
-    overflow-y: scroll;
     &__field {
       height: 1133px;
       width: 700px;
@@ -26,6 +22,8 @@
         background-color: #fff;
         height: 1036px;
         width: 700px;
+        text-align: left;
+        padding: 16px 40px;
         &--contents {
           height: 760px;
           width: 343px;
@@ -90,8 +88,6 @@
             font-size: 14px;
             margin: 24px 0 0;
             padding: 0;
-            height: 129px;
-            width: 343px;
             &__label {
               @include label;
               .Required__field--logo {
@@ -102,6 +98,18 @@
               display: block;
               &__pass {
                 @include inputLong;
+              }
+            }
+            &__passwordconfirmation {
+              @include passwordConfirmation;
+              .Required__field--logo {
+                @include requiredLogo;
+              }
+              &__input {
+                display: block;
+                &__pass {
+                  @include inputLong;
+                }
               }
               &--text {
                 margin: 8px 0 0;
@@ -117,13 +125,14 @@
               font-size: 14px;
               h3 {
                 height: 16px;
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: bold;
+                margin-top: 8px;
               }
               &__text {
-                margin: 8px 0 0;
                 font-size: 14px;
                 line-height: 1.5;
+                margin-bottom: 10px;
               }
             }
           }
@@ -137,8 +146,5 @@
         }
       }
     }
-  }
-  .Footer {
-    @include bar;
   }
 }
