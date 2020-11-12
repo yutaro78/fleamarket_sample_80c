@@ -30,7 +30,9 @@
           .product__box__body
             %ul 
               %li 
-                = image_tag src="meat.jpg", size:"560x346"
+                - @item.images.each do |image|
+                  = image_tag image.url.url
+                -# = image_tag src="meat.jpg", size:"560x346"
                 %ul 
                   %li 
                     = image_tag src="meat.jpg", size:"140x75"
@@ -88,6 +90,7 @@
                     発送日の目安
                   %td 
                     1-2日で発送
+          = link_to '削除', item_path(@item), method: :delete
           .option__like
             %ul
               %li.like__button
