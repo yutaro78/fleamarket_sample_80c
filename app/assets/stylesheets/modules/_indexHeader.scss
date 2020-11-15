@@ -1,0 +1,11 @@
+.Header {
+  height: 128px;
+  text-align: center;
+  padding-top: 40px;
+  background-color: #fff;
+  &--logo {
+    height: 49px;
+    width: 185px;
+    line-height: inherit;
+  }
+}
