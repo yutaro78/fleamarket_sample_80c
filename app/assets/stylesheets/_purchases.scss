@@ -1,0 +1,200 @@
+// Place all the styles related to the purchases controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.Header {
+  height: 100px;
+  width:500px;
+  margin: 0px 620px;
+  background-color:white;
+  font-size:25px ;
+  padding: 0px;
+ 
+  }
+
+.kaimono{
+    display: flex;
+    height: 100px;
+    width:360px;
+    margin: 0 auto;
+    background-color:white;
+    border: 1px solid #ccc;
+    &__gazou__message{
+      height: 80px;
+      width:90px;
+    }
+
+ 
+}  
+
+.shiharai{
+    height: 60px;
+    width:360px;
+    margin: 0 auto;
+    background-color:white;
+    display: flex;
+    justify-content: space-around;
+    font-size:21px ;
+    border: 1px solid white;
+    font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    padding: px;
+    .shiharai__message{
+      margin: 0 auto;
+      padding-right: 145px;
+    
+      
+
+    }
+    .kingaku__messsage{
+      margin: 0 auto;
+    }
+    
+    
+}
+
+.dpoint{
+     height: 60px;
+     width:360px;
+     margin: 0 auto;
+     background-color: white;
+     display: flex;
+     justify-content: space-around;
+     font-size:18px ;
+     .point__message{
+       padding-right: 60px;
+     }
+     .dacount__message{
+     height: 20px;
+     width:160px;
+     border: 1px solid red;
+     color:red;
+     padding-left:10px ;
+
+
+     }
+  
+}
+.mpoint{
+  height: 60px;
+  width:360px;
+  margin: 0 auto;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  font-size:18px ;
+  letter-spacing: 1px;
+  text-decoration: none;
+  line-height: 40px;
+  .mpoint__message{
+     padding-right: 56px;
+  }
+  .shojipoint__message{
+
+  }
+  
+
+}
+.houhou{
+  display: block;
+  font-size: 14px;
+  height: 80px;
+  width: 328px;
+  padding: 0 10px;
+  margin: 15px auto;
+  line-height: 40px;
+  letter-spacing: 1px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color:white;
+  color: black;
+  font-size: 14px;
+  .touroku__message {
+    color: #0095EE;
+  }
+}
+.haisousaki{
+  display: block;
+  font-size: 14px;
+  height: 80px;
+  width: 328px;
+  padding: 0 10px;
+  margin: 15px auto;
+  line-height: 40px;
+  letter-spacing: 1px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  font-size: 14px;
+  .haisoutouroku__message {
+    color: #0095EE;
+  }
+  
+}
+.nyuuryoku{
+  font-size: 14px;
+  display: block;
+  height: 48px;
+  width: 328px;
+  padding: 0 30px;
+  margin: 8px auto;
+  line-height: 40px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color:white;
+  color: #fff;
+  font-size: 11px;
+  color: red;
+
+}
+.kounyuu{
+  font-size: 14px;
+  display: block;
+  height: 48px;
+  width: 328px;
+  padding: 0 30px;
+  margin: 8px auto;
+  line-height: 40px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color:＃ccc;
+  font-size: 17px;
+  color:#888;
+
+}
+
+
+
+.bar {
+  height: 128px;
+  text-align: center;
+  padding-top: 40px;
+  background-color: #f0f0f0;
+  &--logo {
+    height: 49px;
+    width: 185px;
+    line-height: inherit;
+    display: flex;
+    margin: ８px 7px;
+  }
+}
+
+.inputEmail {
+  height: 48px;
+  width: 100%;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+
