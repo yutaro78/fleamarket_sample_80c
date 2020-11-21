@@ -41,13 +41,13 @@
 
                 - if @item.persisted?
                   %label{for: "item_images_attributes_#{@item.images.count}_url",id:"label_image"}
-                    .click_erea
-                      .click_erea__content
+                    .click_area
+                      .click_area__content
                         %pクリックしてファイルをアップロード
                 - else
                   %label{for: "item_images_attributes_0_url",id:"label_image"}
-                    .click_erea
-                      .click_erea__content
+                    .click_area
+                      .click_area__content
                         %pクリックしてファイルをアップロード
 
         %hr.border
@@ -162,7 +162,9 @@
                 %span
                   ￥
                 .price__box__right
-                  = f.number_field :price, placeholder: "0"
+                  = f.number_field :price, placeholder: "0", id: "item-price"
+            .price-aleat-message
+              ¥300〜¥9,999,999で入力して下さい
             .price
               .price__fee
                 販売手数料(10%)
@@ -172,7 +174,7 @@
             .price
               .price__profit
                 販売利益
-              %span.fee__value
+              %span.profit__value
                 —
           .exhibition__bottom
             = f.submit "出品する", class: "button"
