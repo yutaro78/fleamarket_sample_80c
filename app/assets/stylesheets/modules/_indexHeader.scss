@@ -1,0 +1,88 @@
+.pcHeader {
+  height: 97.55px;
+  padding: 0 60px;
+  box-sizing: border-box;
+  background-color: #fff;
+  .UpHeaders {
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    .Up {
+      width: 891px;
+      height: 50.55px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      .top-icon {
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        display: block;
+        vertical-align: bottom;
+        height: 50.55px;
+        width: 140px;
+        .iconA {
+          height: 40.55px;
+          width: 140px;
+        }
+      }
+      .searchBox {
+        height: 41px;
+        width: 721px;
+        margin: auto;
+        width: 100%;
+        .search_categry {
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+          .search-input {
+            width: calc(100% - 26px);
+            height: 36px;
+            padding: 0 0 0 5px;
+            border: solid 1px #000;
+            border-radius: 4px;
+          }
+          .search-btn {
+            width: 36px;
+            border: 0;
+            cursor: pointer;
+            background-color: #3ccace;
+            padding: 8px;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+    .categories {
+      font-size: 14px;
+      display: flex;
+      margin-bottom: 10px;
+      height: 32px;
+      width: 891px;
+      margin: 0;
+      padding: 0;
+      .listsLeft {
+        position: relative;
+        display: flex;
+        ul {
+          list-style: none;
+        }
+        &__second {
+          margin-left: 30px;
+        }
+      }
+      .Entrance {
+        height: 32px;
+        margin-left: auto;
+        display: flex;
+        &__gate {
+          color: #333;
+          line-height: 32px;
+          padding: 0 0 0 16px;
+        }
+      }
+    }
+  }
+}
