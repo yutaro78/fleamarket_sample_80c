@@ -5,7 +5,6 @@
   background-color:white;
   font-size:25px ;
   padding: 0px;
- 
   }
 
 .shopping{
@@ -15,12 +14,10 @@
     margin: 0 auto;
     background-color:white;
     border: 1px solid #ccc;
-    &__shopping__image{
+    &__image{
       height: 80px;
       width:90px;
     }
-
- 
 }  
 
 .payment{
@@ -32,22 +29,15 @@
     justify-content: space-around;
     font-size:21px ;
     border: 1px solid white;
-    // font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-    // padding: px;
+
     .payment__message{
       margin: 0 auto;
       padding-right: 145px;
-    
-      
-
     }
     .kingaku__messsage{
       margin: 0 auto;
     }
-    
-    
 }
-
 .dpoint{
      height: 60px;
      width:360px;
@@ -66,9 +56,7 @@
      color:red;
      padding-left:10px ;
 
-
      }
-  
 }
 .mpoint{
   height: 60px;
@@ -84,13 +72,10 @@
   .mpoint__message{
      padding-right: 56px;
   }
-  
-
 }
 .method{ @include center   
 }
 .shipping { @include center
-   
 }
 .input{
   font-size: 14px;
@@ -108,7 +93,6 @@
   color: #fff;
   font-size: 11px;
   color: red;
-
 }
 .purchase{
   font-size: 14px;
@@ -126,18 +110,11 @@
   background-color:＃ccc;
   font-size: 17px;
   color:#888;
-
 }
-
-
 
 .bar {@include bar
-
 }
-
-
-.inputEmail {@include inputEmail
-  
+.inputEmail {@include inputEmail 
 }
 
 
