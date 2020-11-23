@@ -92,129 +92,85 @@
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   .mainContainer
     %h2.item--head
-      ピックアップカテゴリー
+      ピックアップ
     .itemBox
       .itemHead
         %a{ href: '#'}
           %h3.item__title
             新規投稿商品
       .itemLists
-        .itemList
-          %a{ href: '#'}
-            %figure.item--img
-              = image_tag src="meat.jpg", size:"220x150"
-            .itemList--body
-              %h3.item--name テスト
-              .item--detail
-                %ul 
-                  %li 10000円
-                  %i.fa.fa-star 1
+        - @items.each do |item|
+          .itemList
+            = link_to item_path(item.id) do
+              = image_tag item.images[0].url.url,size:"220x150" 
+              .itemList--body
+                .item__box__name
+                  =item.name
+                .item__box__price
+                  =item.price
+                  円
                 %p (税込）
-        .itemList
-          %a{ href: '#'}
-            %figure.item--img
-              = image_tag src="meat.jpg", size:"220x150"
-            .itemList--body
-              %h3.item--name テスト
-              .item--detail
-                %ul 
-                  %li 10000円
-                  %i.fa.fa-star 1
-                %p (税込）
-        .itemList
-          %a{ href: '#'}
-            %figure.item--img
-              = image_tag src="meat.jpg", size:"220x150"
-            .itemList--body
-              %h3.item--name テスト
-              .item--detail
-                %ul 
-                  %li 10000円
-                  %i.fa.fa-star 1
-                %p (税込）
-        .itemList
-          %a{ href: '#'}
-            %figure.item--img
-              = image_tag src="meat.jpg", size:"220x150"
-            .itemList--body
-              %h3.item--name テスト
-              .item--detail
-                %ul 
-                  %li 10000円
-                  %i.fa.fa-star 1
-                %p (税込）
-        .itemList
-          %a{ href: '#'}
-            %figure.item--img
-              = image_tag src="meat.jpg", size:"220x150"
-            .itemList--body
-              %h3.item--name テスト
-              .item--detail
-                %ul 
-                  %li 10000円
-                  %i.fa.fa-star 1
-                %p (税込）           
-  .mainContainer-b
-    %h2.item--head
-      ピックアップブランド
-    .itemBox
-      .itemHead
-        %a{ href: '#'}
-          %h3.item__title
-            アーカイバ
-      .itemLists
-        .itemList
-          %a{ href: '#'}
-            %figure.item--img
-              = image_tag src="meat.jpg", size:"220x150"
-            .itemList--body
-              %h3.item--name テスト
-              .item--detail
-                %ul 
-                  %li 10000円
-                  %i.fa.fa-star 1
-                %p (税込）
-        .itemList
-          %a{ href: '#'}
-            %figure.item--img
-              = image_tag src="meat.jpg", size:"220x150"
-            .itemList--body
-              %h3.item--name テスト
-              .item--detail
-                %ul 
-                  %li 10000円
-                  %i.fa.fa-star 1
-                %p (税込）
-        .itemList
-          %a{ href: '#'}
-            %figure.item--img
-              = image_tag src="meat.jpg", size:"220x150"
-            .itemList--body
-              %h3.item--name テスト
-              .item--detail
-                %ul 
-                  %li 10000円
-                  %i.fa.fa-star 1
-                %p (税込）
-        .itemList
-          %a{ href: '#'}
-            %figure.item--img
-              = image_tag src="meat.jpg", size:"220x150"
-            .itemList--body
-              %h3.item--name テスト
-              .item--detail
-                %ul 
-                  %li 10000円
-                  %i.fa.fa-star 1
-                %p (税込）
-        .itemList
-          %a{ href: '#'}
-            %figure.item--img
-              = image_tag src="meat.jpg", size:"220x150"
-            .itemList--body
-              %h3.item--name テスト
-              .item--detail
-                %ul 
-                  %li 10000円
-                  %i.fa.fa-star 1
-                %p (税込）
+  -# .mainContainer-b
+  -#   %h2.item--head
+  -#     ピックアップブランド
+  -#   .itemBox
+  -#     .itemHead
+  -#       %a{ href: '#'}
+  -#         %h3.item__title
+  -#           アーカイバ
+  -#     .itemLists
+  -#       .itemList
+  -#         %a{ href: '#'}
+  -#           %figure.item--img
+  -#             = image_tag src="meat.jpg", size:"220x150"
+  -#           .itemList--body
+  -#             %h3.item--name テスト
+  -#             .item--detail
+  -#               %ul 
+  -#                 %li 10000円
+  -#                 %i.fa.fa-star 1
+  -#               %p (税込）
+  -#       .itemList
+  -#         %a{ href: '#'}
+  -#           %figure.item--img
+  -#             = image_tag src="meat.jpg", size:"220x150"
+  -#           .itemList--body
+  -#             %h3.item--name テスト
+  -#             .item--detail
+  -#               %ul 
+  -#                 %li 10000円
+  -#                 %i.fa.fa-star 1
+  -#               %p (税込）
+  -#       .itemList
+  -#         %a{ href: '#'}
+  -#           %figure.item--img
+  -#             = image_tag src="meat.jpg", size:"220x150"
+  -#           .itemList--body
+  -#             %h3.item--name テスト
+  -#             .item--detail
+  -#               %ul 
+  -#                 %li 10000円
+  -#                 %i.fa.fa-star 1
+  -#               %p (税込）
+  -#       .itemList
+  -#         %a{ href: '#'}
+  -#           %figure.item--img
+  -#             = image_tag src="meat.jpg", size:"220x150"
+  -#           .itemList--body
+  -#             %h3.item--name テスト
+  -#             .item--detail
+  -#               %ul 
+  -#                 %li 10000円
+  -#                 %i.fa.fa-star 1
+  -#               %p (税込）
+  -#       .itemList
+  -#         %a{ href: '#'}
+  -#           %figure.item--img
+  -#             = image_tag src="meat.jpg", size:"220x150"
+  -#           .itemList--body
+  -#             %h3.item--name テスト
+  -#             .item--detail
+  -#               %ul 
+  -#                 %li 10000円
+  -#                 %i.fa.fa-star 1
+  -#               %p (税込）

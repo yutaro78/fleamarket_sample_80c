@@ -3,7 +3,9 @@ class ItemsController < ApplicationController
   before_action :set_parents, only: [:new, :create, :edit]
 
   def index
-    @parents = Category.where(ancestry: nil)
+    @items = Item.last(5)
+    # ladys_category =  Category.find_by(name: "レディース")
+    # @ladys = Item.where(category: ladies_category)
   end
   
   def new

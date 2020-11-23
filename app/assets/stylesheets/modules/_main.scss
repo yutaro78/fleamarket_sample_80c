@@ -290,7 +290,7 @@
   height: 150px;
   object-fit: cover;
 }
-.item--name{
+.item__box__name{
   overflow: hidden;
   line-height: 1.5;
   font-size: 16px;
@@ -300,7 +300,7 @@
 .item--detail{
   font-size: 16px;
 }
-.item--detail ul{
+.item__box__price{
   @include display;
   align-items: center;
   justify-content: space-between;
@@ -318,7 +318,7 @@
 .itemList:hover{
   opacity: 0.5;
 }
-.item--detail p{
+.itemList--body p{
   font-size: 10px;
   text-align: left;
   margin-top:5px;
