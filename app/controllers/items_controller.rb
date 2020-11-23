@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_parents, only: [:new, :create, :edit]
 
   def index
+    @parents = Category.where(ancestry: nil)
   end
   
   def new

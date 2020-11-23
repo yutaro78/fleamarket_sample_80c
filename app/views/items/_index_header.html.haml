@@ -1,0 +1,44 @@
+%header.pcHeader
+  .UpHeaders
+    .Up
+      %h1.top-icon
+        = link_to root_path do
+          = image_tag( src= "material/logo/logo.png", class: 'iconA' )
+      .searchBox
+        = form_with url: "/", id: 'search_categry', class: 'search_categry', local: true do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
+          = image_submit_tag( "material/icon/icon-search 1.png", class: "search-btn" )
+    .categories
+      %ul.listsLeft
+        %li.listsLeft__first
+          = link_to '#', class: "category__search search__btn" do
+            %i.fas.fa-bars.category__icon
+            カテゴリー
+          -# %ul.category__parent.category__list
+          -#   - @parents.each do |parent|
+          -#     %li
+          -#       = link_to "#", class: "category__parent--name" do
+          -#         = parent.name
+          -#       %ul.category__child.category__list
+          -#         - parent.children.each do |child|
+          -#           %li 
+          -#             = link_to "#", class: "category__child--name" do
+          -#               = child.name 
+          -#             %ul.category__grandchild.category__list
+          -#               - child.children.each do |grandchild|
+          -#                 %li 
+          -#                   = link_to "#", class: "category__child--name" do
+          -#                     = grandchild.name 
+        %li.listsLeft__second
+          = link_to '#', class: "category__search search__btn" do
+            %i.fas.fa-bars.category__icon
+            ブランド
+      .Entrance
+        %ul
+          %li.Entrance__gate
+            - if user_signed_in? 
+              = link_to "ログアウト", destroy_user_session_path, method: :delete
+              = link_to "マイページ", users_path, method: :get
+            - else
+              = link_to "新規会員登録", new_user_registration_path, method: :get
+              = link_to "ログイン", new_user_session_path, method: :get
