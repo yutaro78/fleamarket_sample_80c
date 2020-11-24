@@ -7,11 +7,6 @@ class ItemsController < ApplicationController
     @items = Item.order("id DESC").last(5)
     @ladies = @ladies.set_items.order("id DESC").last(5)
     @mens = @mens.set_items.order("id DESC").last(5)
-    # @items = @category.set_items.order("id DESC").last(5)
-    # @ladies = Lady.where category(1)
-    # @ladies = Item.categories.lady.order("id DESC").last(5)
-    # ladys_category =  Category.find_by(name: "レディース")
-    # @ladies = Category.where(category: ladies_category)
   end
   
   def new
