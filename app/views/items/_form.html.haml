@@ -1,0 +1,187 @@
+.exhibition 
+  .exhibition__top
+    %a.top__picture
+      = image_tag src="material/logo/logo.png", size: "185x49", class: "exhibition__pic"
+  .exhibition__main
+    .exhibition__content
+      .back
+      %form{:action => "#", :method => "post",class:"form"}
+      = form_with model:@item do |f|
+        .back
+        .form__image
+          .form__style
+            .form__style__body
+              %name.photos
+                .style
+                  %label
+                    出品画像
+                  %span.style__tag 
+                    必須
+              %p.photo__comment
+                最大5枚までアップロードできます
+              .photo__area
+                #previews
+                  #image-box
+                    = f.fields_for :images do |i|
+                      .js-file_group{"data-index" => "#{i.index}"}
+                        = i.file_field :url, class: 'js-file',id:"item_images_attributes_#{i.index}_url"
+                      - if @item.persisted?
+                        = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+                    - if @item.persisted?
+                      - @item.images.each_with_index do |image, i|
+                        .index{"data-index" => "#{i}"}
+                        .previews
+                          %label{for: "item_images_attributes_#{i}_url"}
+                            = image_tag image.url.url, data: { index: i }, width: "110", height: '110'
+                          .js-remove 削除
+                    
+                    - if @item.persisted?
+                      .js-file_group{"data-index" => "#{@item.images.count}"}
+                        = file_field_tag :url, id: "item_images_attributes_#{@item.images.count}_url", class: 'js-file',name:"item[images_attributes][#{@item.images.count}][url]"
+
+                - if @item.persisted?
+                  %label{for: "item_images_attributes_#{@item.images.count}_url",id:"label_image"}
+                    .click_erea
+                      .click_erea__content
+                        %pクリックしてファイルをアップロード
+                - else
+                  %label{for: "item_images_attributes_0_url",id:"label_image"}
+                    .click_erea
+                      .click_erea__content
+                        %pクリックしてファイルをアップロード
+
+        %hr.border
+        .product
+          .product__top
+            .product__body
+              %name.product__name 
+                .style
+                  %label 
+                    商品名
+                  %span.style__tag 
+                    必須
+              .product__name__box
+                = f.text_field :name, class: "description__box", placeholder: "40文字まで", maxlength: "40"
+          .product__introduction
+            .product__introduction__style
+              %name.description
+                .style
+                  %label 
+                    商品の説明
+                  %span.style__tag 
+                    必須
+                = f.text_area :introduction, class: "description__box", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", :rows => "7"
+
+              .style__counter
+                %span 0/1000
+        %hr.border
+        .product
+          %p 
+            商品の詳細
+          .menu
+            .menu__body
+              %name.detail__category
+                .style
+                  %label
+                    カテゴリー
+                  %span.style__tag 
+                    必須
+              .category__selectbox
+                -if @item.category_id?
+                  = f.collection_select :category_id, Category.roots, :id , :name, {prompt: "選択してください", selected: @item.category&.root_id}, class: "category__selectbox__contents", id: "category_form"
+                  = f.collection_select :category_id, @item.category.parent.parent.children, :id , :name, {prompt: "選択してください",selected:  @item.category.parent_id}, class: "category__selectbox__contents child_category_id", id: "child_category_id"
+                  = f.collection_select :category_id, @item.category.parent.children, :id , :name, {prompt: "選択してください",selected: @item.category.id}, class: "category__selectbox__contents grandchild_category_id", id: "grandchild_category_id"
+                - else
+                  = f.collection_select :category_id, @category_parents, :id, :name,{prompt: "選択してください"}, class: "category__selectbox__contents", id: "category_form"
+          .menu
+            .menu__body
+              %name.detail__category
+                .styleB
+                  %label
+                    ブランド
+                  %span.style__tag 
+                    任意
+              .category__select
+                = f.text_field :brand, class: "description__box", placeholder: "例、シャネル", maxlength: "40"
+          .menu
+            .menu__body
+              %name.detail__category
+                .style
+                  %label
+                    商品の状態
+                  %span.style__tag 
+                    必須
+              .category__select
+                = f.collection_select :condition_id, Condition.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
+        %hr.border
+        .product
+          %p 
+            配送について
+          .menu
+            .menu__body
+              %name.shipping__payer
+                .style
+                  %label
+                    配送料の負担
+                  %span.style__tag 
+                    必須
+              .category__select
+                = f.collection_select :shipping_cost_id, ShippingCost.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
+          .menu
+            .menu__body
+              %name.shipping__payer
+                .style
+                  %label
+                    発送元の地域
+                  %span.style__tag 
+                    必須
+              .category__select
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
+          .menu
+            .menu__body
+              %name.shipping__payer
+                .style
+                  %label
+                    発送までの日数
+                  %span.style__tag 
+                    必須  
+              .category__select
+                = f.collection_select :shipping_days_id, ShippingDays.all, :id, :name, {prompt:"選択してください"}, {class:"description__box"}
+        %hr.border
+        .product__bottom
+          %p.price__range 
+            価格（￥300~9,999,999)
+          .price__content
+            .price
+              %name.price__sale
+                .price__box
+                  %label
+                    販売価格
+                    %span.style__tag 
+                      必須
+                %span
+                  ￥
+                .price__box__right
+                  = f.number_field :price, placeholder: "0"
+            .price
+              .price__fee
+                販売手数料(10%)
+              %span.fee__value
+                —
+            %hr.border__short
+            .price
+              .price__profit
+                販売利益
+              %span.fee__value
+                —
+          .exhibition__bottom
+            = f.submit "出品する", class: "button"
+            %button{:type => "submit", :class => "buttonB"}
+              下書きに保存
+            %a{ href: '#'}
+              .back__home
+                もどる
+          .caution
+            %p.caution__content 
+              %p.caution__sentence
+                禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。

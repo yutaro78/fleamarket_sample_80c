@@ -1,0 +1,139 @@
+%nav.category__order
+  %ul 
+    %li 
+      = link_to 'FURIMA', 'items#index' 
+    %li 
+      %i.fa.fa-angle-right
+    %li
+      = link_to 'ベビー・キッズ', '#' 
+    %li 
+      %i.fa.fa-angle-right
+    %li 
+      = link_to 'ベビー服（男の子用)~95cm', '#' 
+    %li 
+      %i.fa.fa-angle-right
+    %li 
+      = link_to 'アウター', '#' 
+    %li 
+      %i.fa.fa-angle-right
+    %li 
+      %p 
+        ee 
+.product__main
+  .product__show
+    .product__left
+    .product__right
+      .product__content
+        .product__box
+          %h2.product__box__name
+            ee
+          .product__box__body
+            %ul 
+              %li 
+                - @item.images.each do |image|
+                  = image_tag image.url.url
+                -# = image_tag src="meat.jpg", size:"560x346"
+                %ul 
+                  %li 
+                    = image_tag src="meat.jpg", size:"140x75"
+                  %li 
+                    = image_tag src="meat.jpg", size:"140x75"
+          .product__box__price
+            %span
+              ￥1000
+          .product__detail
+            eee 
+          .product__table
+            %table
+              %body
+                %tr 
+                  %th 
+                    出品者
+                  %td 
+                    ss
+                %tr 
+                  %th 
+                    カテゴリー
+                  %td 
+                    = link_to 'ベビー・キッズ', '#'
+                    %br
+                    = link_to 'ベビー服（男の子用)~95cm', '#'
+                    %br
+                    = link_to 'アウター', '#'
+                %tr 
+                  %th 
+                    ブランド
+                  %td 
+                    
+                %tr 
+                  %th 
+                    商品のサイズ
+                  %td 
+                    
+                %tr 
+                  %th 
+                    商品の状態
+                  %td 
+                    新品/未使用
+                %tr 
+                  %th 
+                    配送料の負担
+                  %td 
+                    送料込み（出品者負担）
+                %tr 
+                  %th 
+                    発送元の地域
+                  %td 
+                    = link_to '北海道', '#'
+                %tr 
+                  %th 
+                    発送日の目安
+                  %td 
+                    1-2日で発送
+          = link_to '削除', item_path(@item), method: :delete
+          .option__like
+            %ul
+              %li.like__button
+                %i.fa.fa-star 
+                  お気に入り 4
+            %ul.report
+              %li.report__button
+                %i.fa.fa-flag
+                = link_to '不適切な商品の通報', '#'
+        .comment__box
+          %ul.comment__content
+          %form{action: "#", method:  "post",class:"form",id: "new_comment"}
+            %input{name: "utf8", type:  "hidden", value:""}
+            %input{name:  "authenticity_token", type:  "hidden", value: ""}
+            %textarea{name: "comment[body]", required: "required", id:  "comment_body", class:"comment__area"}
+            %p.attention
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            %br
+            %button{name:"button",type: "submit"}
+              %i.fa.fa-comment
+              コメントする
+        %ul.links
+          %li
+            %i.fa.fa-angle-left
+            %span
+              = link_to '前の商品', '#'
+          %li
+            = link_to '後ろの商品', '#'
+            %span
+            %i.fa.fa-angle-right
+        .item__related
+          = link_to 'ベビー・キッズをもっと見る', '#'
+          .product__lists
+            .product__list
+              = link_to '', '#'
+              %figure.product__img
+                = image_tag src="meat.jpg",size:"220x150"
+              .itemList__name
+                %h3.item--name テスト
+                .item--detail
+                  %ul 
+                    %li 10000円
+                    %i.fa.fa-star 1
+                  %p (税込）
