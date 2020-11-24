@@ -110,7 +110,7 @@
     margin: 16px 0 0;
   }
 }
-.list--end{
+.list__end{
   margin: 16px 0 0;
 }
 .phrase{
@@ -225,15 +225,13 @@
   background-color: #f8f8f8;
   height: 100%;
 }
-.item--head{
+.item__head{
   text-align: center;
   font-size: 28px;
   line-height: 1.4;
   font-weight: bold;
 }
-.itemBox{
-  height:307px;
-}
+
 .itemHead{
   text-align: center;
 }
@@ -244,61 +242,34 @@
 }
 .item__title{
   font-weight: bold;
-  margin-top: 6px;
+  margin-top: 50px;
 }
-.itemLists{
+.item__lists{
   width: 780px;
-  margin: 26px auto 0 auto;
+  margin: 50px auto 0 auto;
   @include display;
   justify-content: space-around;
 }
 
-.itemList{
+.item__list{
   width: 220px;
   display: inline-block;
   float: left;
 
-  &--body{
+  &__body{
     @include background-color;
     color: #333;
     padding: 16px;
     height:95px;
   }
+}
 
-
-}
-.itemList a {
-  @include background-color;
-  display: inline-block;
-}
-.item--img{
-  width: 220px;
-  height: 150px;
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  z-index: auto;
-}
-.item--img img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: auto;
-  height: 150px;
-  object-fit: cover;
-}
 .item__box__name{
   overflow: hidden;
   line-height: 1.5;
   font-size: 16px;
   text-align: left;
   margin-bottom: 5px;
-}
-.item--detail{
-  font-size: 16px;
 }
 .item__box__price{
   @include display;
@@ -312,13 +283,11 @@
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
 }
-.fa::before{
-  content: "\f005";
-}
-.itemList:hover{
+
+.item__list:hover{
   opacity: 0.5;
 }
-.itemList--body p{
+.item__list__body p{
   font-size: 10px;
   text-align: left;
   margin-top:5px;
