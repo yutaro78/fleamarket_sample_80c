@@ -1,63 +1,65 @@
-.SignUpContents  
-  .SignUp
-    .SignUp__field
-      .SignUp__field--header
-        会員情報入力
-      .SignUp__field--main
-        .SignUp__field--main--contents
-          = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |form|
-            = devise_error_messages!
-            .FormField
-              .FormField__label
-                = form.label :ニックネーム
-                %span.Required__field--logo 必須
-              .FormField__input
-                = form.text_field :nickname, class: 'FormField__input__nickname', placeholder: "例）やまさん", autofocus: true, maxlength: "6"
-            .FormField
-              .FormField__label
-                = form.label :メールアドレス
-                %span.Required__field--logo 必須
-              .FormField__input
-                = form.email_field :email, class: 'FormField__input__email', placeholder: "PC・携帯どちらでも可"
-            .PasswordField
-              .PasswordField__label
-                = form.label :パスワード
-                %span.Required__field--logo 必須
-              .PasswordField__input
-                = form.password_field :password, class: 'PasswordField__input__pass', placeholder: "7文字以上の半角英数字", autocomplete: "off"
-              .PasswordField__passwordconfirmation
-                = form.label :パスワード再入力
-                %span.Required__field--logo 必須
-                = form.password_field :password_confirmation, placeholder: "パスワードをもう一度入力してください", class: "PasswordField__input__pass"
-                .PasswordField__passwordconfirmation--text
-                  ※ 英字と数字の両方を含めて設定してください
-              .PasswordField__safety
-                %h3 本人確認
-              .PasswordField__safety__text
-                安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力してください。他のお客さまに公開されることはありません。
-            .FormField
-              .FormField__label
-                = form.label :お名前（全角）
-                %span.Required__field--logo 必須
-              .FormField__input
-                = form.text_field :lastname, class: 'FormField__input__name', placeholder: "例）山田"
-                = form.text_field :firstname, class: 'FormField__input__name', placeholder: "例）太郎"
-            .FormField
-              .FormField__label
-                = form.label :お名前カナ（全角）
-                %span.Required__field--logo 必須
-              .FormField__input
-                = form.text_field :lastname_kana, class: 'FormField__input__kana', placeholder: "例）ヤマダ"
-                = form.text_field :firstname_kana, class: 'FormField__input__kana', placeholder: "例）タロウ"
-            .FormField
-              .FormField__label
-                = form.label :生年月日
-                %span.Required__field--logo 必須
-              .FormField__input--birthday
-                .birthday_field
-                  != sprintf(form.date_select(:birth,with_css_classes:'birth', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月' )+'日'
-                .clearfix
-            .FormField__about
-              %p1 ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-            .Actions
-            = form.submit '新規登録', class: 'Actions__submit'
+= render "devise/shared/header"
+.MainContents
+  .SignUpContents  
+    .SignUp
+      .SignUp__field
+        .SignUp__field--header
+          会員情報入力
+        .SignUp__field--main
+          .SignUp__field--main--contents
+            = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |form|
+              = devise_error_messages!
+              .FormField
+                .FormField__label
+                  = form.label :ニックネーム
+                  %span.Required__field--logo 必須
+                .FormField__input
+                  = form.text_field :nickname, class: 'FormField__input__nickname', placeholder: "例）やまさん", autofocus: true, maxlength: "6"
+              .FormField
+                .FormField__label
+                  = form.label :メールアドレス
+                  %span.Required__field--logo 必須
+                .FormField__input
+                  = form.email_field :email, class: 'FormField__input__email', placeholder: "PC・携帯どちらでも可"
+              .PasswordField
+                .PasswordField__label
+                  = form.label :パスワード
+                  %span.Required__field--logo 必須
+                .PasswordField__input
+                  = form.password_field :password, class: 'PasswordField__input__pass', placeholder: "7文字以上の半角英数字", autocomplete: "off"
+                .PasswordField__passwordconfirmation
+                  = form.label :パスワード再入力
+                  %span.Required__field--logo 必須
+                  = form.password_field :password_confirmation, placeholder: "パスワードをもう一度入力してください", class: "PasswordField__input__pass"
+                  .PasswordField__passwordconfirmation--text
+                    ※ 英字と数字の両方を含めて設定してください
+                .PasswordField__safety
+                  %h3 本人確認
+                .PasswordField__safety__text
+                  安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力してください。他のお客さまに公開されることはありません。
+              .FormField
+                .FormField__label
+                  = form.label :お名前（全角）
+                  %span.Required__field--logo 必須
+                .FormField__input
+                  = form.text_field :lastname, class: 'FormField__input__name', placeholder: "例）山田"
+                  = form.text_field :firstname, class: 'FormField__input__name', placeholder: "例）太郎"
+              .FormField
+                .FormField__label
+                  = form.label :お名前カナ（全角）
+                  %span.Required__field--logo 必須
+                .FormField__input
+                  = form.text_field :lastname_kana, class: 'FormField__input__kana', placeholder: "例）ヤマダ"
+                  = form.text_field :firstname_kana, class: 'FormField__input__kana', placeholder: "例）タロウ"
+              .FormField
+                .FormField__label
+                  = form.label :生年月日
+                  %span.Required__field--logo 必須
+                .FormField__input--birthday
+                  .birthday_field
+                    != sprintf(form.date_select(:birth,with_css_classes:'birth', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月' )+'日'
+                  .clearfix
+              .FormField__about
+                %p1 ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+              .Actions
+              = form.submit '次へ', class: 'Actions__submit'

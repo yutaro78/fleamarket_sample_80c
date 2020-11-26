@@ -1,0 +1,87 @@
+.MainContents {
+  height: 100vh;
+  background-color: #f0f0f0;
+  padding: 0;
+  .AddressesContents {
+    height: 1200px;
+    background-color: #f0f0f0;
+    .Address {
+      height: 1000px;
+      &__field {
+        height: 1000px;
+        width: 700px;
+        font-size: 20px;
+        margin: 0 auto;
+        &--header {
+          text-align: center;
+          height: 97px;
+          width: 700px;
+          padding: 40px 64px;
+          border-bottom: 1px solid #ccc;
+          background-color: #fff;
+          font-size: 22px;
+          font-weight: bold;
+        }
+        &--main {
+          background-color: #fff;
+          height: 710px;
+          width: 700px;
+          text-align: left;
+          padding: 16px 40px;
+          &--contents {
+            height: 700px;
+            width: 343px;
+            margin: 0 auto;
+            max-width: 343px;
+            .FormField {
+              background-color: #fff;
+              display: block;
+              height: 70px;
+              width: 343px;
+              margin-bottom: 24px;
+              &__label {
+                @include label;
+              }
+              .Required__field--logo {
+                @include requiredLogo;
+              }
+              .Required__field--logoB {
+                @include requiredLogoB;
+              }
+              &__input {
+                display: flex;
+                width: 100%;
+                margin: 8px 0 24px 0;
+                &__postcode {
+                  @include inputLong;
+                }
+                &__city {
+                  @include inputLong;
+                }
+                &__number {
+                  @include inputLong;
+                }
+                &__building {
+                  @include inputLong;
+                }
+                #address_prefecture_id {
+                  @include inputLong;
+                }
+              }
+              
+            }
+            .Actions {
+              font-size: 14px;
+              margin: 24px 0 0;
+              height: 70px;
+              width: 343px;
+              &__submit {
+                @include submitBtn;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
