@@ -39,7 +39,7 @@
           で使いやすい
         %p.list__description
           めんどくさい入力は必要なく、検索も購入もスムーズ！
-      %li.list.list__end
+      %li.list.list--end
         .list__pic
           %span.number
             3
@@ -91,57 +91,130 @@
         %p.information__detail
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   .mainContainer
-    %h2.item__head
-      ピックアップ
+    %h2.item--head
+      ピックアップカテゴリー
     .itemBox
       .itemHead
         %a{ href: '#'}
           %h3.item__title
             新規投稿商品
-      .item__lists
-        - @items.each do |item|
-          .item__list
-            = link_to item_path(item.id) do
-              = image_tag item.images[0].url.url,size:"220x150" 
-              .item__list__body
-                .item__box__name
-                  =item.name
-                .item__box__price
-                  =item.price
-                  円
-                %p.fa.fa-star 9
+      .itemLists
+        .itemList
+          %a{ href: '#'}
+            %figure.item--img
+              = image_tag src="meat.jpg", size:"220x150"
+            .itemList--body
+              %h3.item--name テスト
+              .item--detail
+                %ul 
+                  %li 10000円
+                  %i.fa.fa-star 1
                 %p (税込）
+        .itemList
+          %a{ href: '#'}
+            %figure.item--img
+              = image_tag src="meat.jpg", size:"220x150"
+            .itemList--body
+              %h3.item--name テスト
+              .item--detail
+                %ul 
+                  %li 10000円
+                  %i.fa.fa-star 1
+                %p (税込）
+        .itemList
+          %a{ href: '#'}
+            %figure.item--img
+              = image_tag src="meat.jpg", size:"220x150"
+            .itemList--body
+              %h3.item--name テスト
+              .item--detail
+                %ul 
+                  %li 10000円
+                  %i.fa.fa-star 1
+                %p (税込）
+        .itemList
+          %a{ href: '#'}
+            %figure.item--img
+              = image_tag src="meat.jpg", size:"220x150"
+            .itemList--body
+              %h3.item--name テスト
+              .item--detail
+                %ul 
+                  %li 10000円
+                  %i.fa.fa-star 1
+                %p (税込）
+        .itemList
+          %a{ href: '#'}
+            %figure.item--img
+              = image_tag src="meat.jpg", size:"220x150"
+            .itemList--body
+              %h3.item--name テスト
+              .item--detail
+                %ul 
+                  %li 10000円
+                  %i.fa.fa-star 1
+                %p (税込）           
+  .mainContainer-b
+    %h2.item--head
+      ピックアップブランド
+    .itemBox
       .itemHead
         %a{ href: '#'}
           %h3.item__title
-            レディース・新着
-      .item__lists
-        - @ladies.each do |lady|
-          .item__list
-            = link_to item_path(lady.id) do
-              = image_tag lady.images[0].url.url,size:"220x150" 
-              .item__list__body
-                .item__box__name
-                  =lady.name
-                .item__box__price
-                  =lady.price
-                  円
-                %p.fa.fa-star 8
+            アーカイバ
+      .itemLists
+        .itemList
+          %a{ href: '#'}
+            %figure.item--img
+              = image_tag src="meat.jpg", size:"220x150"
+            .itemList--body
+              %h3.item--name テスト
+              .item--detail
+                %ul 
+                  %li 10000円
+                  %i.fa.fa-star 1
                 %p (税込）
-      .itemHead
-        %a{ href: '#'}
-          %h3.item__title
-            メンズ・新着
-      .item__lists
-        - @mens.each do |man|
-          .item__list
-            = link_to item_path(man.id) do
-              = image_tag man.images[0].url.url,size:"220x150" 
-              .item__list__body
-                .item__box__name
-                  =man.name
-                .item__box__price
-                  =man.price
-                  円
-                %p.fa.fa-star 1
+        .itemList
+          %a{ href: '#'}
+            %figure.item--img
+              = image_tag src="meat.jpg", size:"220x150"
+            .itemList--body
+              %h3.item--name テスト
+              .item--detail
+                %ul 
+                  %li 10000円
+                  %i.fa.fa-star 1
+                %p (税込）
+        .itemList
+          %a{ href: '#'}
+            %figure.item--img
+              = image_tag src="meat.jpg", size:"220x150"
+            .itemList--body
+              %h3.item--name テスト
+              .item--detail
+                %ul 
+                  %li 10000円
+                  %i.fa.fa-star 1
+                %p (税込）
+        .itemList
+          %a{ href: '#'}
+            %figure.item--img
+              = image_tag src="meat.jpg", size:"220x150"
+            .itemList--body
+              %h3.item--name テスト
+              .item--detail
+                %ul 
+                  %li 10000円
+                  %i.fa.fa-star 1
+                %p (税込）
+        .itemList
+          %a{ href: '#'}
+            %figure.item--img
+              = image_tag src="meat.jpg", size:"220x150"
+            .itemList--body
+              %h3.item--name テスト
+              .item--detail
+                %ul 
+                  %li 10000円
+                  %i.fa.fa-star 1
                 %p (税込）
