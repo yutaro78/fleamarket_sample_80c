@@ -25,13 +25,21 @@ $(document).on('turbolinks:load', ()=> {
 
 
   // file_fieldのnameに動的なindexをつける為の配列
-  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  let fileIndex = [1,2,3,4,5];
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
 
   $('.hidden-destroy').hide();
 
+  // editページ読み込み時に画像選択エリアを非表示
+  window.onload = function() {
+    const previewcount = $('.preview').length;
+    const previewscount = $('.previews').length;
+      if (previewcount + previewscount > 4) {
+      $('#label_image').hide();
+    }
+  }
   // 画像選択でイベント発火
   $('#image-box').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
@@ -50,21 +58,18 @@ $(document).on('turbolinks:load', ()=> {
     } else {  // 新規画像追加の処理
       $('#image-box').append(buildImg(targetIndex, blobUrl));
 
+      
+      // fileIndexの先頭の数字を使ってinputを作る
+      $('#image-box').append(buildFileField(fileIndex[0]));
+      fileIndex.shift();
+      // 末尾の数に1足した数を追加する
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+      
+      element.htmlFor = (buildlabel(lastIndex));
+      
+      // クリックエリアを非表示
       const previewcount = $('.preview').length;
       const previewscount = $('.previews').length;
-     
-        // fileIndexの先頭の数字を使ってinputを作る
-        $('#image-box').append(buildFileField(fileIndex[0]));
-        fileIndex.shift();
-        // 末尾の数に1足した数を追加する
-        fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-        
-        element.htmlFor = (buildlabel(lastIndex));
-
-        // クリックエリアを非表示
-        if (previewcount > 4) {
-        $('#label_image').hide();
-      }
         if (previewcount + previewscount > 4) {
         $('#label_image').hide();
       }
