@@ -2,6 +2,11 @@
   .exhibition__top
     %a.top__picture
       = image_tag src="material/logo/logo.png", size: "185x49", class: "exhibition__pic"
+  - if @item.errors.any? 
+    .item-alert
+      %ul
+        - @item.errors.full_messages.each do |message| 
+          %li= message
   .exhibition__main
     .exhibition__content
       .back
