@@ -34,7 +34,7 @@ RSpec.describe Item, type: :model do
       end
 
       it '商品名が41文字以上だと保存できない' do
-        item = build(:item, name: over_word=1001.times.inject("") { |str| str.concat([*"ぁ".."ん"].sample) } )
+        item = build(:item, name: 41.times.inject("") { |str| str.concat([*"ぁ".."ん"].sample) } )
         item.valid?
         expect(item.errors[:name]).to include("は40文字以内で入力してください")
       end
@@ -46,7 +46,7 @@ RSpec.describe Item, type: :model do
       end
 
       it '商品説明が1001文字以上だと保存できない' do
-        item = build(:item, introduction: over_word=1001.times.inject("") { |str| str.concat([*"ぁ".."ん"].sample) } )
+        item = build(:item, introduction: 1001.times.inject("") { |str| str.concat([*"ぁ".."ん"].sample) } )
         item.valid?
         expect(item.errors[:introduction]).to include("は1000文字以内で入力してください")
       end
