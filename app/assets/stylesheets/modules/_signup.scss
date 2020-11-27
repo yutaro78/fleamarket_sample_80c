@@ -1,10 +1,10 @@
 .SignUpContents {
-  height: 1481px;
+  height: 1400px;
   background-color: #f0f0f0;
   .SignUp {
-    height: 1133px;
+    width: 700px;
+    margin: 0 auto;
     &__field {
-      height: 1133px;
       width: 700px;
       font-size: 20px;
       margin: 0 auto;
@@ -20,15 +20,14 @@
       }
       &--main {
         background-color: #fff;
-        height: 1036px;
         width: 700px;
         text-align: left;
         padding: 16px 40px;
         &--contents {
-          height: 760px;
           width: 343px;
           margin: 0 auto;
           max-width: 343px;
+          font-size: 14px;
           .FormField {
             background-color: #fff;
             display: block;
