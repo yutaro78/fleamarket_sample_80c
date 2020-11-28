@@ -32,7 +32,6 @@
               %li 
                 - @item.images.each do |image|
                   = image_tag image.url.url
-                -# = image_tag src="meat.jpg", size:"560x346"
                 %ul 
                   %li 
                     = image_tag src="meat.jpg", size:"140x75"
@@ -90,7 +89,9 @@
                     発送日の目安
                   %td 
                     1-2日で発送
-          = link_to '削除', item_path(@item), method: :delete
+          - if user_signed_in? && current_user.id == @item.user_id
+            = link_to '商品を削除する', item_path(@item), method: :delete
+            = link_to '商品を編集する', edit_item_path
           .option__like
             %ul
               %li.like__button
