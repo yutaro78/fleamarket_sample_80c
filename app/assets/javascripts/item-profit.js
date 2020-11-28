@@ -1,5 +1,5 @@
 // editページに遷移時に自動で計算
-$(document).ready(function(){
+$(window).load(function(){
   // 販売価格に入力された値を取得し代入→手数料と利益を計算し代入
   let priceData = $('#item-price').val();
   let priceProfit = Math.ceil(priceData * 0.9);
