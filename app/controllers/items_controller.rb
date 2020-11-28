@@ -1,8 +1,13 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_parents, only: [:new, :create, :edit]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update,:destroy]
+  before_action :set_parents, only: [:new, :create, :edit, :index]
+  before_action :set_category, only: [:index]
 
   def index
+    @items = Item.order("id DESC").last(5)
+    @ladies = @ladies.set_items.order("id DESC").last(5)
+    @mens = @mens.set_items.order("id DESC").last(5)
   end
   
   def new
@@ -13,9 +18,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to new_item_path
+      redirect_to root_path
     else
-      render new_item_path
+      render :new
     end
   end
   
@@ -62,6 +67,10 @@ class ItemsController < ApplicationController
   end
 
   private
+  def set_category
+    @ladies = Category.find(1)
+    @mens = Category.find(200)
+  end
 
   def item_params
     params.require(:item).permit(:name, :introduction, :price, :condition_id, :size_id, :category_id, :brand, :prefecture_id, :shipping_cost_id, :shipping_days_id, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)

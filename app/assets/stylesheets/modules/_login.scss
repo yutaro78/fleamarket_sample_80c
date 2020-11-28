@@ -2,9 +2,6 @@
   height: 100vh;
   background-color: #f0f0f0;
   padding: 0;
-  .Header {
-    @include bar;
-  }
   .AccountPage {
     background-color: #f0f0f0;
     width: 456px;
