@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+$(window).load(function(){
 
   // 子要素を選択するフォームタグ
   function add_childSelect_tag() {

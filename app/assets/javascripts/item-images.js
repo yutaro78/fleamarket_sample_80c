@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', ()=> {
+$(window).load( ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {
     const html = `<div data-index="${num}" class="js-file_group">
@@ -33,13 +33,11 @@ $(document).on('turbolinks:load', ()=> {
   $('.hidden-destroy').hide();
 
   // editページ読み込み時に画像選択エリアを非表示
-  window.onload = function() {
     const previewcount = $('.preview').length;
     const previewscount = $('.previews').length;
       if (previewcount + previewscount > 4) {
       $('#label_image').hide();
     }
-  }
   // 画像選択でイベント発火
   $('#image-box').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
