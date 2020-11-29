@@ -22,9 +22,10 @@ RSpec.describe Item, type: :model do
 
     context '商品を保存できない場合' do
       it '画像無しでは保存できない' do
-        item = build(:item, image: nil)
+        item = build(:item)
+        item.images = []
         item.valid?
-        expect(item.errors[:images]).to include("を入力して下さい")
+        expect(item.errors[:images]).to include("を入力してください")
       end
 
       it '商品名無しで保存できない' do
