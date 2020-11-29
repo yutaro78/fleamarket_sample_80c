@@ -4,15 +4,19 @@
   padding: 0;
   .AccountPage {
     background-color: #f0f0f0;
-    width: 456px;
+    // width: 456px;
+    width: 70%;
     margin: 0 auto;
     &__new {
+      width: 70%;
       text-align: center;
       padding: 40px 64px;
       border-bottom: 1px solid #ccc;
       background-color: #fff;
+      margin: 0 auto;
       &--btn {
         @include newBtn;
+        width: 58%;
       }
       h5 {
         font-size: 14px;
@@ -23,18 +27,24 @@
     margin: 0 auto;
     padding: 40px 0;
     background-color: #fff;
+    width: 70%;
     .FormField {
       letter-spacing: 1px;
       font-size: 14px;
       font-weight: 200;
+      width: 50%;
+      margin: 0 auto;
       &__email {
         @include form;
+        width: 95%;
       }
       &__pass {
         @include form;
+        width: 95%;
       }
       &__submit {
         @include submitBtn;
+        width: 95%;
       }
     }
   }

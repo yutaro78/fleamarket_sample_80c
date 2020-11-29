@@ -14,13 +14,13 @@
                   = form.label :ニックネーム
                   %span.Required__field--logo 必須
                 .FormField__input
-                  = form.text_field :nickname, class: 'FormField__input__nickname', placeholder: "例）やまさん", autofocus: true, maxlength: "6"
+                  = form.text_field :nickname, class: 'FormField__input__nickname', placeholder: "例）やまさん", autofocus: true, maxlength: "15", size: "48*100"
               .FormField
                 .FormField__label
                   = form.label :メールアドレス
                   %span.Required__field--logo 必須
                 .FormField__input
-                  = form.email_field :email, class: 'FormField__input__email', placeholder: "PC・携帯どちらでも可"
+                  = form.email_field :email, class: 'FormField__input__email', placeholder: "PC・携帯どちらでも可", size: "48*100"
               .PasswordField
                 .PasswordField__label
                   = form.label :パスワード
@@ -42,15 +42,15 @@
                   = form.label :お名前（全角）
                   %span.Required__field--logo 必須
                 .FormField__input
-                  = form.text_field :lastname, class: 'FormField__input__name', placeholder: "例）山田"
-                  = form.text_field :firstname, class: 'FormField__input__name', placeholder: "例）太郎"
+                  = form.text_field :lastname, class: 'FormField__input__name', placeholder: "例）山田", size: "48*100"
+                  = form.text_field :firstname, class: 'FormField__input__name', placeholder: "例）太郎", size: "48*100"
               .FormField
                 .FormField__label
                   = form.label :お名前カナ（全角）
                   %span.Required__field--logo 必須
                 .FormField__input
-                  = form.text_field :lastname_kana, class: 'FormField__input__kana', placeholder: "例）ヤマダ"
-                  = form.text_field :firstname_kana, class: 'FormField__input__kana', placeholder: "例）タロウ"
+                  = form.text_field :lastname_kana, class: 'FormField__input__kana', placeholder: "例）ヤマダ", size: "48*100"
+                  = form.text_field :firstname_kana, class: 'FormField__input__kana', placeholder: "例）タロウ", size: "48*100"
               .FormField
                 .FormField__label
                   = form.label :生年月日
