@@ -1,23 +1,25 @@
-.allscreens        
+.allscreens  
   .all
     .Header
       .Header__logo
         購入内容の確認
     .shopping
-      = image_tag "m49823677505_1.jpg", class: "shopping__image"
+      - @item.images.each do |image|
+        = image_tag image.url.url
       .explanation
         .details__message
-          新品　ヘルノ　カシミヤチェスターコート　ダウンコート　キャメル44   
+          =@item.name
         .price__message
-          送料込み(税込)
           %span
-            ¥128,000
+            =@item.price
+            送料込み(税込)
       
     .payment
       .payment__message
         支払い金額
       .money__messsage
-        ¥128,000
+        ￥
+        =@item.price 
     .method
       .method__message
         支払い方法 
@@ -32,6 +34,5 @@
       .input__message
         配送先と支払い方法の入力を完了してください。
     .purchase
-      .purchas__message
-        購入する
+      = link_to "購入",item_purchases_path, method: :post
     .form__message

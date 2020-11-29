@@ -26,7 +26,7 @@
       .product__content
         .product__box
           %h2.product__box__name
-            ee
+            =@item.name
           .product__box__body
             %ul 
               %li 
@@ -39,9 +39,9 @@
                     = image_tag src="meat.jpg", size:"140x75"
           .product__box__price
             %span
-              ￥1000
+              =@item.price
           .product__detail
-            eee 
+            =@item.name
           .product__table
             %table
               %body
@@ -138,3 +138,5 @@
                     %li 10000円
                     %i.fa.fa-star 1
                   %p (税込）
+          .item__nomo
+            = link_to "購入",item_purchases_path(@item),  method: :get

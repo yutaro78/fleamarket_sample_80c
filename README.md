@@ -147,3 +147,8 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_ancestry
+
+orders
+
+item_id
+buyer_id
