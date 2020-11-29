@@ -10,8 +10,7 @@
   .exhibition__main
     .exhibition__content
       .back
-      %form{:action => "#", :method => "post",class:"form"}
-      = form_with model:@item do |f|
+      = form_with model:@item, local: true do |f|
         .back
         .form__image
           .form__style
