@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
   
   def show
     @items = Item.includes(:images).order('created_at DESC')
+    
   end
 
   def edit

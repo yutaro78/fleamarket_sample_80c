@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
-
+  require 'payjp'#Payjpの読み込み
+  before_action :set_card, :set_item
   def index
     @user = current_user
     @card = Pay.where(user_id: current_user.id).first
@@ -24,24 +25,26 @@ class PurchasesController < ApplicationController
           customer: Payjp::Customer.retrieve(@card.customer_id),
           currency: 'jpy'
         )
-
-        # @product_buyer= Item.find(params[:item_id])
-        # Order.create(user_id: current_user.id, item_id: @product_buyer.id)
-        # redirect_to purchased_product_path
+         @product_buyer= Item.find(params[:item_id])
+         Order.create(user_id: current_user.id, item_id: @product_buyer.id)
+         redirect_to item_purchase_path(@item.id,@item.id)
   end
   def show
     @item = Item.find(params[:item_id])
+    @product_buyer= Item.find(params[:id])
+    @product_buyer.update( user_id: current_user.id)
+    
   end
   private
  
-  def item_params
-    params.require(:item).permit(
-      :name,
-      :text,
-      :price,
-      #この辺の他コードは関係ない部分なので省略してます
-    ).merge(user_id: current_user.id)
-  end
+  # def item_params
+  #   params.require(:item).permit(
+  #     :name,
+  #     :text,
+  #     :price,
+  #     #この辺の他コードは関係ない部分なので省略してます
+  #   ).merge(user_id: current_user.id)
+  # end
 
   
 end

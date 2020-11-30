@@ -32,6 +32,9 @@
               %li 
                 - @item.images.each do |image|
                   = image_tag image.url.url
+                -if @item.order.present?
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner SOLD
                 %ul 
                   %li 
                     = image_tag src="meat.jpg", size:"140x75"
@@ -97,6 +100,9 @@
               %li.like__button
                 %i.fa.fa-star 
                   お気に入り 4
+            %ul
+              %li.purchase__confirmation
+                = link_to "購入",item_purchases_path(@item),  method: :get
             %ul.report
               %li.report__button
                 %i.fa.fa-flag
@@ -138,5 +144,4 @@
                     %li 10000円
                     %i.fa.fa-star 1
                   %p (税込）
-          .item__nomo
-            = link_to "購入",item_purchases_path(@item),  method: :get
+

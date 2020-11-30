@@ -15,6 +15,6 @@ class User < ApplicationRecord
   validates :nickname,  presence: true
 
   has_one :address
-
+  has_many :order
   has_many :pays
 end
