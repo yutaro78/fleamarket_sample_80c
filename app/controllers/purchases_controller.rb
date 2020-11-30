@@ -1,6 +1,5 @@
 class PurchasesController < ApplicationController
-  require 'payjp'#Payjpの読み込み
-  before_action :set_card, :set_item
+  
   def index
     @user = current_user
     @card = Pay.where(user_id: current_user.id).first
