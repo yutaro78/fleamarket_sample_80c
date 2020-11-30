@@ -26,22 +26,26 @@
       .product__content
         .product__box
           %h2.product__box__name
-            ee
+            -# ee
+            = @item.name
           .product__box__body
             %ul 
               %li 
                 - @item.images.each do |image|
                   = image_tag image.url.url
-                %ul 
-                  %li 
-                    = image_tag src="meat.jpg", size:"140x75"
-                  %li 
-                    = image_tag src="meat.jpg", size:"140x75"
+                -# %ul 
+                -#   %li 
+                -#     = image_tag src="meat.jpg", size:"140x75"
+                -#   %li 
+                -#     = image_tag src="meat.jpg", size:"140x75"
           .product__box__price
             %span
-              ￥1000
+              -# ￥1000
+              = "¥"
+              = @item.price
           .product__detail
-            eee 
+            -# eee 
+            = @item.introduction
           .product__table
             %table
               %body
@@ -49,46 +53,54 @@
                   %th 
                     出品者
                   %td 
-                    ss
+                    -# ss
+                    = @item.user.nickname
                 %tr 
                   %th 
                     カテゴリー
                   %td 
-                    = link_to 'ベビー・キッズ', '#'
+                    = @item.category.root.name
+                    -# = link_to 'ベビー・キッズ', '#'
                     %br
-                    = link_to 'ベビー服（男の子用)~95cm', '#'
+                    = @item.category.parent.name
+                    -# = link_to 'ベビー服（男の子用)~95cm', '#'
                     %br
-                    = link_to 'アウター', '#'
+                    = @item.category.name
+                    -# = link_to 'アウター', '#'
                 %tr 
                   %th 
                     ブランド
                   %td 
-                    
+                    = @item.brand
                 %tr 
                   %th 
                     商品のサイズ
                   %td 
-                    
+                    = @item.size
                 %tr 
                   %th 
                     商品の状態
                   %td 
-                    新品/未使用
+                    -# 新品/未使用
+                    = @item.condition.name
                 %tr 
                   %th 
                     配送料の負担
                   %td 
-                    送料込み（出品者負担）
+                    -# 送料込み（出品者負担）
+                    = @item.shipping_cost.name
                 %tr 
                   %th 
                     発送元の地域
                   %td 
-                    = link_to '北海道', '#'
+                    -# = link_to '北海道', '#'
+                    = @item.prefecture.name
                 %tr 
                   %th 
                     発送日の目安
                   %td 
-                    1-2日で発送
+                    -# 1-2日で発送
+                    = @item.shipping_days.name
           - if user_signed_in? && current_user.id == @item.user_id
             = link_to '商品を削除する', item_path(@item), method: :delete
             = link_to '商品を編集する', edit_item_path

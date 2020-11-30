@@ -5,16 +5,22 @@
       %li.Main__information__group 
         お名前 
         %p.Main__information__group__item 
-          山田太郎 
+          -# 山田太郎 
+          = current_user.lastname
+          = current_user.firstname
       %li.Main__information__group
         フリガナ 
         %p.Main__information__group__item 
-          ヤマダ タロウ 
+          -# ヤマダ タロウ 
+          = current_user.lastname_kana
+          = current_user.firstname_kana
       %li.Main__information__group 
         生年月日 
         %p.Main__information__group__item 
-          1986/11/11
+          -# 1986/11/11
+          = current_user.birth
       %li.Main__information__group 
         e-mail 
         %p.Main__information__group__item 
-          yamada@yamada.com 
+          -# yamada@yamada.com 
+          = current_user.email
