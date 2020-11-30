@@ -34,5 +34,5 @@
       .input__message
         配送先と支払い方法の入力を完了してください。
     .purchase
-      = link_to "購入",item_purchases_path, method: :post
+      = link_to "購入",item_purchase_path(@item.id,@item.id)
     .form__message

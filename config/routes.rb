@@ -14,10 +14,12 @@ Rails.application.routes.draw do
   resources :users, only: :show
   
   resources :items do
-    resources :purchases, only: [:index ,:create]do
-      collection do
-      get :search_category
-      end
+    resources :purchases, only: [:index ,:create,:show]do
+    #   collection do
+    #     get 'index', to: 'purchases#index'
+    #     post 'create',to:'purchases#show'
+    #     get 'show', to: 'purchases#show'
+    #   end
     end
   end
 

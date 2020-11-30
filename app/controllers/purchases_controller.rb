@@ -24,12 +24,14 @@ class PurchasesController < ApplicationController
           customer: Payjp::Customer.retrieve(@card.customer_id),
           currency: 'jpy'
         )
-      #製品のbuyer_idを付与
+
         # @product_buyer= Item.find(params[:item_id])
-        # @product_buyer.update( buyer_id: current_user.id)
+        # Order.create(user_id: current_user.id, item_id: @product_buyer.id)
         # redirect_to purchased_product_path
   end
-
+  def show
+    @item = Item.find(params[:item_id])
+  end
   private
  
   def item_params
@@ -40,5 +42,6 @@ class PurchasesController < ApplicationController
       #この辺の他コードは関係ない部分なので省略してます
     ).merge(user_id: current_user.id)
   end
+
   
 end
