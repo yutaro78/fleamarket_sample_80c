@@ -93,6 +93,28 @@
   font-size: 16px;
   resize: none;
 }
+
+@mixin center  {
+  display: block;
+  font-size: 14px;
+  height: 80px;
+  width: 328px;
+  padding: 0 10px;
+  margin: 15px auto;
+  line-height: 40px;
+  letter-spacing: 1px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color:white;
+  color: black;
+  font-size: 14px;
+  .registration__message {
+    color: #0095EE;
+  
+  }
+}
 @mixin border{
   border-top-width: 1px;
   border-top-color: #efefef;
