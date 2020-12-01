@@ -6,7 +6,7 @@
     .all{
       padding:0px;
       background-color:white;
-      
+      height: 100%;
 
       .Header {
         height: 128px;
@@ -134,9 +134,8 @@
         border: 1px solid #ccc;
         border-radius: 4px;
         text-decoration: none;
-        background-color:＃ccc;
         font-size: 17px;
-        color:#888;
+        background-color:#3CCACE ;
       }
 
       .bar {@include bar

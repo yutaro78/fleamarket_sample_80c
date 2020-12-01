@@ -1,28 +1,27 @@
 %h1.buy-content__attention
   %i.far.fa-clock
     発送をお待ちください
-  %h2.buy-content__attention__title
-    購入が完了しました
-  .buy-content__item
-    .buy-content__item__inner
-      .buy-item-main
-        .buy-item-image
-          - @item.images.each do |image|
-            = image_tag image.url.url
-        .buy-item-detail
-          .buy-item-name
-            = @item.name
-            %p.buy-price
-              %span 
-                =@item.price
-              %span
-                .shipping-free (税込) 送料込み
-  .buy-content__item
-    %form.buy-form
-      .buy-price-table
-        .buy-price-table__left
-          支払金額
-        .buy-price-table__right
+  .allscreens  
+    .all
+      .Header
+        .Header__logo
+          購入完了
+      .shopping
+        - @item.images.each do |image|
+          = image_tag image.url.url
+        .explanation
+          .details__message
+            =@item.name
+          .price__message
+            %span
+              ￥
+              =@item.price
+              送料込み(税込)
+      .payment
+        .payment__message
+          支払い金額
+        .money__messsage
+          ￥
           =@item.price
-      .buy-content__user-info__submit
-        = link_to "トップページへ戻る", root_path, class: 'buy-content__user-info__submit__button'
+      .purchase__done
+        = link_to "トップページへ戻る",root_path

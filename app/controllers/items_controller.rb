@@ -52,7 +52,7 @@ class ItemsController < ApplicationController
   def set_parents
     @category_parents = Category.where(ancestry: nil)
   end
-
+ 
 
 
   def search_category

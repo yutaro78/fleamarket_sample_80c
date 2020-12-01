@@ -100,13 +100,16 @@
               %li.like__button
                 %i.fa.fa-star 
                   お気に入り 4
-            %ul
-              %li.purchase__confirmation
-                = link_to "購入",item_purchases_path(@item),  method: :get
             %ul.report
               %li.report__button
                 %i.fa.fa-flag
                 = link_to '不適切な商品の通報', '#'
+          .purchase__confirmation
+            -if @item.order.present?
+              .purchase__confirmation__sold
+                売り切れ
+            -else
+              = link_to "購入",item_purchases_path(@item),  method: :get
         .comment__box
           %ul.comment__content
           %form{action: "#", method:  "post",class:"form",id: "new_comment"}
