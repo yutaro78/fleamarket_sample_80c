@@ -92,9 +92,6 @@
                     発送日の目安
                   %td 
                     1-2日で発送
-          - if user_signed_in? && current_user.id == @item.user_id
-            = link_to '商品を削除する', item_path(@item), method: :delete
-            = link_to '商品を編集する', edit_item_path
           .option__like
             %ul
               %li.like__button
@@ -104,12 +101,17 @@
               %li.report__button
                 %i.fa.fa-flag
                 = link_to '不適切な商品の通報', '#'
-          .purchase__confirmation
-            -if @item.order.present?
+          - if user_signed_in? && current_user.id == @item.user_id
+            = link_to '商品を削除する', item_path(@item), method: :delete
+            = link_to '商品を編集する', edit_item_path
+          - elsif @item.order.present?
+            .purchase__confirmation
               .purchase__confirmation__sold
-                売り切れ
-            -else
-              = link_to "購入",item_purchases_path(@item),  method: :get
+                売り切れました 
+          - else
+            .purchase__confirmation
+              .purchase__confirmation__sell
+                = link_to "購入画面に進む",item_purchases_path(@item),  method: :get
         .comment__box
           %ul.comment__content
           %form{action: "#", method:  "post",class:"form",id: "new_comment"}
