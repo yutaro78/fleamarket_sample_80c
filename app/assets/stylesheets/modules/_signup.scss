@@ -3,7 +3,6 @@
   width: 100%;
   background-color: #f0f0f0;
   .SignUp {
-    // width: 700px;
     width: 100%;
     margin: 0 auto;
     &__field {
@@ -36,7 +35,6 @@
             background-color: #fff;
             display: block;
             height: 70px;
-            // width: 343px;
             margin-bottom: 24px;
             &__label {
               @include label;
