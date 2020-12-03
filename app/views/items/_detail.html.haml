@@ -101,13 +101,14 @@
               %li.report__button
                 %i.fa.fa-flag
                 = link_to '不適切な商品の通報', '#'
-          - if user_signed_in? && current_user.id == @item.user_id
-            = link_to '商品を削除する', item_path(@item), method: :delete
-            = link_to '商品を編集する', edit_item_path
-          - elsif @item.order.present?
+          - if @item.order.present?
             .purchase__confirmation
               .purchase__confirmation__sold
                 売り切れました 
+              = link_to '商品を削除する', item_path(@item), method: :delete
+          - elsif user_signed_in? && current_user.id == @item.user_id
+            = link_to '商品を削除する', item_path(@item), method: :delete
+            = link_to '商品を編集する', edit_item_path 
           - else
             .purchase__confirmation
               .purchase__confirmation__sell

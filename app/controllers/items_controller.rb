@@ -23,6 +23,9 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+    @product_buyer= Item.find(params[:item_id])
+    Order.create(user_id: current_user.id, item_id: @product_buyer.id)
+    redirect_to item_purchase_path(@item.id,@item.id)
   end
   
   def show

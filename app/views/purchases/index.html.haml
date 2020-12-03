@@ -21,7 +21,8 @@
         =@item.price 
     .method
       .method__message
-        .resistration__card__detail
+        .detail__message
+          クレジットカード情報
       .registration__message
         - if @default_card_information.present?
           = "**** **** **** " + @default_card_information.last4
@@ -30,17 +31,18 @@
           - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
           = exp_month + " / " + exp_year
         - else
-          = link_to 'クレジット登録',new_pay_path, class: "List__item"
+          = link_to 'クレジットカード登録',new_pay_path, class: "List__item"
     .shipping 
-      .shipping__message
+      .detail__message
         配送先
       .registration__message
-        ⊕登録してください
-    .input
-      .input__message
-        配送先と支払い方法の入力を完了してください。
+        =current_user.address.post_code
+        %br
+        =current_user.address.city
+        =current_user.address.house_number
+        =current_user.address.building_name
     .purchase
       - if @default_card_information.present?
         = link_to "購入",item_purchases_path(@item.id), method: :post
       - else 
-        = link_to "購入","#"
+        = link_to "必要な情報を入力してください","#"

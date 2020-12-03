@@ -111,6 +111,9 @@
                   円
                 %p.fa.fa-star 9
                 %p (税込）
+            -if @item.order.present?
+              .items-box_photo__sold
+                .items-box_photo__sold__inner SOLD
       .itemHead
         %a{ href: '#'}
           %h3.item__title
