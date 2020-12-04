@@ -7,8 +7,6 @@ class PurchasesController < ApplicationController
     
     @user = current_user
     @card = Pay.where(user_id: current_user.id).first
-    # @address = Address.where(user_id: current_user.id).first
-    # @address = Address.find()
     @item = Item.find(params[:item_id])
   #Payjpの秘密鍵を取得
     if @card.blank?
@@ -44,7 +42,6 @@ class PurchasesController < ApplicationController
     @card =Pay.where(user_id: current_user.id).first
     @item = Item.find(params[:item_id])
     @product_buyer= Item.find(params[:id])
-    # @product_buyer.update( user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     customer = Payjp::Customer.retrieve(@card.customer_id)
     
@@ -55,15 +52,5 @@ class PurchasesController < ApplicationController
     card = Pay.where(user_id: current_user.id).first
     @card = Pay.where(user_id: current_user.id).first if Pay.where(user_id: current_user.id).present?
   end
-
-  # def item_params
-  #   params.require(:item).permit(
-  #     :name,
-  #     :text,
-  #     :price,
-  #     #この辺の他コードは関係ない部分なので省略してます
-  #   ).merge(user_id: current_user.id)
-  # end
-
   
 end
