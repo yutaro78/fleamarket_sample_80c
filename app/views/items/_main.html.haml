@@ -111,9 +111,9 @@
                   円
                 %p.fa.fa-star 9
                 %p (税込）
-            -if @item.order.present?
-              .items-box_photo__sold
-                .items-box_photo__sold__inner SOLD
+              -if item.order.present?
+                .items-box_photo__solds
+                  .items-box_photo__sold__inners SOLD
       .itemHead
         %a{ href: '#'}
           %h3.item__title
@@ -131,6 +131,9 @@
                   円
                 %p.fa.fa-star 8
                 %p (税込）
+              -if lady.order.present?
+                .items-box_photo__solds
+                  .items-box_photo__sold__inners SOLD
       .itemHead
         %a{ href: '#'}
           %h3.item__title
@@ -148,3 +151,6 @@
                   円
                 %p.fa.fa-star 1
                 %p (税込）
+              -if man.order.present?
+                .items-box_photo__solds
+                  .items-box_photo__sold__inners SOLD

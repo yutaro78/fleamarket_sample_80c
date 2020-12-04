@@ -74,6 +74,7 @@
 .product__box__body ul li img{
   object-fit: cover;
   height: 346px;
+  
 }
 .product__box__body ul li ul{
   display: flex;
@@ -302,28 +303,25 @@ td a{
 }
 
 .items-box_photo__sold{
+  left:0;
   width: 0;
   height: 0;
   border-width: 120px 120px 0 0;
-  border-top: 60px solid #ea352d ;
-  border-right: 60px solid transparent;
-  border-bottom: 60px solid transparent;
-  border-left: 60px solid #ea352d ;
+  border-top: 110px solid #ea352d ;
+  border-right: 110px solid transparent;
+  border-bottom: 110px solid transparent;
+  border-left: 110px solid #ea352d ;
   display: block;
   position: absolute;
   top: 0;
-  left: 179px;
   z-index: 1;
-  width: 0;
-  height: 0;
   border-style: solid;
   &__inner{
     transform: rotate(-45deg);
-    font-size: 28px;
+    font-size: 43px;
     margin:-35px 0px 0px -55px;
     color: #fff;
     letter-spacing: 2px;
     font-weight: 600;
-    
   }
 }

@@ -4,6 +4,7 @@ class PurchasesController < ApplicationController
 
 
   def index
+    
     @user = current_user
     @card = Pay.where(user_id: current_user.id).first
     # @address = Address.where(user_id: current_user.id).first
@@ -43,7 +44,7 @@ class PurchasesController < ApplicationController
     @card =Pay.where(user_id: current_user.id).first
     @item = Item.find(params[:item_id])
     @product_buyer= Item.find(params[:id])
-    @product_buyer.update( user_id: current_user.id)
+    # @product_buyer.update( user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     customer = Payjp::Customer.retrieve(@card.customer_id)
     

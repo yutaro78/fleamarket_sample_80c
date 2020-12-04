@@ -6,9 +6,9 @@ class ItemsController < ApplicationController
   before_action :item_current_user, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.order("id DESC").last(5)
-    @ladies = @ladies.set_items.order("id DESC").last(5)
-    @mens = @mens.set_items.order("id DESC").last(5)
+    @items = Item.order("id DESC").limit(5)
+    @ladies = @ladies.set_items.order("id DESC").limit(5)
+    @mens = @mens.set_items.order("id DESC").limit(5)
   end
   
   def new
@@ -23,9 +23,9 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-    @product_buyer= Item.find(params[:item_id])
-    Order.create(user_id: current_user.id, item_id: @product_buyer.id)
-    redirect_to item_purchase_path(@item.id,@item.id)
+    # @product_buyer= Item.find(params[:item_id])
+    # Order.create(user_id: current_user.id, item_id: @product_buyer.id)
+    # redirect_to item_purchase_path(@item.id,@item.id)
   end
   
   def show
