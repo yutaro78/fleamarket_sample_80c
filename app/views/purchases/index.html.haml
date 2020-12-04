@@ -4,8 +4,7 @@
       .Header__logo
         購入内容の確認
     .shopping
-      - @item.images.each do |image|
-        = image_tag image.url.url
+      = image_tag @item.images[0].url.url,size:"80x107" 
       .explanation
         .details__message
           =@item.name
