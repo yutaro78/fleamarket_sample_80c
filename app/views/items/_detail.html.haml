@@ -1,3 +1,4 @@
+= render 'items/header'
 %nav.category__order
   %ul 
     %li 
@@ -35,16 +36,14 @@
                   -if @item.order.present?
                     .items-box_photo__sold
                       .items-box_photo__sold__inner SOLD
-                %ul 
-                  %li 
-                    = image_tag src="meat.jpg", size:"140x75"
-                  %li 
-                    = image_tag src="meat.jpg", size:"140x75"
           .product__box__price
             %span
-              =@item.price
+              = "¥"
+              = @item.price
+              %span.price__tax
+                = "（税込）"
           .product__detail
-            =@item.name
+            = @item.introduction
           .product__table
             %table
               %body
@@ -52,41 +51,41 @@
                   %th 
                     出品者
                   %td 
-                    ss
+                    = @item.user.nickname
                 %tr 
                   %th 
                     カテゴリー
                   %td 
-                    = link_to 'ベビー・キッズ', '#'
+                    = @item.category.root.name
                     %br
-                    = link_to 'ベビー服（男の子用)~95cm', '#'
+                    = @item.category.parent.name
                     %br
-                    = link_to 'アウター', '#'
+                    = @item.category.name
                 %tr 
                   %th 
                     ブランド
                   %td 
-                    
+                    = @item.brand
                 %tr 
                   %th 
                     商品のサイズ
                   %td 
-                    
+                    = @item.size
                 %tr 
                   %th 
                     商品の状態
                   %td 
-                    新品/未使用
+                    = @item.condition.name
                 %tr 
                   %th 
                     配送料の負担
                   %td 
-                    送料込み（出品者負担）
+                    = @item.shipping_cost.name
                 %tr 
                   %th 
                     発送元の地域
                   %td 
-                    = link_to '北海道', '#'
+                    = @item.prefecture.name
                 %tr 
                   %th 
                     発送日の目安
@@ -102,7 +101,10 @@
                 %i.fa.fa-flag
                 = link_to '不適切な商品の通報', '#'
           - if @item.order.present?  && current_user.id == @item.user_id
-            = link_to '商品を削除する', item_path(@item), method: :delete
+            %ul
+              %li.btns
+                %i.fa.fa-trash-alt
+                = link_to '商品を削除する', item_path(@item), method: :delete, class: "delete__btn"
             .purchase__confirmation
               .purchase__confirmation__sold
                 売り切れました
@@ -111,8 +113,13 @@
               .purchase__confirmation__sold
                 売り切れました
           - elsif user_signed_in? && current_user.id == @item.user_id
-            = link_to '商品を削除する', item_path(@item), method: :delete
-            = link_to '商品を編集する', edit_item_path 
+            %ul
+              %li.btns
+                %i.fa.fa-trash-alt
+                = link_to '商品を削除する', item_path(@item), method: :delete, class: "delete__btn"
+              %li.btns
+                %i.fa.fa-edit
+                = link_to '商品を編集する', edit_item_path, calss: "edit__btn"
           - else
             .purchase__confirmation
               .purchase__confirmation__sell
@@ -143,17 +150,20 @@
             %span
             %i.fa.fa-angle-right
         .item__related
-          = link_to 'ベビー・キッズをもっと見る', '#'
-          .product__lists
-            .product__list
-              = link_to '', '#'
-              %figure.product__img
-                = image_tag src="meat.jpg",size:"220x150"
-              .itemList__name
-                %h3.item--name テスト
+          = link_to '新着投稿商品', '#'
+        .product__lists
+          - @items.each do |item|
+            .product__lists__list
+              = link_to item_path(item.id) do
+                %figure.product__img
+                  = image_tag item.images[0].url.url, size: "220x150", class: "images"
+              .product__lists__list__item__name
+                %h3.item--name 
+                  = item.name
                 .item--detail
                   %ul 
-                    %li 10000円
+                    %li 
+                      = item.price
+                      円
                     %i.fa.fa-star 1
-                  %p (税込）
-
+                    %p (税込）

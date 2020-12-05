@@ -30,7 +30,7 @@
   font-size: 14px;
   display: block;
   height: 48px;
-  width: 328px;
+  width: 100%;
   padding: 0 30px;
   margin: 8px auto;
   line-height: 40px;
@@ -79,7 +79,8 @@
   line-height: 1.5;
   font-size: 16px;
   margin-right: 8px;
-  width: calc(50% - 6px);
+  width: 100%;
+  resize: none;
 }
 @mixin inputLong {
   height: 48px;
@@ -89,6 +90,7 @@
   border: 1px solid #ccc;
   background-color: #fff;
   font-size: 16px;
+  resize: none;
 }
 
 @mixin center  {
@@ -153,7 +155,7 @@
 //追記
 @mixin birthSelect {
   height: 48px;
-  width: 76px;
+  width: 25%;
   border: 1px solid #ccc;
   padding: 0 10px;
   position: relative;
@@ -183,6 +185,7 @@
   font-size: 14px;
   display: inline-block;
   margin: 8px 0 0 0;
+  width: 100%;
 }
 
 //追記

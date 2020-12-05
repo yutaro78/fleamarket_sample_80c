@@ -11,7 +11,7 @@
               = devise_error_messages!
               .FormField
                 .FormField__label
-                  = form.label :郵便番号
+                  = form.label :郵便番号（半角）
                   %span.Required__field--logo 必須
                 .FormField__input
                   = form.text_field :post_code, class: 'FormField__input__postcode', placeholder: "例）123-4567", autofocus: true, maxlength: "8"
@@ -32,12 +32,12 @@
                   = form.label :番地
                   %span.Required__field--logo 必須
                 .FormField__input
-                  = form.text_field :house_number, class: 'FormField__input__number', placeholder: "例）青山1-1-1", autofocus: true
+                  = form.text_field :house_number, class: 'FormField__input__number', placeholder: "例）青山1-1-1(数字は半角)", autofocus: true
               .FormField
                 .FormField__label
                   = form.label :建物名
                   %span.Required__field--logoB 任意
                 .FormField__input
-                  = form.text_field :building_name, class: 'FormField__input__building', placeholder: "例）柳ビル103", autofocus: true
+                  = form.text_field :building_name, class: 'FormField__input__building', placeholder: "例）柳ビル103(数字は半角)", autofocus: true
               .Actions
               = form.submit '新規登録', class: 'Actions__submit'
