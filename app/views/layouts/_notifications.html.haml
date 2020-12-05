@@ -1,0 +1,5 @@
+.Notification
+  - flash.each do |key, value|
+    = content_tag :div, value, class: key
+
+-# each文で１つずつ取り出す
