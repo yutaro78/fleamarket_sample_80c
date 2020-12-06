@@ -29,10 +29,36 @@
           %h2.product__box__name
             = @item.name
           .product__box__body
-            %ul 
-              %li 
-                - @item.images.each do |image|
-                  = image_tag image.url.url
+            .product__box__body__main
+              %div{class: 'body__main__lists', data: {index:0}, style: "z-index:99;"}
+                = image_tag @item.images[0].url.url, width: '300', height: '400'
+              - if @item.images[1].present?
+                %div{class: 'body__main__lists', data: {index:1}, style: "z-index:-1;"}
+                  = image_tag @item.images[1].url.url, width: '300', height: '400'
+              - if @item.images[2].present?
+                %div{class: 'body__main__lists', data: {index:2}, style: "z-index:-1;"}
+                  = image_tag @item.images[2].url.url, width: '300', height: '400'
+              - if @item.images[3].present?
+                %div{class: 'body__main__lists', data: {index:3}, style: "z-index:-1;"}
+                  = image_tag @item.images[3].url.url, width: '300', height: '400'
+              - if @item.images[4].present?
+                %div{class: 'body__main__lists', data: {index:4}, style: "z-index:-1;"}
+                  = image_tag @item.images[4].url.url, width: '300', height: '400'
+            .product__box__body__thumbs
+              %div{class: 'product__box__body__thumbs__lists' , data: {index:0}}
+                =image_tag @item.images[0].url.url, width: '100', height: '100', alt: "pic1", class: "thumbsimage"
+              - if @item.images[1].present?
+                %div{class: 'product__box__body__thumbs__lists__item' , data: {index:1}}
+                  =image_tag @item.images[1].url.url, width: '100', height: '100',alt: "pic2", class: "thumbsimage"
+              - if @item.images[2].present?
+                %div{class: 'product__box__body__thumbs__lists__item' , data: {index:2}}
+                  =image_tag @item.images[2].url.url, width: '100', height: '100', alt: "pic3", class: "thumbsimage"
+              - if @item.images[3].present?
+                %div{class: 'product__box__body__thumbs__lists__item' , data: {index:3}}
+                  =image_tag @item.images[3].url.url, width: '100', height: '100', alt: "pic4", class: "thumbsimage"
+              - if @item.images[4].present?
+                %div{class: 'product__box__body__thumbs__lists__item' , data: {index:4}}
+                  =image_tag @item.images[4].url.url, width: '100', height: '100', alt: "pic5", class: "thumbsimage"
           .product__box__price
             %span
               = "¥"
