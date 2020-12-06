@@ -100,7 +100,7 @@
               %li.report__button
                 %i.fa.fa-flag
                 = link_to '不適切な商品の通報', '#'
-          - if @item.order.present?  && current_user.id == @item.user_id
+          - if user_signed_in? && @item.order.present?  && current_user.id == @item.user_id
             %ul
               %li.btns
                 %i.fa.fa-trash-alt
@@ -108,7 +108,7 @@
             .purchase__confirmation
               .purchase__confirmation__sold
                 売り切れました
-          - elsif @item.order.present? 
+          - elsif @item.order.present?
             .purchase__confirmation
               .purchase__confirmation__sold
                 売り切れました
@@ -120,10 +120,14 @@
               %li.btns
                 %i.fa.fa-edit
                 = link_to '商品を編集する', edit_item_path, calss: "edit__btn"
-          - else
+          - elsif user_signed_in?
             .purchase__confirmation
               .purchase__confirmation__sell
                 = link_to "購入画面に進む",item_purchases_path(@item),  method: :get
+          - else 
+            .purchase__confirmation
+              .purchase__confirmation__sell
+                = link_to "新規登録して購入する",new_user_registration_path
         .comment__box
           - if @item.order.present?
           -else

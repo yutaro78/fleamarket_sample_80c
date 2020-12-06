@@ -1,13 +1,13 @@
 class PurchasesController < ApplicationController
   require "payjp"
-  before_action :set_creditcard, only: [:buy, :index]
-
-
+  before_action :authenticate_user!
+  before_action :set_item, only: [:index, :create]
+  before_action :set_creditcard, only: [:index]
+  
   def index
-    
+    redirect_to root_path if @item.order.present?
     @user = current_user
     @card = Pay.where(user_id: current_user.id).first
-    @item = Item.find(params[:item_id])
   #Payjpの秘密鍵を取得
     if @card.blank?
     #登録された情報がない場合にカード登録画面に移動
@@ -22,7 +22,6 @@ class PurchasesController < ApplicationController
   end
   def create
     #クレジットカードと製品の変数を設定
-        @item = Item.find(params[:item_id])
         @card =Pay.where(user_id: current_user.id).first
         # @item = Item.find(params[:id])
      #Payjpの秘密鍵を取得
@@ -35,16 +34,8 @@ class PurchasesController < ApplicationController
         )
          @product_buyer= Item.find(params[:item_id])
          Order.create(user_id: current_user.id, item_id: @product_buyer.id)
-         redirect_to item_purchase_path(@item.id,@item.id)
+        #  redirect_to item_purchase_path(@item.id,@item.id)
          
-  end
-  def show
-    @card =Pay.where(user_id: current_user.id).first
-    @item = Item.find(params[:item_id])
-    @product_buyer= Item.find(params[:id])
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    customer = Payjp::Customer.retrieve(@card.customer_id)
-    
   end
   
   private
@@ -52,5 +43,9 @@ class PurchasesController < ApplicationController
     card = Pay.where(user_id: current_user.id).first
     @card = Pay.where(user_id: current_user.id).first if Pay.where(user_id: current_user.id).present?
   end
-  
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
 end
