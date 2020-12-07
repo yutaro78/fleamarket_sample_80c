@@ -63,17 +63,6 @@
             margin: 0 auto;
           }
       }
-          .dpoint{
-            height: 60px;
-            width:360px;
-            margin: 0 auto;
-            background-color: white;
-            display: flex;
-            justify-content: space-around;
-            font-size:18px ;
-            .point__message{
-              padding-right: 60px;
-            }
             .dacount__message{
             height: 20px;
             width:160px;
@@ -82,16 +71,15 @@
             padding-left:10px ;
 
             }
-          }
       }
           .method{ 
             height: 80px;
-            @include center 
+            @include center;
             
           }
           .shipping { 
             height: 100px;
-            @include center
+            @include center;
           }
       .purchase{
         font-size: 14px;
@@ -113,8 +101,6 @@
 
       .bar {@include bar
       }
-      // .inputEmail {@include inputEmail 
-      // }
       .detail__message{
         margin-top:8px;
         margin-bottom:8px;
