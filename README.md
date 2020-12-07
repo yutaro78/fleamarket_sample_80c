@@ -147,3 +147,13 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_ancestry
+
+### ordersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null:false, foreign_key:true|
+|item_id|references|null:false, foreign_key:true|
+
+### Association
+- belongs_to :user
+- belongs_to :item

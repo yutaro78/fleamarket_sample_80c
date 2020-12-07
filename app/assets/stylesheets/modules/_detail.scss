@@ -74,6 +74,7 @@
 .product__box__body ul li img{
   object-fit: cover;
   height: 346px;
+  
 }
 .product__box__body ul li ul{
   display: flex;
@@ -94,6 +95,9 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  .price__tax {
+    font-size: 14px;
+  }
 }
 .product__box__price span{
   font-size: 46px;
@@ -104,6 +108,7 @@
   line-height: 1.5;
   font-size: 18px;
   margin-bottom: 30px;
+  white-space: pre-wrap;
 }
 .product__table{
   margin-bottom: 20px;
@@ -245,14 +250,32 @@ td a{
   background-color: #fff;
   width: 220px;
   height: 150px;
-  position: relative;
   overflow: hidden;
-  margin: 0;
+  margin: 0 auto;
   z-index: auto;
 }
-.product__list{
-  width:220px;
+
+.images {
+  margin: 0 auto;
 }
+
+.product__lists{
+  width: 780px;
+  margin: 50px auto 0 auto;
+  @include display;
+  justify-content: space-around;
+  &__list{
+    width: 220px;
+    display: inline-block;
+    float: left;
+    &__item__name {
+      background-color: white;
+      color: #333;
+      padding: 16px;
+    }
+  }
+}
+
 .product__list:hover{
   cursor:pointer;
   filter: alpha(opacity=60);
@@ -261,12 +284,69 @@ td a{
   opacity:0.6;
 }
 
-.itemList__name{
-  background-color: white;
-  color: #333;
-  padding: 16px;
-  width:233px;
-}
 .item--detail {
   border:bold;
+}
+.purchase__confirmation{
+  line-height: 20px;
+  color: #fff;
+  width:400px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 100px;
+  margin-top:40px;
+  margin-left:175px;
+  &__sell{
+    line-height: 48px;
+    background: #3CCACE;
+    border: 1px solid #3CCACE;
+    color: #fff;
+    width:60%;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 100px;
+  }
+  &__sold{
+    line-height: 48px;
+    background: red;
+    border: 1px solid red;
+    color: #fff;
+    width:60%;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 100px;
+  }
+}
+
+.items-box_photo__sold{
+  left:0;
+  width: 0;
+  height: 0;
+  border-width: 120px 120px 0 0;
+  border-top: 110px solid #ea352d ;
+  border-right: 110px solid transparent;
+  border-bottom: 110px solid transparent;
+  border-left: 110px solid #ea352d ;
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  border-style: solid;
+  &__inner{
+    transform: rotate(-45deg);
+    font-size: 43px;
+    margin:-35px 0px 0px -55px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+}
+.btns {
+  font-size: 14px;
+  padding: 6px 10px;
+  display: inline-block;
+  border-radius: 10px;
+  border: 1px solid #669b76;
+  color: #3CCACE;
+  text-decoration: none;
 }

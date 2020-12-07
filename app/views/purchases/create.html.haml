@@ -1,0 +1,26 @@
+%h1.buy-content__attention
+  %i.far.fa-clock
+    発送をお待ちください
+  .allscreens  
+    .all
+      .Header
+        .Header__logo
+          購入完了
+      .shopping
+        = image_tag @item.images[0].url.url,size:"80x107"
+        .explanation
+          .details__message
+            =@item.name
+          .price__message
+            %span
+              ￥
+              =@item.price
+              送料込み(税込)
+      .payment
+        .payment__message
+          支払い金額
+        .money__messsage
+          ￥
+          =@item.price
+      .purchase__done
+        = link_to "トップページへ戻る",root_path

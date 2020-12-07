@@ -40,7 +40,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"]["user"].clear
     # ログインすること
     sign_in(:user, @user)
-    render :create_address
+    redirect_to root_path, notice: "登録が完了しました"
   end
 
   # GET /resource/edit
