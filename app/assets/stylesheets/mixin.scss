@@ -93,7 +93,7 @@
   resize: none;
 }
 
-@mixin center  {
+@mixin center {
   display: block;
   font-size: 14px;
   width: 328px;
@@ -106,7 +106,6 @@
   text-decoration: none;
   background-color:white;
   color: black;
-  font-size: 14px;
 }
 @mixin border{
   border-top-width: 1px;
