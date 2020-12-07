@@ -6,6 +6,7 @@ class PurchasesController < ApplicationController
   
   def index
     redirect_to root_path if @item.order.present?
+    redirect_to root_path if current_user.id == @item.user_id
     @user = current_user
     @card = Pay.where(user_id: current_user.id).first
   #Payjpの秘密鍵を取得
