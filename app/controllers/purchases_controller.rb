@@ -14,7 +14,7 @@ class PurchasesController < ApplicationController
     #登録された情報がない場合にカード登録画面に移動
     
     else
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key= Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
   #Payjpから顧客情報を取得し、表示
     customer = Payjp::Customer.retrieve(@card.customer_id)
     @default_card_information = customer.cards.retrieve(@card.card_id)
@@ -26,7 +26,7 @@ class PurchasesController < ApplicationController
         @card =Pay.where(user_id: current_user.id).first
         # @item = Item.find(params[:id])
      #Payjpの秘密鍵を取得
-        Payjp.api_key= ENV["PAYJP_SECRET_KEY"]
+        Payjp.api_key= Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
      #payjp経由で支払いを実行
         charge = Payjp::Charge.create(
           amount: @item.price,
