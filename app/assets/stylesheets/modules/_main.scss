@@ -1,9 +1,24 @@
+@media screen and (max-width: 300px) {
+  .post__button{
+    right: -14px;
+    bottom: -14px;
+  }
+  .button__inner{
+    padding-top: 15px;
+    height: 80px;
+    width: 80px;
+  }
+  .inner__text{
+    font-size:22px;
+  }
+}  
 .main{
   background: #f8f8f8;
+  max-width: 100%;
 }
 
 .mainArea{
-  width: 100%;
+  // width: 100%;
   height: 560px;
   background-image: image-url("public/images/bg-mainVisual-pict_pc.jpg");
   // background-image: url('public/images/bg-mainVisual-pict_pc.jpg');
@@ -245,26 +260,24 @@
   margin-top: 50px;
 }
 .item__lists{
-  width: 780px;
+  width: 80%;
   margin: 50px auto 0 auto;
   @include display;
-  justify-content: space-around;
+  overflow: scroll;
 }
 
 .item__list{
-  width: 220px;
   display: inline-block;
-  float: left;
   position: relative;
-
+  width:100%;
+  height:100%;
   &__body{
     @include background-color;
     color: #333;
-    padding: 16px;
+    padding: 12px;
     height:95px;
   }
 }
-
 .item__box__name{
   overflow: hidden;
   line-height: 1.5;
@@ -319,4 +332,33 @@
   color: #fff;
   letter-spacing: 2px;
   font-weight: 600;
+}
+
+.post__button{
+  position: fixed;
+  bottom: 32px;
+  font-size: 22px;
+  height: 160px;
+  right: 32px;
+  width: 160px;
+  z-index:100;
+}
+.new__button{
+  text-decoration: none;
+  color: inherit;
+
+}
+.button__inner{
+  border-radius: 50%;
+  background-color: #3CCACE;
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  padding-top: 28px;
+}
+.inner__text{
+  font-size:35px;
+  color: rgb(255, 255, 255);
+  margin: 5px auto 0px;
+  margin-top: 25px;
 }

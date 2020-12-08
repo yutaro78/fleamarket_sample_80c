@@ -127,7 +127,7 @@
           - else 
             .purchase__confirmation
               .purchase__confirmation__sell
-                = link_to "新規登録して購入する",new_user_registration_path
+                = link_to "新規登録orログイン",new_user_session_path
         .comment__box
           - if @item.order.present?
           -else
