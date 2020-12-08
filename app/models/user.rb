@@ -17,4 +17,5 @@ class User < ApplicationRecord
   has_one :address
 
   has_many :pays
+  has_many :comments
 end
