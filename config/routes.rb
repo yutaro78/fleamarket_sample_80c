@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :purchases, only: :index
   
   resources :items do
+    resources :comments, only: :create
     collection do
       get :search_category
     end
