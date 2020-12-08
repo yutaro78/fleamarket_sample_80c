@@ -6,7 +6,7 @@
     .all{
       padding:0px;
       background-color:white;
-      
+      height: 100%;
 
       .Header {
         height: 128px;
@@ -34,16 +34,14 @@
       .explanation{
         margin: 15px;
           .details__message{
-            font-size: 14px;
+            font-size: 24px;
             line-height: 1.4em;
             margin-bottom: 8px;
           }
          .price__message{
             margin-left: 36px;
-            font-size: 15px;
-            span{
-              font-size: 20px;
-            }
+            font-size: 16px;
+            
           }
           }
        }
@@ -65,17 +63,6 @@
             margin: 0 auto;
           }
       }
-          .dpoint{
-            height: 60px;
-            width:360px;
-            margin: 0 auto;
-            background-color: white;
-            display: flex;
-            justify-content: space-around;
-            font-size:18px ;
-            .point__message{
-              padding-right: 60px;
-            }
             .dacount__message{
             height: 20px;
             width:160px;
@@ -84,43 +71,16 @@
             padding-left:10px ;
 
             }
-          }
-          .mpoint{
-            height: 60px;
-            width:360px;
-            margin: 0 auto;
-            background-color: white;
-            display: flex;
-            justify-content: space-around;
-            font-size:18px ;
-            letter-spacing: 1px;
-            text-decoration: none;
-            line-height: 40px;
-          .mpoint__message{
-            padding-right: 56px;
-          }
       }
-          .method{ @include center   
+          .method{ 
+            height: 80px;
+            @include center;
+            
           }
-          .shipping { @include center
+          .shipping { 
+            height: 100px;
+            @include center;
           }
-      .input{
-        font-size: 14px;
-        display: block;
-        height: 48px;
-        width: 328px;
-        padding: 0 30px;
-        margin: 8px auto;
-        line-height: 40px;
-        letter-spacing: 1px;
-        text-align: center;
-        border-radius: 4px;
-        text-decoration: none;
-        background-color:white;
-        color: #fff;
-        font-size: 11px;
-        color: red;
-       }
       .purchase{
         font-size: 14px;
         display: block;
@@ -134,16 +94,19 @@
         border: 1px solid #ccc;
         border-radius: 4px;
         text-decoration: none;
-        background-color:＃ccc;
         font-size: 17px;
-        color:#888;
+        background-color:#3CCACE ;
+        margin-top:30px;
       }
 
       .bar {@include bar
       }
-      // .inputEmail {@include inputEmail 
-      // }
-
+      .detail__message{
+        margin-top:8px;
+        margin-bottom:8px;
+      }
 
   }
-    }
+.registration__message {
+    color: #0095EE;
+}

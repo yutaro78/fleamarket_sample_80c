@@ -27,7 +27,7 @@
       .product__content
         .product__box
           %h2.product__box__name
-            = @item.name
+            =@item.name
           .product__box__body
             .product__box__body__main
               %div{class: 'body__main__lists', data: {index:0}, style: "z-index:99;"}
@@ -59,6 +59,13 @@
               - if @item.images[4].present?
                 %div{class: 'product__box__body__thumbs__lists__item' , data: {index:4}}
                   =image_tag @item.images[4].url.url, width: '100', height: '100', alt: "pic5", class: "thumbsimage"
+            %ul 
+              %li 
+                - @item.images.each do |image| 
+                  = image_tag image.url.url,size: "560x346"
+                  -if @item.order.present?
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner SOLD
           .product__box__price
             %span
               = "¥"
@@ -113,15 +120,7 @@
                   %th 
                     発送日の目安
                   %td 
-                    = @item.shipping_days.name
-          - if user_signed_in? && current_user.id == @item.user_id
-            %ul
-              %li.btns
-                %i.fa.fa-trash-alt
-                = link_to '商品を削除する', item_path(@item), method: :delete, class: "delete__btn"
-              %li.btns
-                %i.fa.fa-edit
-                = link_to '商品を編集する', edit_item_path, calss: "edit__btn"
+                    1-2日で発送
           .option__like
             %ul
               %li.like__button
@@ -131,20 +130,50 @@
               %li.report__button
                 %i.fa.fa-flag
                 = link_to '不適切な商品の通報', '#'
+          - if user_signed_in? && @item.order.present?  && current_user.id == @item.user_id
+            %ul
+              %li.btns
+                %i.fa.fa-trash-alt
+                = link_to '商品を削除する', item_path(@item), method: :delete, class: "delete__btn"
+            .purchase__confirmation
+              .purchase__confirmation__sold
+                売り切れました
+          - elsif @item.order.present?
+            .purchase__confirmation
+              .purchase__confirmation__sold
+                売り切れました
+          - elsif user_signed_in? && current_user.id == @item.user_id
+            %ul
+              %li.btns
+                %i.fa.fa-trash-alt
+                = link_to '商品を削除する', item_path(@item), method: :delete, class: "delete__btn"
+              %li.btns
+                %i.fa.fa-edit
+                = link_to '商品を編集する', edit_item_path, calss: "edit__btn"
+          - elsif user_signed_in?
+            .purchase__confirmation
+              .purchase__confirmation__sell
+                = link_to "購入画面に進む",item_purchases_path(@item),  method: :get
+          - else 
+            .purchase__confirmation
+              .purchase__confirmation__sell
+                = link_to "新規登録して購入する",new_user_registration_path
         .comment__box
-          %ul.comment__content
-          %form{action: "#", method:  "post",class:"form",id: "new_comment"}
-            %input{name: "utf8", type:  "hidden", value:""}
-            %input{name:  "authenticity_token", type:  "hidden", value: ""}
-            %textarea{name: "comment[body]", required: "required", id:  "comment_body", class:"comment__area"}
-            %p.attention
-              相手のことを考え丁寧なコメントを心がけましょう。
+          - if @item.order.present?
+          -else
+            %ul.comment__content
+            %form{action: "#", method:  "post",class:"form",id: "new_comment"}
+              %input{name: "utf8", type:  "hidden", value:""}
+              %input{name:  "authenticity_token", type:  "hidden", value: ""}
+              %textarea{name: "comment[body]", required: "required", id:  "comment_body", class:"comment__area"}
+              %p.attention
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br
+                不快な言葉遣いなどは利用制限や退会処分となることがあります。
               %br
-              不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            %br
-            %button{name:"button",type: "submit"}
-              %i.fa.fa-comment
-              コメントする
+              %button{name:"button",type: "submit"}
+                %i.fa.fa-comment
+                コメントする
         %ul.links
           %li
             %i.fa.fa-angle-left

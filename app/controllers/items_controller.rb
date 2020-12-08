@@ -6,9 +6,9 @@ class ItemsController < ApplicationController
   before_action :item_current_user, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.order("id DESC").last(5)
-    @ladies = @ladies.set_items.order("id DESC").last(5)
-    @mens = @mens.set_items.order("id DESC").last(5)
+    @items = Item.order("id DESC").limit(5)
+    @ladies = @ladies.set_items.order("id DESC").limit(5)
+    @mens = @mens.set_items.order("id DESC").limit(5)
   end
   
   def new
@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+
   end
   
   def show
@@ -31,6 +32,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    redirect_to root_path if @item.order.present?
   end
 
   def update
@@ -52,7 +54,7 @@ class ItemsController < ApplicationController
   def set_parents
     @category_parents = Category.where(ancestry: nil)
   end
-
+ 
 
 
   def search_category
@@ -79,7 +81,11 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    if Item.where(id: params[:id]).present?
+      @item = Item.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   def item_current_user
