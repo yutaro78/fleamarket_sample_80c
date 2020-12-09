@@ -42,7 +42,7 @@
     margin: 0 auto;
   }
   &__right{
-    width: 700px;
+    width: 51%;
     margin: 0 auto;
   }
   &__box{
@@ -103,7 +103,7 @@
 .product__box__body ul li img{
   object-fit: cover;
   height: 346px;
-  
+  width: 560px;
 }
 .product__box__body ul li ul{
   display: flex;
@@ -273,6 +273,7 @@ td a{
   font-weight: bold;
   font-size: 22px;
   position: relative;
+  text-align: center;
 }
 
 .product__img{
@@ -289,18 +290,21 @@ td a{
 }
 
 .product__lists{
-  width: 780px;
+  width: 81%;
   margin: 50px auto 0 auto;
   @include display;
-  justify-content: space-around;
+  overflow: scroll;
   &__list{
-    width: 220px;
     display: inline-block;
-    float: left;
+    position: relative;
+    width:100%;
+    height:100%;
     &__item__name {
       background-color: white;
       color: #333;
       padding: 16px;
+      height:95px;
+      
     }
   }
 }
@@ -346,7 +350,6 @@ td a{
     border-radius: 100px;
   }
 }
-
 .items-box_photo__sold{
   left:0;
   width: 0;
@@ -369,6 +372,12 @@ td a{
     letter-spacing: 2px;
     font-weight: 600;
   }
+}
+.product-box_photo__solds{
+  @include sold;
+}
+.product-box_photo__sold__inners{
+  @include soldInner;
 }
 .btns {
   font-size: 14px;

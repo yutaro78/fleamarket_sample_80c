@@ -23,12 +23,12 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-
+ 
   end
   
   def show
     @items = Item.includes(:images).order('created_at DESC')
-    @items = Item.order(created_at: :desc).limit(5)
+    @items = Item.order("id DESC").limit(5)
   end
 
   def edit

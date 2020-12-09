@@ -1,4 +1,4 @@
-= render 'items/header'
+= render "items/index_header"
 %nav.category__order
   %ul 
     %li 
@@ -160,7 +160,7 @@
           - else 
             .purchase__confirmation
               .purchase__confirmation__sell
-                = link_to "新規登録して購入する",new_user_registration_path
+                = link_to "新規登録orログイン",new_user_session_path
         .comment__box
           - if @item.order.present?
           -else
@@ -186,21 +186,25 @@
             = link_to '後ろの商品', '#'
             %span
             %i.fa.fa-angle-right
-        .item__related
-          = link_to '新着投稿商品', '#'
-        .product__lists
-          - @items.each do |item|
-            .product__lists__list
-              = link_to item_path(item.id) do
-                %figure.product__img
-                  = image_tag item.images[0].url.url, size: "220x150", class: "images"
-              .product__lists__list__item__name
-                %h3.item--name 
-                  = item.name
-                .item--detail
-                  %ul 
-                    %li 
-                      = item.price
-                      円
-                    %i.fa.fa-star 1
-                    %p (税込）
+    .products__box
+      .item__related
+        = link_to '新着商品', '#'
+      .product__lists
+        - @items.each do |item|
+          .product__lists__list
+            = link_to item_path(item.id) do
+              %figure.product__img
+                = image_tag item.images[0].url.url, size: "220x150", class: "images"
+            .product__lists__list__item__name
+              %h3.item--name 
+                = item.name
+              .item--detail
+                %ul 
+                  %li 
+                    = item.price
+                    円
+                  %i.fa.fa-star 1
+                  %p (税込）
+                -if item.order.present?
+                  .product-box_photo__solds
+                    .product-box_photo__sold__inners SOLD

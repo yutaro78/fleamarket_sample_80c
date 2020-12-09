@@ -182,11 +182,9 @@
                 —
           .exhibition__bottom
             = f.submit "出品する", class: "button"
-            %button{:type => "submit", :class => "buttonB"}
-              下書きに保存
             %a{ href: '#'}
               .back__home
-                もどる
+                = link_to "もどる",root_path
           .caution
             %p.caution__content 
               %p.caution__sentence

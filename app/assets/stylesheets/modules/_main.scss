@@ -1,9 +1,10 @@
-.main{
+  .main{
   background: #f8f8f8;
+  max-width: 100%;
 }
 
 .mainArea{
-  width: 100%;
+  // width: 100%;
   height: 560px;
   background-image: image-url("public/images/bg-mainVisual-pict_pc.jpg");
   // background-image: url('public/images/bg-mainVisual-pict_pc.jpg');
@@ -245,26 +246,24 @@
   margin-top: 50px;
 }
 .item__lists{
-  width: 780px;
+  width: 80%;
   margin: 50px auto 0 auto;
   @include display;
-  justify-content: space-around;
+  overflow: scroll;
 }
 
 .item__list{
-  width: 220px;
   display: inline-block;
-  float: left;
   position: relative;
-
+  width:100%;
+  height:100%;
   &__body{
     @include background-color;
     color: #333;
-    padding: 16px;
+    padding: 12px;
     height:95px;
   }
 }
-
 .item__box__name{
   overflow: hidden;
   line-height: 1.5;
@@ -299,24 +298,8 @@
   height: 100%;
 }
 .items-box_photo__solds{
-  width: 0;
-  height: 0;
-  border-width: 120px 120px 0 0;
-  border-top: 60px solid #ea352d ;
-  border-right: 60px solid transparent;
-  border-bottom: 60px solid transparent;
-  border-left: 60px solid #ea352d ;
-  display: block;
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  border-style: solid;
+  @include sold;
 }
 .items-box_photo__sold__inners{
-  transform: rotate(-45deg);
-  font-size: 24px;
-  margin:-35px 0px 0px -55px;
-  color: #fff;
-  letter-spacing: 2px;
-  font-weight: 600;
+  @include soldInner;
 }

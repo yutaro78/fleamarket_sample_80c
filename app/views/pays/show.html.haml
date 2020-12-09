@@ -1,3 +1,4 @@
+= render "items/index_header"
 .resistration__card 
   登録クレジットカード情報
   .resistration__card__detail
@@ -6,7 +7,7 @@
     - exp_month = @default_card_information.exp_month.to_s
     - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
     = exp_month + " / " + exp_year
-    = form_tag(delete_pays_path, method: :post, id: 'charge-form',  name: "inputForm") do
+    = form_tag(delete_pays_path, method: :post, id: 'charge-form',  name: "inputForm", class: "resistration__card__delete") do
       %input{ type: "hidden", name: "card_id", value: "" }
       %button 削除する
     = link_to "トップページへ戻る",root_path
