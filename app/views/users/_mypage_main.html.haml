@@ -20,3 +20,12 @@
         e-mail 
         %p.Main__information__group__item 
           = current_user.email
+      %li.Main__information__group 
+        住所
+        %p.Main__information__group__item
+          〒
+          =current_user.address.post_code
+          %br
+          =current_user.address.city
+          =current_user.address.house_number
+          =current_user.address.building_name
