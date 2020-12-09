@@ -1,18 +1,4 @@
-@media screen and (max-width: 300px) {
-  .post__button{
-    right: -14px;
-    bottom: -14px;
-  }
-  .button__inner{
-    padding-top: 15px;
-    height: 80px;
-    width: 80px;
-  }
-  .inner__text{
-    font-size:22px;
-  }
-}  
-.main{
+  .main{
   background: #f8f8f8;
   max-width: 100%;
 }
@@ -312,53 +298,8 @@
   height: 100%;
 }
 .items-box_photo__solds{
-  width: 0;
-  height: 0;
-  border-width: 120px 120px 0 0;
-  border-top: 60px solid #ea352d ;
-  border-right: 60px solid transparent;
-  border-bottom: 60px solid transparent;
-  border-left: 60px solid #ea352d ;
-  display: block;
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  border-style: solid;
+  @include sold;
 }
 .items-box_photo__sold__inners{
-  transform: rotate(-45deg);
-  font-size: 24px;
-  margin:-35px 0px 0px -55px;
-  color: #fff;
-  letter-spacing: 2px;
-  font-weight: 600;
-}
-
-.post__button{
-  position: fixed;
-  bottom: 32px;
-  font-size: 22px;
-  height: 160px;
-  right: 32px;
-  width: 160px;
-  z-index:100;
-}
-.new__button{
-  text-decoration: none;
-  color: inherit;
-
-}
-.button__inner{
-  border-radius: 50%;
-  background-color: #3CCACE;
-  text-align: center;
-  width: 150px;
-  height: 150px;
-  padding-top: 28px;
-}
-.inner__text{
-  font-size:35px;
-  color: rgb(255, 255, 255);
-  margin: 5px auto 0px;
-  margin-top: 25px;
+  @include soldInner;
 }

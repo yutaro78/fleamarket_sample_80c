@@ -1,3 +1,4 @@
+= render "items/button"
 .main
   %section.mainArea
     .content
@@ -154,8 +155,3 @@
               -if man.order.present?
                 .items-box_photo__solds
                   .items-box_photo__sold__inners SOLD
-      .post__button
-        %a{ href: "#", class: 'new__button' }
-          .button__inner
-            .inner__text
-              = link_to "出品",new_item_path
