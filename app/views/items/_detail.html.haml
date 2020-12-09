@@ -31,12 +31,11 @@
           .product__box__body
             %ul 
               %li 
-                .pic__sold
-                  - @item.images.each do |image| 
-                    = image_tag image.url.url
-                      -if @item.order.present?
-                  .items-box_photo__sold
-                    .items-box_photo__sold__inner SOLD
+                - @item.images.each do |image| 
+                  = image_tag image.url.url
+                  -if @item.order.present?
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner SOLD
           .product__box__price
             %span
               = "¥"
