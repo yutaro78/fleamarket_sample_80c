@@ -31,6 +31,9 @@
           .product__box__body
             .product__box__body__main
               %div{class: 'body__main__lists', data: {index:0}, style: "z-index:99;"}
+                -if @item.order.present?
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner SOLD
                 = image_tag @item.images[0].url.url, width: '300', height: '400'
               - if @item.images[1].present?
                 %div{class: 'body__main__lists', data: {index:1}, style: "z-index:-1;"}
@@ -59,13 +62,13 @@
               - if @item.images[4].present?
                 %div{class: 'product__box__body__thumbs__lists__item' , data: {index:4}}
                   =image_tag @item.images[4].url.url, width: '100', height: '100', alt: "pic5", class: "thumbsimage"
-            %ul 
-              %li 
-                - @item.images.each do |image| 
-                  = image_tag image.url.url,size: "560x346"
-                  -if @item.order.present?
-                    .items-box_photo__sold
-                      .items-box_photo__sold__inner SOLD
+            -# %ul 
+            -#   %li 
+            -#     - @item.images.each do |image| 
+            -#       = image_tag image.url.url,size: "560x346"
+            -#       -if @item.order.present?
+            -#         .items-box_photo__sold
+            -#           .items-box_photo__sold__inner SOLD
           .product__box__price
             %span
               = "¥"

@@ -1,7 +1,10 @@
 class CategoriesController < ApplicationController
   before_action :set_parents, only: [:new, :create, :edit, :index]
+  before_action :set_category, only: :show
 
   def show
+    @items = @category.set_items
+    @items = @items.where(buyer_id: nil).order("created_at DESC").page(params[:page]).per(9)
   end
 
   def search_category
@@ -21,7 +24,8 @@ class CategoriesController < ApplicationController
 
   private
 
-  def set_parents
-    @category_parents = Category.where(ancestry: nil)
+  def set_category
+    @category = Category.find(params[:id])
   end
+
 end
