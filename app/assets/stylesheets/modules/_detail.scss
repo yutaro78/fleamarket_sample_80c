@@ -56,9 +56,38 @@
   }
   &__box__body{
     margin: 16px 0 0;
+    &__main {
+      display: flex;
+      height: 500px;
+      position: relative;
+      .body__main__lists {
+        font-size: 14px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        -webkit-transform: translateY(-50%) translateX(-50%);
+        margin: auto;
+        .imagesbox {
+          display: flex;
+          height: 500px;
+          width: 100%;
+        }
+      }
+    }
+    &__thumbs {
+      display: flex;
+      opacity: 0.5;
+      &__lists {
+        display: flex;
+        .thumbsimage {
+          display: flex;
+        }
+      }
+    }
   }
-  
 }
+
 
 .product__box__body ul{
   display: flex;

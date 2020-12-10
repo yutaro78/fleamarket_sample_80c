@@ -1,0 +1,9 @@
+.products-container
+  .products-index
+    .title
+      = "#{@category.name}の商品一覧"
+      .title__border
+    - if @items
+      %ul.lists
+        = render "items/item", items: @items
+    = paginate @items
