@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      @item.images.new
       render :new
     end
  
@@ -39,7 +40,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to root_path
     else
-      render :edit
+      redirect_to edit_item_path(@item), alert: @item.errors.full_messages
     end
   end
 
