@@ -1,12 +1,26 @@
-%h1 カテゴリー一覧
-%ul.categories
-  - @parents.each do |parent|
-    %li.parents= link_to "#{parent.name}", category_path(parent)
+= render 'items/index_header'
+%nav.breadCrumbs
+  %ul
+    %li
+      = link_to "FURIMA", root_path, class: "titleLogo"
+    %li
+      %i.fas.fa-angle-right
+    %li
+      = link_to "カテゴリー一覧", categories_path, class: "categoryTitle"
+.Main
+  .Main__box
+    .Main__box__table
+      %h1 カテゴリー一覧
+      .Main__box__table__menu
+        .Main__box__table__menu__table
+          %ul.categories
+            - @category_parents.each do |parent|
+              %li.parents= link_to "・#{parent.name}", category_path(parent)
 
-    %ul.categories_children
-      - parent.children.each do |child|
-        %li.children= link_to "#{child.name}", category_path(child)
+              %ul.categories_children
+                - parent.children.each do |child|
+                  %li.children= link_to "#{child.name}", category_path(child)
 
-        %ul.categories_grandchildren
-          - child.children.each do |grandchild|
-            %li=link_to "#{grandchild.name}", category_path(grandchild)
+                  %ul.categories_grandchildren
+                    - child.children.each do |grandchild|
+                      %li.grandchildren=link_to "#{grandchild.name}", category_path(grandchild)
