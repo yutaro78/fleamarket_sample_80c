@@ -265,7 +265,7 @@ td a{
 .links li:last-child {
   float:right;
 }
-.item__related a{
+.item__related {
   display: block;
   margin: 24px 0 8px;
   color: #3CCACE;
@@ -297,7 +297,7 @@ td a{
   &__list{
     display: inline-block;
     position: relative;
-    width:100%;
+    width:220px;
     height:100%;
     &__item__name {
       background-color: white;
@@ -347,6 +347,7 @@ td a{
     text-align: center;
     font-size: 20px;
     border-radius: 100px;
+    margin:auto;
   }
 }
 .items-box_photo__sold{
