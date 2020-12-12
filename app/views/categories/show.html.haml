@@ -1,9 +1,37 @@
-.products-container
-  .products-index
-    .title
-      = "#{@category.name}の商品一覧"
-      .title__border
-    - if @items
-      %ul.lists
-        = render "items/item", items: @items
-    = paginate @items
+= render 'items/index_header'
+%nav.breadCrumbs
+  %ul
+    %li
+      = link_to "FURIMA", root_path, class: "titleLogo"
+    %li
+      %i.fas.fa-angle-right
+    %li
+      = link_to "カテゴリー一覧", categories_path, class: "categoryTitle"
+.productsMain
+  .productsMain__show
+    .productsMain__show__top
+    .productsMain__show__index
+      .title
+        = "#{@category.name}の商品一覧"
+        .title__border
+      .lists
+        .lists__index
+          - @items.each do |item|
+            .lists__index__list
+              = link_to item_path(item.id) do
+                %figure.main__img
+                  = image_tag item.images[0].url.url, size: "220x150", class: "images"
+            .lists__index__list--name
+              %h3.item--name 
+                = item.name
+            .lists__index__list--detail
+              %ul 
+                %li 
+                  = item.price
+                  円
+                %i.fa.fa-star 1
+                %p (税込）
+
+            -# -if item.order.present?
+            -#   .product-box_photo__solds
+            -#     .product-box_photo__sold__inners SOLD

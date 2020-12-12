@@ -1,0 +1,106 @@
+.breadCrumbs {
+  width: 100%;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  position: relative;
+  padding: 0 60px;
+
+  ul {
+    padding: 17px 0 16px;
+    width: 100%;
+    max-width: 1040px;
+    font-size: 14px;
+    margin: 0 auto;
+
+    display: block;
+    list-style: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+
+    ul:after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  }
+
+  li {
+    padding: 0 10px 0 0;
+    float: left;
+    display: list-item;
+    text-align: center;
+  } 
+}
+
+.Main {
+  background-color: #f8f8f8;
+  display: block;
+  &__box {
+    padding: 40px;
+    margin: 0 auto;
+    &__table {
+      width: 700px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 5px;
+      &__menu {
+        padding: 16px;
+      }
+    }
+  }
+
+  h1 {
+    text-decoration: none;
+    display: block;
+    border-radius: 5px 5px 0 0;
+    padding: 16px 10px 8px;
+    background-color: #3CCACE;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+  }
+
+  ul.categories {
+    font-size: 20px;
+    display: block;
+    font-weight: bold;
+    li.parents {
+      width: 100%;
+      margin: 30px 10px 10px;
+    }
+  }
+
+  ul.categories_children {
+    font-size: 14px;
+    display: block;
+    padding-left: 15px;
+    :after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+    li.children {
+      width: 100%;
+    }
+  }
+
+  ul.categories_grandchildren {
+    font-size: 9px;
+    li.grandchildren {
+      padding: 0 0 0 20px;
+      margin: 8px 0;
+      display: inline-block;
+      width: calc(100% / 2);
+      float: left;
+      color: #FFB340;
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+

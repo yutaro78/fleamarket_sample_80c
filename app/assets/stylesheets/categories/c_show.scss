@@ -1,0 +1,93 @@
+.breadCrumbs {
+  width: 100%;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  position: relative;
+  padding: 0 60px;
+
+  ul {
+    padding: 17px 0 16px;
+    width: 100%;
+    max-width: 1040px;
+    font-size: 14px;
+    margin: 0 auto;
+
+    display: block;
+    list-style: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+
+    ul:after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  }
+
+  li {
+    padding: 0 10px 0 0;
+    float: left;
+    display: list-item;
+    text-align: center;
+  } 
+}
+
+.productsMain {
+  margin: 0 auto;
+  background-color: #f8f8f8;
+  width: 80%;
+  &__show {
+    width: 80%;
+    padding: 40px;
+    margin: 0 auto;
+    :after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+    &__top {
+      float: left;
+    }
+    &__index {
+      padding-top: 20px;
+      margin: 0 auto;
+      .title {
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 5px;
+        text-decoration: none;
+        display: block;
+        border-radius: 5px 5px 0 0;
+        padding: 16px 10px 8px;
+        background-color: #3CCACE;
+        color: #fff;
+        text-align: center;
+        font-weight: bold;
+        font-size: 22px;
+        .title__border {
+          padding: 5px;
+        }
+      }
+      .lists {
+        margin: 0;
+        text-decoration: none;
+        background-color: #fff;
+        &__index {
+          display: block;
+          &__list {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}
+.images {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
