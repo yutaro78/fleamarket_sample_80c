@@ -40,8 +40,9 @@ Things you may want to cover:
 ### Association
 - has_many:comments
 - has_many:favorites
-- has_one:paies
-- has_one:adresses
+- has_many :order
+- has_one:pay
+- has_one:address
 - has_many:items
 
 
@@ -58,11 +59,11 @@ Things you may want to cover:
 
 ### Association
 - belongs_to:user
+- belongs_to_active_hash :prefecture
 
 
 
-
-### paies テーブル
+### pays テーブル
 |Column|Type|Options|
 |------|----|-------|
 |customer_id|string|null: false|
@@ -80,7 +81,7 @@ Things you may want to cover:
 |name|string|null:false|
 |introduction|text|null:false|
 |price|integer|null:false|
-|condition|integer|null:false|
+|condition_id|integer|null:false|
 |size_id|integer|null:false|
 |category|references|null:false, foreign_key:true|
 |brand|string|-------|
@@ -92,6 +93,7 @@ Things you may want to cover:
 ### Association
 - has_many :comments
 - has_many :favorites
+- has_one :order
 - has_many :images
 - belongs_to :category
 - belongs_to :user
@@ -130,7 +132,7 @@ Things you may want to cover:
 |------|----|-------|
 |comment|text|null:false|
 |user|references|null:false, foreign_key:true|
-|items|references|null:false, foreign_key:true|
+|item|references|null:false, foreign_key:true|
 
 ### Association
 - belongs_to :user
@@ -151,8 +153,8 @@ Things you may want to cover:
 ### ordersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null:false, foreign_key:true|
-|item_id|references|null:false, foreign_key:true|
+|user|references|null:false, foreign_key:true|
+|item|references|null:false, foreign_key:true|
 
 ### Association
 - belongs_to :user

@@ -44,4 +44,4 @@
       - if @default_card_information.present?
         = link_to "購入",item_purchases_path(@item.id), method: :post
       - else 
-        = link_to "必要な情報を入力してください","#"
+        = link_to "クレジット登録して購入", new_pay_path
