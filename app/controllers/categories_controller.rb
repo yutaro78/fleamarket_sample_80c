@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
   def show
     @items = @category.set_items
     # @items = @items.where(buyer_id: nil).order("created_at DESC")
-    @items = Item.includes(:images).order('created_at DESC')
+    # @items = Item.includes(:images).order('created_at DESC')
     @items = Item.order("id DESC").limit(3)
   end
 
