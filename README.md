@@ -42,7 +42,7 @@ Things you may want to cover:
 - has_many:favorites
 - has_many :order
 - has_one:pay
-- has_one:adress
+- has_one:address
 - has_many:items
 
 
