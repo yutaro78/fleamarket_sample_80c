@@ -78,6 +78,7 @@
     &__thumbs {
       display: flex;
       opacity: 0.5;
+      overflow: scroll;
       &__lists {
         display: flex;
         .thumbsimage {

@@ -40,6 +40,7 @@ class PaysController < ApplicationController
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
+    @category_parents = Category.where(ancestry: nil)
     card = Pay.where(user_id: current_user.id).first
     if card.blank?
       redirect_to action: "new" 
