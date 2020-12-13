@@ -1,13 +1,13 @@
 class CategoriesController < ApplicationController
   before_action :set_parents, only: [:new, :create, :edit, :index, :show]
-  before_action :set_category, only: [:show]
+  before_action :set_category, only: [:show, :parent, :child, :grandchild]
 
   def index
     @category_parents = Category.where(ancestry: nil)
   end
 
   def show
-    @items = Item.order("id DESC").limit(3)
+    @items = @category.set_items
   end
 
   def search_category
@@ -33,11 +33,6 @@ class CategoriesController < ApplicationController
 
   def set_category
     @category = Category.find(params[:id])
-    if @category.has_children?
-      @category_links = @category.children
-    else
-      @category_links = @category.siblings
-    end
   end
 
 end
