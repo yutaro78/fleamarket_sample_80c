@@ -14,7 +14,7 @@ $(function(){
     });
     $(".body__main__lists").each(function(index){
       if(index == mainDataIndex){
-        $(this).css('z-index', 99);
+        $(this).css('z-index', 1);
       } else {
         $(this).css('z-index', -1);
       };
