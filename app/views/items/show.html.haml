@@ -1,2 +1,33 @@
-= render "detail"
+= render "detail"  ,comment: @comment
+.contents.row
+  .content_post{:style => "background-image: url(#{@item.images.first.url});"}
+    - if user_signed_in? && current_user.id == @item.user_id
+      .more
+        -# %span= image_tag 'arrow_top.png'
+        %ul.more_list
+          %li
+            = link_to '編集', edit_item_path(@item.id), method: :get
+          %li
+            = link_to '削除', user_path(@item.id), method: :delete
+    %p= @item.name
+    %p= @item.introduction
+    %p= @item.price
+    %span.name
+      %a{:href => "/users/#{@item.user.id}"}
+        %span 投稿者
+        = @item.user.nickname
+
+.container
+  - if user_signed_in?
+    -# = form_with(model: [@item, @comment], local: true) do |form|
+    -#   = form.text_area :coment, placeholder: "コメントする", rows: "2"
+    -#   = form.submit "SEND"
+  - else
+    %strong
+      %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+
+      .comments
+  
+
+
 = render "app"
