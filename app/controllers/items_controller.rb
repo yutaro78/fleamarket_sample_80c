@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
     @items = Item.includes(:images).order('created_at DESC')
    
     @comment = Comment.new
-    @comments = Comment.includes(:user)
+    @comments = @item.comments.includes(:user)
     @items = Item.order("id DESC").limit(5)
   end
 

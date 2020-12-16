@@ -155,17 +155,13 @@
               相手のことを考え丁寧なコメントを心がけましょう。
               %br
               不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            %br
-            -# %button{name:"button",type: "submit"}
-              %i.fa.fa-comment
-              コメントする
-            %ul
-          -# %form{action: "#", method:  "post",class:"form",id: "new_comment"}
-          = form_with(model: comment ,url: item_comments_path(@item) ,local: true, class:"form",id: "new_comment") do |form|
-
-            = form.text_area :comment, rows: "2", class: "comment__content"
-            = form.submit "コメントする", class: "comment__btn"
-     
+          - if user_signed_in?
+            = form_with(model: [@item, @comment] ,local: true, class:"form",id: "new_comment") do |form|
+              = form.text_area :comment, rows: "2", class: "comment__content"
+              = form.submit "コメントする", class: "comment__btn" 
+          - else
+            %strong
+              %p.comment__content2 ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
         %ul.links
           %li
             %i.fa.fa-angle-left
