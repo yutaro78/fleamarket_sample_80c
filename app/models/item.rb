@@ -20,6 +20,6 @@ class Item < ApplicationRecord
   validates :shipping_cost_id, presence: true
   validates :shipping_days_id, presence: true
 
-  has_many :comments
+  has_many :comments ,dependent: :destroy
 
 end
