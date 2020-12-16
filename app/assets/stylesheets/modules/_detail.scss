@@ -42,7 +42,7 @@
     margin: 0 auto;
   }
   &__right{
-    width: 700px;
+    width: 51%;
     margin: 0 auto;
   }
   &__box{
@@ -56,9 +56,39 @@
   }
   &__box__body{
     margin: 16px 0 0;
+    &__main {
+      display: flex;
+      height: 500px;
+      position: relative;
+      .body__main__lists {
+        font-size: 14px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        -webkit-transform: translateY(-50%) translateX(-50%);
+        margin: auto;
+        .imagesbox {
+          display: flex;
+          height: 500px;
+          width: 100%;
+        }
+      }
+    }
+    &__thumbs {
+      display: flex;
+      opacity: 0.5;
+      overflow: scroll;
+      &__lists {
+        display: flex;
+        .thumbsimage {
+          display: flex;
+        }
+      }
+    }
   }
-  
 }
+
 
 .product__box__body ul{
   display: flex;
@@ -74,6 +104,7 @@
 .product__box__body ul li img{
   object-fit: cover;
   height: 346px;
+  width: 560px;
 }
 .product__box__body ul li ul{
   display: flex;
@@ -235,7 +266,7 @@ td a{
 .links li:last-child {
   float:right;
 }
-.item__related a{
+.item__related {
   display: block;
   margin: 24px 0 8px;
   color: #3CCACE;
@@ -243,6 +274,7 @@ td a{
   font-weight: bold;
   font-size: 22px;
   position: relative;
+  text-align: center;
 }
 
 .product__img{
@@ -259,18 +291,21 @@ td a{
 }
 
 .product__lists{
-  width: 780px;
+  width: 81%;
   margin: 50px auto 0 auto;
   @include display;
-  justify-content: space-around;
+  overflow: scroll;
   &__list{
-    width: 220px;
     display: inline-block;
-    float: left;
+    position: relative;
+    width:220px;
+    height:100%;
     &__item__name {
       background-color: white;
       color: #333;
       padding: 16px;
+      height:95px;
+      
     }
   }
 }
@@ -286,9 +321,65 @@ td a{
 .item--detail {
   border:bold;
 }
-
-// 追記
-
+.purchase__confirmation{
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 100px;
+  margin-top:40px;
+  &__sell{
+    line-height: 48px;
+    background: #3CCACE;
+    border: 1px solid #3CCACE;
+    color: #fff;
+    width:60%;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 100px;
+    margin:auto;
+  }
+  &__sold{
+    line-height: 48px;
+    background: red;
+    border: 1px solid red;
+    color: #fff;
+    width:60%;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 100px;
+    margin:auto;
+  }
+}
+.items-box_photo__sold{
+  left:0;
+  width: 0;
+  height: 0;
+  border-width: 120px 120px 0 0;
+  border-top: 110px solid #ea352d ;
+  border-right: 110px solid transparent;
+  border-bottom: 110px solid transparent;
+  border-left: 110px solid #ea352d ;
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  border-style: solid;
+  &__inner{
+    transform: rotate(-45deg);
+    font-size: 43px;
+    margin:-35px 0px 0px -55px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+}
+.product-box_photo__solds{
+  @include sold;
+}
+.product-box_photo__sold__inners{
+  @include soldInner;
+}
 .btns {
   font-size: 14px;
   padding: 6px 10px;

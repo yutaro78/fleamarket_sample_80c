@@ -1,9 +1,10 @@
-.main{
+  .main{
   background: #f8f8f8;
+  max-width: 100%;
 }
 
 .mainArea{
-  width: 100%;
+  // width: 100%;
   height: 560px;
   background-image: image-url("public/images/bg-mainVisual-pict_pc.jpg");
   // background-image: url('public/images/bg-mainVisual-pict_pc.jpg');
@@ -235,35 +236,33 @@
 .itemHead{
   text-align: center;
 }
-.itemHead a{
+
+.item__title{
+  font-weight: bold;
+  margin-top: 50px;
   font-size: 24px;
   text-decoration: none;
   color: #3CCACE;
 }
-.item__title{
-  font-weight: bold;
-  margin-top: 50px;
-}
 .item__lists{
-  width: 780px;
+  width: 80%;
   margin: 50px auto 0 auto;
   @include display;
-  justify-content: space-around;
+  overflow: scroll;
 }
 
 .item__list{
-  width: 220px;
   display: inline-block;
-  float: left;
-
+  position: relative;
+  width:220px;
+  height:100%;
   &__body{
     @include background-color;
     color: #333;
-    padding: 16px;
+    padding: 12px;
     height:95px;
   }
 }
-
 .item__box__name{
   overflow: hidden;
   line-height: 1.5;
@@ -296,4 +295,10 @@
   padding:80px 0;
   background-color: #f8f8f8;
   height: 100%;
+}
+.items-box_photo__solds{
+  @include sold;
+}
+.items-box_photo__sold__inners{
+  @include soldInner;
 }

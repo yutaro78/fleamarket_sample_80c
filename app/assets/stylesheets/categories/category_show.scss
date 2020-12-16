@@ -1,0 +1,90 @@
+.categoryMain {
+  display: block;
+  &__boxes {
+    padding: 40px;
+    margin: 0 auto;
+    &__in {
+      :after {
+        display: block;
+        content: "";
+        clear: both;
+      }
+    }
+    &__one {
+      width: 730px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 5px;
+      &__indexBox {
+        padding: 16px;
+      }
+    }
+  }
+
+  h1 {
+    text-decoration: none;
+    display: block;
+    border-radius: 5px 5px 0 0;
+    padding: 16px 10px 8px;
+    background-color: #3CCACE;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+  }
+
+  .categoryLists {
+    padding-top: 20px;
+    width: 720px;
+    display: flex;
+    text-decoration: none;
+    margin: 0 30px;
+    &__index {
+      display: block;
+      &__categoryList {
+        display: inline-block;
+        position: relative;
+        width: 220px;
+        &__body {
+          @include background-color;
+          color: #333;
+          padding: 12px;
+          height: 95px;
+          margin-bottom: 20px;
+          &--name {
+            overflow: hidden;
+            line-height: 1.5;
+            font-size: 16px;
+            text-align: left;
+            margin-bottom: 5px;
+          }
+          &--detail {
+            @include display;
+            justify-content: space-between;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
+
+.images {
+font-size: 14px;
+}
+p {
+font-size: 10px;
+text-align: left;
+margin-top: 5px;
+}
+.items-box_photo__solds{
+@include sold;
+}
+.items-box_photo__sold__inners{
+@include soldInner;
+}
+p.fa.fa-star {
+font-size: 10px;
+text-align: left;
+margin-top: 5px;
+}

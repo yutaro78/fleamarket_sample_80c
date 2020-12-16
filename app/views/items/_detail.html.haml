@@ -1,25 +1,5 @@
-= render 'items/header'
-%nav.category__order
-  %ul 
-    %li 
-      = link_to 'FURIMA', 'items#index' 
-    %li 
-      %i.fa.fa-angle-right
-    %li
-      = link_to 'ベビー・キッズ', '#' 
-    %li 
-      %i.fa.fa-angle-right
-    %li 
-      = link_to 'ベビー服（男の子用)~95cm', '#' 
-    %li 
-      %i.fa.fa-angle-right
-    %li 
-      = link_to 'アウター', '#' 
-    %li 
-      %i.fa.fa-angle-right
-    %li 
-      %p 
-        ee 
+= render "items/index_header"
+
 .product__main
   .product__show
     .product__left
@@ -27,12 +7,49 @@
       .product__content
         .product__box
           %h2.product__box__name
-            = @item.name
+            =@item.name
           .product__box__body
-            %ul 
-              %li 
-                - @item.images.each do |image|
-                  = image_tag image.url.url
+            .product__box__body__main
+              %div{class: 'body__main__lists', data: {index:0}, style: "z-index:1;"}
+                -if @item.order.present?
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner SOLD
+                = image_tag @item.images[0].url.url, width: '300', height: '400'
+              - if @item.images[1].present? && @item.order.present?
+                %div{class: 'body__main__lists', data: {index:1}, style: "z-index:-1;"}
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner SOLD
+                  = image_tag @item.images[1].url.url, width: '300', height: '400'
+              - if @item.images[2].present? && @item.order.present?
+                %div{class: 'body__main__lists', data: {index:2}, style: "z-index:-1;"}
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner SOLD
+                  = image_tag @item.images[2].url.url, width: '300', height: '400'
+              - if @item.images[3].present? && @item.order.present?
+                %div{class: 'body__main__lists', data: {index:3}, style: "z-index:-1;"}
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner SOLD
+                  = image_tag @item.images[3].url.url, width: '300', height: '400'
+              - if @item.images[4].present? && @item.order.present?
+                %div{class: 'body__main__lists', data: {index:4}, style: "z-index:-1;"}
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner SOLD
+                  = image_tag @item.images[4].url.url, width: '300', height: '400'
+            .product__box__body__thumbs
+              %div{class: 'product__box__body__thumbs__lists' , data: {index:0}}
+                =image_tag @item.images[0].url.url, width: '100', height: '100', alt: "pic1", class: "thumbsimage"
+              - if @item.images[1].present?
+                %div{class: 'product__box__body__thumbs__lists__item' , data: {index:1}}
+                  =image_tag @item.images[1].url.url, width: '100', height: '100',alt: "pic2", class: "thumbsimage"
+              - if @item.images[2].present?
+                %div{class: 'product__box__body__thumbs__lists__item' , data: {index:2}}
+                  =image_tag @item.images[2].url.url, width: '100', height: '100', alt: "pic3", class: "thumbsimage"
+              - if @item.images[3].present?
+                %div{class: 'product__box__body__thumbs__lists__item' , data: {index:3}}
+                  =image_tag @item.images[3].url.url, width: '100', height: '100', alt: "pic4", class: "thumbsimage"
+              - if @item.images[4].present?
+                %div{class: 'product__box__body__thumbs__lists__item' , data: {index:4}}
+                  =image_tag @item.images[4].url.url, width: '100', height: '100', alt: "pic5", class: "thumbsimage"
           .product__box__price
             %span
               = "¥"
@@ -87,15 +104,7 @@
                   %th 
                     発送日の目安
                   %td 
-                    = @item.shipping_days.name
-          - if user_signed_in? && current_user.id == @item.user_id
-            %ul
-              %li.btns
-                %i.fa.fa-trash-alt
-                = link_to '商品を削除する', item_path(@item), method: :delete, class: "delete__btn"
-              %li.btns
-                %i.fa.fa-edit
-                = link_to '商品を編集する', edit_item_path, calss: "edit__btn"
+                    1-2日で発送
           .option__like
             %ul
               %li.like__button
@@ -105,6 +114,34 @@
               %li.report__button
                 %i.fa.fa-flag
                 = link_to '不適切な商品の通報', '#'
+          - if user_signed_in? && @item.order.present?  && current_user.id == @item.user_id
+            %ul
+              %li.btns
+                %i.fa.fa-trash-alt
+                = link_to '商品を削除する', item_path(@item), method: :delete, class: "delete__btn"
+            .purchase__confirmation
+              .purchase__confirmation__sold
+                売り切れました
+          - elsif @item.order.present?
+            .purchase__confirmation
+              .purchase__confirmation__sold
+                売り切れました
+          - elsif user_signed_in? && current_user.id == @item.user_id
+            %ul
+              %li.btns
+                %i.fa.fa-trash-alt
+                = link_to '商品を削除する', item_path(@item), method: :delete, class: "delete__btn"
+              %li.btns
+                %i.fa.fa-edit
+                = link_to '商品を編集する', edit_item_path, calss: "edit__btn"
+          - elsif user_signed_in?
+            .purchase__confirmation
+              .purchase__confirmation__sell
+                = link_to "購入画面に進む",item_purchases_path(@item),  method: :get
+          - else 
+            .purchase__confirmation
+              .purchase__confirmation__sell
+                = link_to "新規登録orログイン",new_user_session_path
         .comment__box
           %h4 ＜コメント一覧＞
           - if @comments
@@ -138,21 +175,25 @@
             = link_to '後ろの商品', '#'
             %span
             %i.fa.fa-angle-right
-        .item__related
-          = link_to '新着投稿商品', '#'
-        .product__lists
-          - @items.each do |item|
-            .product__lists__list
-              = link_to item_path(item.id) do
-                %figure.product__img
-                  = image_tag item.images[0].url.url, size: "220x150", class: "images"
-              .product__lists__list__item__name
-                %h3.item--name 
-                  = item.name
-                .item--detail
-                  %ul 
-                    %li 
-                      = item.price
-                      円
-                    %i.fa.fa-star 1
-                    %p (税込）
+    .products__box
+      .item__related
+        新着商品
+      .product__lists
+        - @items.each do |item|
+          .product__lists__list
+            = link_to item_path(item.id) do
+              %figure.product__img
+                = image_tag item.images[0].url.url, size: "220x150", class: "images"
+            .product__lists__list__item__name
+              %h3.item--name 
+                = item.name
+              .item--detail
+                %ul 
+                  %li 
+                    = item.price
+                    円
+                  %i.fa.fa-star 1
+                  %p (税込）
+                -if item.order.present?
+                  .product-box_photo__solds
+                    .product-box_photo__sold__inners SOLD

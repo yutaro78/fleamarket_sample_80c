@@ -1,3 +1,4 @@
+= render "items/button"
 .main
   %section.mainArea
     .content
@@ -95,9 +96,8 @@
       ピックアップ
     .itemBox
       .itemHead
-        %a{ href: '#'}
-          %h3.item__title
-            新規投稿商品
+        %h3.item__title
+          新着商品
       .item__lists
         - @items.each do |item|
           .item__list
@@ -111,10 +111,12 @@
                   円
                 %p.fa.fa-star 9
                 %p (税込）
+              -if item.order.present?
+                .items-box_photo__solds
+                  .items-box_photo__sold__inners SOLD
       .itemHead
-        %a{ href: '#'}
-          %h3.item__title
-            レディース・新着
+        %h3.item__title
+          新着・レディース
       .item__lists
         - @ladies.each do |lady|
           .item__list
@@ -128,10 +130,12 @@
                   円
                 %p.fa.fa-star 8
                 %p (税込）
+              -if lady.order.present?
+                .items-box_photo__solds
+                  .items-box_photo__sold__inners SOLD
       .itemHead
-        %a{ href: '#'}
-          %h3.item__title
-            メンズ・新着
+        %h3.item__title
+          新着・メンズ
       .item__lists
         - @mens.each do |man|
           .item__list
@@ -145,3 +149,6 @@
                   円
                 %p.fa.fa-star 1
                 %p (税込）
+              -if man.order.present?
+                .items-box_photo__solds
+                  .items-box_photo__sold__inners SOLD

@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    # get '/users', to: redirect("/users/sign_up")
     get '/addresses', to: 'users/registrations#new_address'
     post '/addresses', to: 'users/registrations#create_address'
   end
@@ -12,13 +11,13 @@ Rails.application.routes.draw do
   root 'items#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users, only: :show
-  resources :purchases, only: :index
   
   resources :items do
     resources :comments, only: :create
     collection do
-      get :search_category
+    get :search_category
     end
+    resources :purchases, only: [:index ,:create,:show]
   end
 
   resources :pays, only: [:new, :show,:create ] do
@@ -27,4 +26,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :categories do
+    collection do
+      get :search_category
+    end
+  end
 end

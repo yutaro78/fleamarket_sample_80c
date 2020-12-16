@@ -16,6 +16,8 @@ class User < ApplicationRecord
 
   has_one :address
 
-  has_many :pays
   has_many :comments
+  has_many :order
+  has_one :pay
+  has_many :items
 end

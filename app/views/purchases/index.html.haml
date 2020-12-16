@@ -1,37 +1,47 @@
-.allscreens        
+.allscreens  
   .all
     .Header
       .Header__logo
         購入内容の確認
     .shopping
-      = image_tag "m49823677505_1.jpg", class: "shopping__image"
+      = image_tag @item.images[0].url.url,size:"80x107" 
       .explanation
         .details__message
-          新品　ヘルノ　カシミヤチェスターコート　ダウンコート　キャメル44   
+          =@item.name
         .price__message
-          送料込み(税込)
           %span
-            ¥128,000
-      
+            =@item.price
+            送料込み(税込)
     .payment
       .payment__message
         支払い金額
       .money__messsage
-        ¥128,000
+        ￥
+        =@item.price 
     .method
       .method__message
-        支払い方法 
+        .detail__message
+          クレジットカード情報
       .registration__message
-        ⊕登録してください
+        - if @default_card_information.present?
+          = "**** **** **** " + @default_card_information.last4
+          %br
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
+        - else
+          = link_to 'クレジットカード登録',new_pay_path, class: "List__item"
     .shipping 
-      .shipping__message
+      .detail__message
         配送先
       .registration__message
-        ⊕登録してください
-    .input
-      .input__message
-        配送先と支払い方法の入力を完了してください。
+        =current_user.address.post_code
+        %br
+        =current_user.address.city
+        =current_user.address.house_number
+        =current_user.address.building_name
     .purchase
-      .purchas__message
-        購入する
-    .form__message
+      - if @default_card_information.present?
+        = link_to "購入",item_purchases_path(@item.id), method: :post
+      - else 
+        = link_to "クレジット登録して購入", new_pay_path
