@@ -1,25 +1,5 @@
 = render "items/index_header"
-%nav.category__order
-  %ul 
-    %li 
-      = link_to 'FURIMA', 'items#index' 
-    %li 
-      %i.fa.fa-angle-right
-    %li
-      = link_to 'ベビー・キッズ', '#' 
-    %li 
-      %i.fa.fa-angle-right
-    %li 
-      = link_to 'ベビー服（男の子用)~95cm', '#' 
-    %li 
-      %i.fa.fa-angle-right
-    %li 
-      = link_to 'アウター', '#' 
-    %li 
-      %i.fa.fa-angle-right
-    %li 
-      %p 
-        ee 
+
 .product__main
   .product__show
     .product__left
@@ -30,22 +10,30 @@
             =@item.name
           .product__box__body
             .product__box__body__main
-              %div{class: 'body__main__lists', data: {index:0}, style: "z-index:99;"}
+              %div{class: 'body__main__lists', data: {index:0}, style: "z-index:1;"}
                 -if @item.order.present?
                   .items-box_photo__sold
                     .items-box_photo__sold__inner SOLD
                 = image_tag @item.images[0].url.url, width: '300', height: '400'
-              - if @item.images[1].present?
+              - if @item.images[1].present? && @item.order.present?
                 %div{class: 'body__main__lists', data: {index:1}, style: "z-index:-1;"}
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner SOLD
                   = image_tag @item.images[1].url.url, width: '300', height: '400'
-              - if @item.images[2].present?
+              - if @item.images[2].present? && @item.order.present?
                 %div{class: 'body__main__lists', data: {index:2}, style: "z-index:-1;"}
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner SOLD
                   = image_tag @item.images[2].url.url, width: '300', height: '400'
-              - if @item.images[3].present?
+              - if @item.images[3].present? && @item.order.present?
                 %div{class: 'body__main__lists', data: {index:3}, style: "z-index:-1;"}
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner SOLD
                   = image_tag @item.images[3].url.url, width: '300', height: '400'
-              - if @item.images[4].present?
+              - if @item.images[4].present? && @item.order.present?
                 %div{class: 'body__main__lists', data: {index:4}, style: "z-index:-1;"}
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner SOLD
                   = image_tag @item.images[4].url.url, width: '300', height: '400'
             .product__box__body__thumbs
               %div{class: 'product__box__body__thumbs__lists' , data: {index:0}}

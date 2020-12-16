@@ -1,37 +1,24 @@
 = render 'items/index_header'
-%nav.breadCrumbs
-  %ul
-    %li
-      = link_to "FURIMA", root_path, class: "titleLogo"
-    %li
-      %i.fas.fa-angle-right
-    %li
-      = link_to "カテゴリー一覧", categories_path, class: "categoryTitle"
-.productsMain
-  .productsMain__show
-    .productsMain__show__top
-    .productsMain__show__index
-      .title
-        = "#{@category.name}の商品一覧"
-        .title__border
-      .lists
-        .lists__index
+.categoryMain
+  .categoryMain__boxes
+    .categoryMain__boxes__in
+    .categoryMain__boxes__one
+      %h1= "#{@category.name}の商品一覧"
+      .categoryLists
+        .categoryLists__index
           - @items.each do |item|
-            .lists__index__list
+            .categoryLists__index__categoryList
               = link_to item_path(item.id) do
                 %figure.main__img
                   = image_tag item.images[0].url.url, size: "220x150", class: "images"
-            .lists__index__list--name
-              %h3.item--name 
-                = item.name
-            .lists__index__list--detail
-              %ul 
-                %li 
-                  = item.price
-                  円
-                %i.fa.fa-star 1
-                %p (税込）
-
-            -# -if item.order.present?
-            -#   .product-box_photo__solds
-            -#     .product-box_photo__sold__inners SOLD
+                  .categoryLists__index__categoryList__body
+                    .categoryLists__index__categoryList__body--name
+                      = item.name
+                    .categoryLists__index__categoryList__body--detail
+                      = item.price
+                      円
+                    %p.fa.fa-star 1
+                    %p (税込）
+                  -if item.order.present?
+                    .items-box_photo__solds
+                      .items-box_photo__sold__inners SOLD
