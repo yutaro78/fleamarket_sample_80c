@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
   
   resources :items do
+    resources :comments, only: :create
     collection do
     get :search_category
     end
