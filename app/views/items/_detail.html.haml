@@ -113,7 +113,7 @@
             %ul.report
               %li.report__button
                 %i.fa.fa-flag
-                = link_to '不適切な商品の通報', '#'
+                不適切な商品の通報
           - if user_signed_in? && @item.order.present?  && current_user.id == @item.user_id
             %ul
               %li.btns
@@ -166,9 +166,9 @@
           %li
             %i.fa.fa-angle-left
             %span
-              = link_to '前の商品', '#'
+              前の商品
           %li
-            = link_to '後ろの商品', '#'
+            後ろの商品
             %span
             %i.fa.fa-angle-right
     .products__box
@@ -179,7 +179,7 @@
           .product__lists__list
             = link_to item_path(item.id) do
               %figure.product__img
-                = image_tag item.images[0].url.url, size: "220x150", class: "images"
+                = image_tag item.images[0].url.url, size: "220x150"
             .product__lists__list__item__name
               %h3.item--name 
                 = item.name
