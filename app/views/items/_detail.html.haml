@@ -11,30 +11,34 @@
           .product__box__body
             .product__box__body__main
               %div{class: 'body__main__lists', data: {index:0}, style: "z-index:1;"}
+                = image_tag @item.images[0].url.url, width: '300', height: '400'
                 -if @item.order.present?
                   .items-box_photo__sold
                     .items-box_photo__sold__inner SOLD
-                = image_tag @item.images[0].url.url, width: '300', height: '400'
-              - if @item.images[1].present? && @item.order.present?
+              - if @item.images[1].present?
                 %div{class: 'body__main__lists', data: {index:1}, style: "z-index:-1;"}
-                  .items-box_photo__sold
-                    .items-box_photo__sold__inner SOLD
                   = image_tag @item.images[1].url.url, width: '300', height: '400'
-              - if @item.images[2].present? && @item.order.present?
+                    - if @item.order.present?
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner SOLD
+              - if @item.images[2].present?  
                 %div{class: 'body__main__lists', data: {index:2}, style: "z-index:-1;"}
-                  .items-box_photo__sold
-                    .items-box_photo__sold__inner SOLD
                   = image_tag @item.images[2].url.url, width: '300', height: '400'
-              - if @item.images[3].present? && @item.order.present?
+                    - if @item.order.present?
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner SOLD
+              - if @item.images[3].present?
                 %div{class: 'body__main__lists', data: {index:3}, style: "z-index:-1;"}
-                  .items-box_photo__sold
-                    .items-box_photo__sold__inner SOLD
                   = image_tag @item.images[3].url.url, width: '300', height: '400'
-              - if @item.images[4].present? && @item.order.present?
+                    - if @item.order.present?
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner SOLD
+              - if @item.images[4].present?
                 %div{class: 'body__main__lists', data: {index:4}, style: "z-index:-1;"}
-                  .items-box_photo__sold
-                    .items-box_photo__sold__inner SOLD
                   = image_tag @item.images[4].url.url, width: '300', height: '400'
+                    - if @item.order.present?
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner SOLD
             .product__box__body__thumbs
               %div{class: 'product__box__body__thumbs__lists' , data: {index:0}}
                 =image_tag @item.images[0].url.url, width: '100', height: '100', alt: "pic1", class: "thumbsimage"
@@ -113,7 +117,7 @@
             %ul.report
               %li.report__button
                 %i.fa.fa-flag
-                = link_to '不適切な商品の通報', '#'
+                不適切な商品の通報
           - if user_signed_in? && @item.order.present?  && current_user.id == @item.user_id
             %ul
               %li.btns
@@ -166,9 +170,9 @@
           %li
             %i.fa.fa-angle-left
             %span
-              = link_to '前の商品', '#'
+              前の商品
           %li
-            = link_to '後ろの商品', '#'
+            後ろの商品
             %span
             %i.fa.fa-angle-right
     .products__box
@@ -179,7 +183,7 @@
           .product__lists__list
             = link_to item_path(item.id) do
               %figure.product__img
-                = image_tag item.images[0].url.url, size: "220x150", class: "images"
+                = image_tag item.images[0].url.url, size: "220x150"
             .product__lists__list__item__name
               %h3.item--name 
                 = item.name
