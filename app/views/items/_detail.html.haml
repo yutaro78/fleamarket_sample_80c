@@ -143,21 +143,25 @@
               .purchase__confirmation__sell
                 = link_to "新規登録orログイン",new_user_session_path
         .comment__box
-          - if @item.order.present?
-          -else
-            %ul.comment__content
-            %form{action: "#", method:  "post",class:"form",id: "new_comment"}
-              %input{name: "utf8", type:  "hidden", value:""}
-              %input{name:  "authenticity_token", type:  "hidden", value: ""}
-              %textarea{name: "comment[body]", required: "required", id:  "comment_body", class:"comment__area"}
-              %p.attention
-                相手のことを考え丁寧なコメントを心がけましょう。
-                %br
-                不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %h4 ＜コメント一覧＞
+          - if @comments
+            - @comments.each do |com|
+              .icon
+                = link_to com.user.nickname, "/users/#{com.user_id}"
+              .test
+                = com.comment
+              
+            %p.attention
+              相手のことを考え丁寧なコメントを心がけましょう。
               %br
-              %button{name:"button",type: "submit"}
-                %i.fa.fa-comment
-                コメントする
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          - if user_signed_in?
+            = form_with(model: [@item, @comment] ,local: true, class:"form",id: "new_comment") do |form|
+              = form.text_area :comment, rows: "2", class: "comment__content"
+              = form.submit "コメントする", class: "comment__btn" 
+          - else
+            %strong
+              %p.comment__content2 ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
         %ul.links
           %li
             %i.fa.fa-angle-left
