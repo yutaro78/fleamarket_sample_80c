@@ -141,11 +141,11 @@
           - elsif user_signed_in?
             .purchase__confirmation
               .purchase__confirmation__sell
-                = link_to "購入画面に進む",item_purchases_path(@item),  method: :get
+                = link_to "購入画面に進む",item_purchases_path(@item),  method: :get, class: "purchase__btn"
           - else 
             .purchase__confirmation
               .purchase__confirmation__sell
-                = link_to "新規登録orログイン",new_user_session_path
+                = link_to "新規登録orログイン",new_user_session_path, class: "purchase__btn"
         .comment__box
           %h4 ＜コメント一覧＞
           - if @comments
