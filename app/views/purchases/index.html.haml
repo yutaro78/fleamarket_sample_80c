@@ -42,6 +42,6 @@
         =current_user.address.building_name
     .purchase
       - if @default_card_information.present?
-        = link_to "購入",item_purchases_path(@item.id), method: :post
+        = link_to "購入",item_purchases_path(@item.id), method: :post, class:"purchase__btn"
       - else 
-        = link_to "クレジット登録して購入", new_pay_path
+        = link_to "クレジット登録して購入", new_pay_path, class:"purchase__btn"

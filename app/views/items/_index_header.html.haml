@@ -8,7 +8,7 @@
       .searchBox
         = form_with url: "/", id: 'search_categry', class: 'search_categry', local: true do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
-          = image_submit_tag( "material/icon/icon-search 1.png", class: "search-btn" )
+          = image_tag( "material/icon/icon-search 1.png", class: "search-btn" )
     .categories
       %ul.listsLeft
         %li.listsLeft__first
